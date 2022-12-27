@@ -10,9 +10,10 @@ export const ProjectImage = styled.div`
 export const ModalContent = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: ${props => props.isMobile ? "flex-start" : 'center'};
   flex-grow: 1;
   flex-direction: column;
+  flex-direction: ${props => props.isMobile ? "column" : 'row'};
 
   & > span {
     min-width: 200px;
@@ -36,6 +37,7 @@ export const ModalContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
+    align-items: center;
 
     .images {
       background: #0e3e6a59;
@@ -61,7 +63,7 @@ export const ModalContent = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 20px;
+      margin-top: ${props => props.isMobile ? null : "20px"};;
       cursor: pointer;
       text-decoration: none;
 
