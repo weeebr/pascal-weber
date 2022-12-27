@@ -20,7 +20,6 @@ export const ModalContent = styled.div`
     flex-direction: column;
     margin-bottom: ${props => props.isMobile ? "20px" : null};
 
-
     .title {
       font-size: 24px;
       font-weight: 600;
@@ -91,6 +90,7 @@ export const ModalWrapper = styled.div`
   flex-grow: 1;
   display: flex;  
   flex-direction: column;
+  overflow: ${props => props.isMobile ? "scroll" : null};
 
   span.close {
     display: flex;
