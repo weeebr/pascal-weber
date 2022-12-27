@@ -1,21 +1,50 @@
 import styled, { css } from 'styled-components';
 
 export const ProjectsWrapper = styled.div`
-  h3 {
-    margin: 0 0 20px 0;
-    color: #0E3E6A;
-    font-weight: 600;
-    font-size: 24px;
+  & > div {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
   }
- & > div {
-  display: flex;
-  gap: 8px;
- }
 `
+export const LinkButton = styled.a`
+  text-decoration: none;
+  
+  span {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #0E3E6A;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px 1px 8px;
+    transition: all 0.5s ease;
+
+    svg {
+      width: 12px;
+      margin: 0 4px 4px 0;
+    }
+  }
+
+  &:hover {
+    span.link {
+      color: #0E3E6A;
+      background: white;
+      transition: all 0s ease;
+
+      svg path {
+        fill: #0E3E6A;
+      }
+    }
+  }
+`;
+
+
 export const ProjectWrapper = styled.div`
   display: flex;
   flex-direction: ${props => props.isOpen ? 'column' : 'row'};
   justify-content: center;
+  align-items: center;
   padding: 8px;
   width: 180px;
   height: 195px;
@@ -24,13 +53,34 @@ export const ProjectWrapper = styled.div`
   background: white;
   text-align: center;
   cursor: pointer;
+  transition: all 1s ease;
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
+  &:hover {
+    transform: scale(1.08);
+    transition: all 0s ease;
+    background: #0E3E6A;
+    color: white;
+
+    & span {
+      color: white;
+    }
+
+    & svg path {
+      fill: white;
+    }
   }
 
   p {
     margin: 0;
+  }
+
+  div.img {
+    width: 150px;
+    flex-grow: 1;
+    background: url(${props => props.src}) no-repeat center center;
+    background-size: cover;
+    filter: grayscale(1);
+    scale: 0.6;
   }
 
   img {
@@ -45,23 +95,6 @@ export const ProjectWrapper = styled.div`
     )}
   }
 
-  a {
-    color: #0E3E6A;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    img {
-      width: 12px;
-      margin: 12px 4px 0 0;
-    }
-  }
-  
   .title {
     font-weight: 600;
     font-size: 18px;

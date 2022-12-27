@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Summary = styled.div`
@@ -29,6 +28,7 @@ export const Summary = styled.div`
       font-weight: 500;
       margin: 12px 0;
       font-size: 22px;
+      line-height: 20px;
     }
   }
 }`

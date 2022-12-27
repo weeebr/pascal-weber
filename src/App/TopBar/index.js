@@ -8,7 +8,6 @@ import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
 
 export const TopBar = () => {
   const { pathname } = useLocation();
-  console.log(pathname)
 
   return (
     <TopBarWrapper>

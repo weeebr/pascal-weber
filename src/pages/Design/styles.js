@@ -3,28 +3,37 @@ import styled from 'styled-components';
 export const GalleryWrapper = styled.div`
  & > div {
     display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 `
 export const FullImage = styled.div``
 
 
 export const Thumbnail = styled.div`
-  width: 100px;
-  height: 100px;
-  box-shadow: 0 0 14px 4px #ad5f7399;
-  background: url(${props => props.src}) no-repeat center center;
-  background-size: cover;
-  border-radius: 3px;
+  width: 217px;
+  height: 150px;
+  border: 2px solid #bf9000;
   transition: all 1s ease;
+  cursor: pointer;
+  background: white;
+  padding: 4px;
 
-  &:not(:first-child) {
-    margin-left: 20px;
+  div.img {
+    width: 100%;
+    height: 100%;
+    background: url(${props => props.src}) no-repeat center center;
+    background-size: cover;
   }
 
   &:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 5px 2px #51266d;
     transition: all 0s ease;
+    background: #bf9000;
+
+    div.img {
+      filter: sepia(1);
+    }
   }
 `
 
