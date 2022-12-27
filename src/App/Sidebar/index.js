@@ -6,9 +6,12 @@ import pascalFoto from '../../assets/pascal-weber.png'
 import githubIcon from '../../assets/github.svg'
 import emailIcon from '../../assets/email.svg'
 import linkedInIcon from '../../assets/linkedin.svg'
+import useMediaQuery from "./../../shared/useMediaQuery";
 
 export const Sidebar = () => {
-  return (
+  const isMobile = useMediaQuery('(max-width: 880px)');
+
+  return !isMobile && (
     <Summary>
       <div className="summary">
         <PortraitFoto src={pascalFoto}><img className="img" alt="" /></PortraitFoto>
@@ -22,6 +25,6 @@ export const Sidebar = () => {
       </div>
       <More />
     </Summary>
-  );
+  )
 }
 

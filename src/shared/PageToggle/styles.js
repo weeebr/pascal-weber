@@ -50,6 +50,7 @@ export const StyledButton = styled.button`
     color: white;
     position: relative;
     z-index: 3;
+    whitespace: nowrap;
   }
 
   &.cv {
