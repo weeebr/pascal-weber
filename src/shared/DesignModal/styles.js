@@ -39,11 +39,11 @@ export const ModalContent = styled.div`
 
 export const ModalWrapper = styled.div`
   position: fixed;
-  width: calc(100% - 270px);
-  height: calc(100% - 87px);
+  width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
+  height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
   background: #fff;
-  left: 270px;
-  top: 87px;
+  left: ${props => props.isMobile ? "0px" : "270px"};
+  top: ${props => props.isMobile ? "0px" : "87px"};
   z-index: 10;
   border: 12px solid #bf9000;
   flex-grow: 1;
@@ -53,6 +53,7 @@ export const ModalWrapper = styled.div`
   span.close {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 20px;
     
     img {
       cursor: pointer;
@@ -65,14 +66,10 @@ export const ModalWrapper = styled.div`
 
   &.fade-enter-done {
     opacity: 1;
-    width: calc(100% - 270px);
-    height: calc(100% - 87px);
   }
 
   &.fade-enter-active {
     opacity: 1;
-    width: calc(100% - 270px);
-    height: calc(100% - 87px);
     transition: opacity 500ms ease-in-out;
   }
 

@@ -3,9 +3,11 @@ import closeIcon from '../../assets/close.svg';
 import { ModalWrapper, ModalContent, ProjectImage } from './styles';
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
+import useMediaQuery from "../useMediaQuery";
 
 export const DevModal = ({  project, setOpenIndex }) => {
   console.log('pwe', 'project', project)
+  const isMobile = useMediaQuery('(max-width: 880px)');
 
   return (
     <CSSTransition
@@ -14,7 +16,7 @@ export const DevModal = ({  project, setOpenIndex }) => {
         classNames="fade"
         unmountOnExit
       >
-        <ModalWrapper>
+        <ModalWrapper isMobile={isMobile}>
           {project && (
             <>
               <span className='close'>

@@ -2,9 +2,11 @@ import React from 'react';
 import closeIcon from '../../assets/close_design.svg';
 import { ModalWrapper, ModalContent } from './styles';
 import { CSSTransition } from "react-transition-group";
+import useMediaQuery from "./../useMediaQuery";
 
 export const DesignModal = ({ design, setOpenIndex }) => {
   console.log('pwe', 'design', design)
+  const isMobile = useMediaQuery('(max-width: 880px)');
 
   return (
     <CSSTransition
@@ -13,7 +15,7 @@ export const DesignModal = ({ design, setOpenIndex }) => {
         classNames="fade"
         unmountOnExit
       >
-        <ModalWrapper>
+        <ModalWrapper isMobile={isMobile}>
           {design && (
             <>
               <span className='close'>

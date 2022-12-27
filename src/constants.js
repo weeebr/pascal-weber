@@ -30,11 +30,11 @@ import designs9 from './assets/designs/09.jpg';
 import designs10 from './assets/designs/10.jpg';
 
 export const designs = [
-  { description: 'Cover of a school project (package design)', client: '', src: designs1 },
-  { description: 'Photo manipulation', client: 'AGS BS', src: designs2 },
+  { description: 'Cover of a school project (package design, school project)', client: 'BBBaden', src: designs1 },
+  { description: 'Photo manipulation (school project)', client: 'AGS BS', src: designs2 },
   { description: 'Birthday poster for my sister', client: 'Nora Weber', src: designs3 },
-  { description: 'Fictional advertising of a fragrance spray', client: 'AGS BS', src: designs4 },
-  { description: 'Cover of a school project (sports nutrition)', client: 'BBBaden', src: designs5 },
+  { description: 'Fictional advertising of a fragrance spray (school project)', client: 'AGS BS', src: designs4 },
+  { description: 'Cover of a school project (sports nutrition, school project)', client: 'BBBaden', src: designs5 },
   { description: 'X-Mas card 2012', client: 'various people', src: designs6 },
   { description: 'Banner for a logo', client: 'mindflow', src: designs7 },
   { description: 'Birthday flyer', client: 'Ivo Schoenholzer', src: designs8 },
