@@ -26,7 +26,7 @@ export const DevModal = ({  project, setOpenIndex }) => {
                   alt="" 
                 />
             </span>
-            <ModalContent>
+            <ModalContent isMobile={isMobile}>
               <span>
                 <span className='title'>{project.title}</span>
                 <span className='year'>{project.year}</span>  

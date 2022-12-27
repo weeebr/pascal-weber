@@ -12,11 +12,14 @@ export const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  flex-direction: column;
 
   & > span {
     min-width: 200px;
     display: flex;
     flex-direction: column;
+    margin-bottom: ${props => props.isMobile ? "20px" : null};
+
 
     .title {
       font-size: 24px;
