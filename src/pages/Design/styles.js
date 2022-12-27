@@ -11,7 +11,7 @@ export const FullImage = styled.div``
 
 
 export const Thumbnail = styled.div`
-  width: 217px;
+  width: ${props => props.isMobile ? "100%" : '217px'};
   height: 150px;
   border: 2px solid #bf9000;
   transition: all 1s ease;

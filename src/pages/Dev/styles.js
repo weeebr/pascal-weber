@@ -45,8 +45,8 @@ export const ProjectWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 8px;
-  width: 180px;
-  height: 195px;
+  width: ${props => props.isMobile ? '100%': '180px'};
+  height: ${props => props.isMobile ? 'auto': '195px'};
   flex-direction: column;
   border: 2px solid #0e3e6a;
   background: white;

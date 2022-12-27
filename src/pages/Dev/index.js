@@ -4,13 +4,16 @@ import { projects } from '../../constants';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import { DevModal } from "../../shared/DevModal";
+import useMediaQuery from "./../../shared/useMediaQuery";
 
 export const Dev = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
+  const isMobile = useMediaQuery('(max-width: 880px)');
 
   const ProjectCard = ({ title, description, year, url, index, setOpen, more, thumbnail, images }) => {
     return (
       <ProjectWrapper 
+        isMobile={isMobile}
         src={thumbnail}
         onClick={() => { setOpenIndex(index) }}
       >
@@ -18,7 +21,7 @@ export const Dev = () => {
           <p className='title'>{title}</p>
           <p className='year'>{year}</p>
         </span>
-        <div className="img" alt="" />
+        {!isMobile && <div className="img" alt="" />}
         <LinkButton href={url}>
           <span className='link'>
             {more ? (

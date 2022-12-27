@@ -45,10 +45,6 @@ export const ModalContent = styled.div`
       overflow: hidden;
       flex-wrap: wrap;
       width: 100%;
-
-      img {
-        max-width: 200px;
-      }
     }
 
     .description {

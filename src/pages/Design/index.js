@@ -3,9 +3,11 @@ import { Thumbnail, GalleryWrapper } from './styles';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { designs } from '../../constants';
 import { DesignModal } from "./../../shared/DesignModal/index";
+import useMediaQuery from "./../../shared/useMediaQuery";
 
 export const Design = ({ setOpenIndexDesign }) => {
   const [openIndex, setOpenIndex] = React.useState(null);
+  const isMobile = useMediaQuery('(max-width: 880px)');
 
   const handleClick = (index) => {
     console.log(index)
@@ -18,7 +20,8 @@ export const Design = ({ setOpenIndexDesign }) => {
       <PageSubTitle type="design">Portfolio</PageSubTitle>
       <div>
         {designs.map((image, index) => (
-          <Thumbnail 
+          <Thumbnail
+            isMobile={isMobile}
             src={image.src} 
             key={image.src} 
             onClick={e => handleClick(index)} 
