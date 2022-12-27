@@ -16,7 +16,7 @@ export const App = () => {
       <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
         {!isMobile && <Sidebar />}
       
-        <Main>
+        <Main isMobile={isMobile}>
           <TopBar />
           <Routes>
             <Route exact path="*" element={<Dev />} />

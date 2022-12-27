@@ -12,7 +12,6 @@ export const ModalContent = styled.div`
   justify-content: center;
   align-items: ${props => props.isMobile ? "flex-start" : 'center'};
   flex-grow: 1;
-  flex-direction: column;
   flex-direction: ${props => props.isMobile ? "column" : 'row'};
 
   & > span {
