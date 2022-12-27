@@ -13,3 +13,13 @@ export const PageTitle = styled.h2`
   margin: 0;
   color: ${props => props.type === '/design' ? '#bf9000' : '#0E3E6A'};
 `
+
+export const ProfileTitle = styled.h1`
+  white-space: nowrap;
+  margin: 12px 0 0 0;
+  font-weight: 700;
+  font-size: 30px;
+  color: ${props => props.type === '/design' ? '#bf9000' : '#0E3E6A'};
+  color: black;
+  line-height: 27px;
+`

@@ -8,7 +8,8 @@ export const StyledButton = styled.button`
   color: white;
   font-size: 24px;
   font-weight: 600;
-  padding: 12px 20px;
+  font-family: 'League Spartan';
+  padding: 8px 12px;
   box-shadow: inset 0 0 0 2px white;
   cursor: pointer;
   background: ${props => props.page === '/design' ? '#0E3E6A' : '#bf9000'};

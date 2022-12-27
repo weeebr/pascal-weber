@@ -7,7 +7,8 @@ export const MoreWrapper = styled.div`
 
   p {
     margin: 0;
-    font-size: 12px;
+    font-size: 18px;
     color: #C3C3C3;
+    font-family: 'League Spartan';
   }
 `

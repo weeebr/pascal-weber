@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const Summary = styled.div`
   background: #F9F9F9;
-  box-shadow: 0 0 20px 0 white;
   max-width: 270px;
   position: relative;
   display: flex;
@@ -25,22 +24,11 @@ export const Summary = styled.div`
       align-items: center;
     }
 
-    h1 {
-      white-space: nowrap;
-      margin: 0;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 27px;
-      color: #565555;
-      padding: 8px 8px 2px 10px;
-    }
-
     .job-title {
-      color: #565555;
-      text-transform: uppercase;
+      color: black;
       font-weight: 500;
-      text-transform: uppercase;
       margin: 12px 0;
+      font-size: 22px;
     }
   }
 }`
