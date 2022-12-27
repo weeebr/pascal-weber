@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 export const Summary = styled.div`
   background: #F9F9F9;
-  max-width: 270px;
+  max-width: ${props => props.isMobile ? "100%" : "270px"};
   position: relative;
   display: flex;
-  border-right: 1px solid #C3C3C3;
+  border-right: ${props => props.isMobile ? null : "1px solid #C3C3C3;"};
   flex-direction: column;
   justify-content: center;
-  text-align: right;
+  text-align: ${props => props.isMobile ? "center" : "right"};
 
   .summary {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: ${props => props.isMobile ? "center" : "flex-end"};
     padding: 20px;
 
     .contact-info {

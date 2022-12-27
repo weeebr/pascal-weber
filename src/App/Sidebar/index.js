@@ -11,8 +11,8 @@ import useMediaQuery from "./../../shared/useMediaQuery";
 export const Sidebar = () => {
   const isMobile = useMediaQuery('(max-width: 880px)');
 
-  return !isMobile && (
-    <Summary>
+  return (
+    <Summary isMobile={isMobile}>
       <div className="summary">
         <PortraitFoto src={pascalFoto}><img className="img" alt="" /></PortraitFoto>
         <ProfileTitle>Pascal Weber</ProfileTitle>

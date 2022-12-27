@@ -5,9 +5,15 @@ import { PageSubTitle } from "./../../shared/Theme/typography";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import { DevModal } from "../../shared/DevModal";
 import useMediaQuery from "./../../shared/useMediaQuery";
+import { useLocation, Link } from "react-router-dom";
+import { PageTitle } from "../../shared/Theme/typography";
+import { StyledButton } from "./../../shared/PageToggle/styles";
+import { PageToggle } from "./../../shared/PageToggle/index";
+import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
 
 export const Dev = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
+  const { pathname } = useLocation();
   const isMobile = useMediaQuery('(max-width: 880px)');
 
   const ProjectCard = ({ title, description, year, url, index, setOpen, more, thumbnail, images }) => {
@@ -39,7 +45,25 @@ export const Dev = () => {
   return (
     <>
       <ProjectsWrapper>
-        <PageSubTitle type="dev">Projects</PageSubTitle>
+        <span>
+          {isMobile && (
+            <>
+              <PageTitle type={pathname}>
+                /{pathname === '/design' ? 'Design' : 'Dev'}
+              </PageTitle>
+
+              <span>
+                <StyledButton className='cv'>
+                  <Link target='_blank' to={CV} download>
+                    CV
+                  </Link>
+                </StyledButton>
+                <PageToggle />
+              </span>
+            </>
+          )}
+        </span>
+          <PageSubTitle type="dev">Projects</PageSubTitle>
         <div>
           {projects.map((project, index) => (
             <ProjectCard  

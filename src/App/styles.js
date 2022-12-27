@@ -7,5 +7,9 @@ export const Main = styled.div`
   & > div {
     padding: 20px;
     background: #F9F9F9;
+    span {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 `

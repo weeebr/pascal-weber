@@ -6,12 +6,15 @@ import { Dev } from "../pages/Dev";
 import { Design } from "../pages/Design";
 import { Main } from "./styles";
 import { Routes, Route } from "react-router-dom";
+import useMediaQuery from "./../shared/useMediaQuery";
 
 export const App = () => {
+  const isMobile = useMediaQuery('(max-width: 880px)');
+
   return (
     <div className="App">
       <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
-        <Sidebar />
+        {!isMobile && <Sidebar />}
       
         <Main>
           <TopBar />

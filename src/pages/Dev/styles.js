@@ -54,6 +54,10 @@ export const ProjectWrapper = styled.div`
   cursor: pointer;
   transition: all 1s ease;
 
+  & span {
+    display: flex;
+  }
+
 
   &:hover {
     transform: scale(1.08);
