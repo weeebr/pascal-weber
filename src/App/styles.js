@@ -10,6 +10,7 @@ export const Main = styled.div`
     span {
       display: flex;
       justify-content: space-between;
+      gap: 8px;
     }
   }
 `
