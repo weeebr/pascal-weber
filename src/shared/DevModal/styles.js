@@ -63,7 +63,7 @@ export const ModalContent = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: ${props => props.isMobile ? null : "20px"};;
+      margin-top: 20px;
       cursor: pointer;
       text-decoration: none;
 
@@ -88,7 +88,7 @@ export const ModalWrapper = styled.div`
   flex-grow: 1;
   display: flex;  
   flex-direction: column;
-  overflow: ${props => props.isMobile ? "scroll" : null};
+  overflow: ${props => props.isMobile ? "auto" : null};
 
   span.close {
     display: flex;
