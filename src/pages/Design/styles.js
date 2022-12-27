@@ -24,6 +24,8 @@ export const Thumbnail = styled.div`
     height: 100%;
     background: url(${props => props.src}) no-repeat center center;
     background-size: cover;
+    transition: all 4s ease;
+
   }
 
   &:hover {
@@ -33,6 +35,7 @@ export const Thumbnail = styled.div`
 
     div.img {
       filter: sepia(1);
+      transition: all 0s ease;
     }
   }
 `

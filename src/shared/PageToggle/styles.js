@@ -49,7 +49,7 @@ export const StyledButton = styled.button`
     text-decoration: none;
     color: white;
     position: relative;
-    z-index: 99;
+    z-index: 3;
   }
 
   &.cv {

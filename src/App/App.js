@@ -2,7 +2,6 @@ import React from "react";
 import './App.css';
 import { TopBar } from "./TopBar";
 import { Sidebar } from "./Sidebar";
-import { Modal } from "../shared/Modal";
 import { Dev } from "../pages/Dev";
 import { Design } from "../pages/Design";
 import { Main } from "./styles";
@@ -17,12 +16,10 @@ export const App = () => {
         <Main>
           <TopBar />
           <Routes>
-            <Route exact path="/" element={<Dev />} />
-            <Route path="/dev" element={<Dev />} />
-            <Route path="/design" element={<Design />} />
+            <Route exact path="*" element={<Dev />} />
+            <Route path="/design" element={<Design/>} />
           </Routes>
         </Main>
-        <Modal type={'design'} />
       </div>
     </div>
   );

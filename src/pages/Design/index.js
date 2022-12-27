@@ -1,29 +1,26 @@
 import React from 'react';
-import { Thumbnail, GalleryWrapper  } from './styles';
-import ClickAwayListener from 'react-click-away-listener';
+import { Thumbnail, GalleryWrapper } from './styles';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { designs } from '../../constants';
+import { DesignModal } from "./../../shared/DesignModal/index";
 
-export const Design = () => {
-  const [photoIndex, setPhotoIndex] = React.useState(0)
-  const [isOpen, setOpen] = React.useState(false)
-  
+export const Design = ({ setOpenIndexDesign }) => {
+  const [openIndex, setOpenIndex] = React.useState(null);
+
   const handleClick = (index) => {
     console.log(index)
-    setOpen(true)
-    setPhotoIndex(index)
+    setOpenIndex(index)
   }
 
   return (
-    <ClickAwayListener onClickAway={e => setOpen(false)}>
-    
+    <>
       <GalleryWrapper>
       <PageSubTitle type="design">Portfolio</PageSubTitle>
       <div>
         {designs.map((image, index) => (
           <Thumbnail 
-            src={image} 
-            key={image} 
+            src={image.src} 
+            key={image.src} 
             onClick={e => handleClick(index)} 
             onKeyUp={e => handleClick(index)}
           >
@@ -32,6 +29,7 @@ export const Design = () => {
         ))}
       </div>
     </GalleryWrapper>
-  </ClickAwayListener>
+    <DesignModal design={designs[openIndex]} setOpenIndex={setOpenIndex} />
+    </>
   )
 }
