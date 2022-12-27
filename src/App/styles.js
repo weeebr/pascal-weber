@@ -12,7 +12,7 @@ export const Main = styled.div`
       display: flex;
       justify-content: space-between;
       gap: 8px;
-      flex-direction: ${props => props.isMobile ? "row" : "column"};
+      flex-direction: row;
     }
   }
 `
