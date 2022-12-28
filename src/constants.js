@@ -28,6 +28,10 @@ import designs7 from './assets/designs/07.jpg';
 import designs8 from './assets/designs/08.jpg';
 import designs9 from './assets/designs/09.jpg';
 import designs10 from './assets/designs/10.jpg';
+import prevIcon from './assets/prev.svg';
+import nextIcon from './assets/next.svg';
+
+export { prevIcon, nextIcon };
 
 export const designs = [
   { description: 'Cover of a school project (package design, school project)', client: 'BBBaden', src: designs1 },

@@ -9,19 +9,19 @@ import { ModalWrapper,
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
-import { projects } from './../../constants';
+import { projects, prevIcon, nextIcon } from './../../constants';
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
   const project = projects[openIndex];
   const nextIndex = (openIndex + 1) % projects.length;
-  const prevIndex = (openIndex - 1) % projects.length;
+  const prevIndex = ((openIndex - 1) % projects.length + projects.length) % projects.length;
 
   const prevTitle = projects[prevIndex]?.title;
   const nextTitle = projects[nextIndex]?.title;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
-
+console.log(prevIndex, prevTitle)
   return (
     <CSSTransition
         in={!!project}
@@ -56,7 +56,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                     onClick={() => setPrevIndex()}
                     onKeyUp={() => setPrevIndex()}
                     className='prev'>
-                      <span>🡰</span>
+                      <img src={prevIcon} alt="next" />
                       {isMobile ? '' : prevTitle}
                   </div>
                   <div className='link'>
@@ -75,7 +75,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                     className='next'
                   >
                     {isMobile ? '' : nextTitle} 
-                    <span>🡲</span>
+                    <img src={nextIcon} alt="next" />
                   </div>
                 </ButtonsWrapper>
 

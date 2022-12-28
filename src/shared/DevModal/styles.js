@@ -19,11 +19,11 @@ export const ProjectImagesWrapper = styled.span`
   ${props => props.isMobile &&
     css`
       width: 100%;
-      max-height: calc(100vh - 325px);
+      height: calc(100vh - 277px);
       overflow: auto;
+      align-items: center;
       justify-content: center;
-      padding: 12px;
-
+      padding: 8px;
 
       & > div {
         width: 100%;
@@ -50,6 +50,7 @@ export const ButtonsWrapper = styled.span`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    white-space: nowrap;
     text-decoration: none;
     height: 43px;
 
@@ -60,18 +61,25 @@ export const ButtonsWrapper = styled.span`
     }
   }
 
-  .prev span {
-    margin: ${props => props.isMobile ? '2px 0 0 0' : '2px 8px 0 0'};
+ 
+  .next img {
+    margin: 0 0 3px 8px;
   }
 
-  .next span {
-    margin: ${props => props.isMobile ? '2px 0 0 0' : '2px 0 0 8px'};
+  .prev img {
+    margin: 0 8px 3px 0;
   }
+  
 
   .prev, .next {
     color: #0E3E6A;
     background: transparent;
     box-shadow: inset 0 0 0 2px #0E3E6A;
+
+    img {
+      width: 16px;
+      margin: ${props => props.isMobile ? "0" : null};
+    }
   }
 `
 
@@ -104,8 +112,9 @@ export const ModalContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    width: 100%;
 
     .description {
       font-size: 18px;
