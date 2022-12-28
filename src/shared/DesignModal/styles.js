@@ -72,10 +72,10 @@ export const Bottom = styled.span`
 export const ModalWrapper = styled.div`
   position: fixed;
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
-  height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
+  height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
   background: #fff;
-  left: ${props => props.isMobile ? "0px" : "270px"};
-  top: ${props => props.isMobile ? "0px" : "87px"};
+  left: ${props => props.isMobile ? 0 : "270px"};
+  top: ${props => props.isMobile ? 0 : "103px"};
   z-index: 4;
   border: 12px solid #bf9000;
   flex-grow: 1;

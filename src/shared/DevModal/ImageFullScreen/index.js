@@ -1,10 +1,12 @@
 import { CSSTransition } from "react-transition-group";
 import { FullScreenWrapper } from "./styles";
 import closeIcon from '../../../assets/close.svg';
+import useMediaQuery from "./../../useMediaQuery";
 
 export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
   const src = project.images[imageIndex]
-  console.log(imageIndex, project, src)
+  const isMobile = useMediaQuery('(max-width: 880px)');
+  
   return (
     <CSSTransition
       in={!!src}
@@ -12,7 +14,7 @@ export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
       classNames="fade"
       unmountOnExit
     >
-      <FullScreenWrapper onClick={onClose} src={src}>
+      <FullScreenWrapper isMobile={isMobile} onClick={onClose} src={src}>
         <div />
         <img src={closeIcon} alt="" />
       </FullScreenWrapper>

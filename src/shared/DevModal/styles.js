@@ -5,6 +5,7 @@ export const ProjectImage = styled.div`
   background-size: cover;
   width: 240px;
   height: 200px;
+  cursor: pointer;
 `;
 
 export const ProjectImagesWrapper = styled.span`
@@ -162,10 +163,10 @@ export const ModalContent = styled.div`
 export const ModalWrapper = styled.div`
   position: fixed;
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
-  height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
+  height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
   background: #fff;
   left: ${props => props.isMobile ? "0px" : "270px"};
-  top: ${props => props.isMobile ? "0px" : "87px"};
+  top: ${props => props.isMobile ? "0px" : "103px"};
   z-index: 4;
   box-shadow: inset 0 0 0 12px #0E3E6A;
   flex-grow: 1;

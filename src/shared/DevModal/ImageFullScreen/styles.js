@@ -1,12 +1,12 @@
 import styled from "styled-components";
 export const FullScreenWrapper = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
+  left: ${props => props.isMobile ? 0 : "270px"};
+  top: ${props => props.isMobile ? 0 : "103px"};
+  width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
+  height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
   box-shadow: inset 0 0 0 40px #dde3e8;
   padding: 40px;
-  width: 100%;
-  height: 100%;
   z-index: 6;
   cursor: pointer;
 
