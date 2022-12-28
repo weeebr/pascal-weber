@@ -169,7 +169,7 @@ export const ModalWrapper = styled.div`
 
   span.close {
     position: absolute;
-    right: 12px;
+    right: 8px;
     top: 12px;
     padding: 8px 12px;
     cursor: pointer;

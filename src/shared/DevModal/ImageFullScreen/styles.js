@@ -10,10 +10,10 @@ export const FullScreenWrapper = styled.div`
   z-index: 6;
   cursor: pointer;
 
-  img {
+  span {
     position: absolute;
     right: 0;
-    top: 8px;
+    top: 0;
     background: #dde3e8;
     padding: 20px;
   }
