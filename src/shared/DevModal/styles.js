@@ -19,7 +19,7 @@ export const ProjectImagesWrapper = styled.span`
   ${props => props.isMobile &&
     css`
       width: 100%;
-      height: calc(100vh - 300px);
+      height: calc(100vh - 230px);
       overflow: auto;
       align-items: center;
       justify-content: center;
@@ -31,6 +31,16 @@ export const ProjectImagesWrapper = styled.span`
     `
   }
 `
+
+export const Bottom = styled.span`
+  position: absolute;
+  bottom: 12px;
+  padding-bottom: 12px;
+  left: 12px;
+  width: calc(100% - 24px);
+  z-index: 22222;
+  background: #fff;
+`;
 
 export const ButtonsWrapper = styled.span`
   display: flex;
@@ -112,7 +122,6 @@ export const ModalContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
-    align-items: flex-end;
     justify-content: center;
     width: 100%;
 

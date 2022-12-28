@@ -4,7 +4,8 @@ import { ModalWrapper,
   ModalContent, 
   ProjectImage, 
   ProjectImagesWrapper, 
-  ButtonsWrapper 
+  ButtonsWrapper,
+  Bottom
 } from './styles';
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
@@ -50,35 +51,36 @@ console.log(prevIndex, prevTitle)
                     <ProjectImage src={image} key={image} alt="" />
                   ))}
                 </ProjectImagesWrapper>
+                <Bottom>
                 <div className='description'>{project.description}</div>
-                <ButtonsWrapper isMobile={isMobile}>
-                  <div 
-                    onClick={() => setPrevIndex()}
-                    onKeyUp={() => setPrevIndex()}
-                    className='prev'>
-                      <img src={prevIcon} alt="next" />
-                      {isMobile ? '' : prevTitle}
-                  </div>
-                  <div className='link'>
-                    <a href={project.url} target="_blank" rel="noopener noreferrer">
-                      {project.more ? (
-                        <UrlIcon fill="white" />
-                        ) : (
-                        <EyeIcon fill="white" />
-                      )}
-                      {project.more ? 'Read More' : 'View Demo'}
-                    </a>
-                  </div>
-                  <div 
-                    onClick={() => setNextIndex()}
-                    onKeyUp={() => setNextIndex()}
-                    className='next'
-                  >
-                    {isMobile ? '' : nextTitle} 
-                    <img src={nextIcon} alt="next" />
-                  </div>
-                </ButtonsWrapper>
-
+                  <ButtonsWrapper isMobile={isMobile}>
+                    <div 
+                      onClick={() => setPrevIndex()}
+                      onKeyUp={() => setPrevIndex()}
+                      className='prev'>
+                        <img src={prevIcon} alt="next" />
+                        {isMobile ? '' : prevTitle}
+                    </div>
+                    <div className='link'>
+                      <a href={project.url} target="_blank" rel="noopener noreferrer">
+                        {project.more ? (
+                          <UrlIcon fill="white" />
+                          ) : (
+                          <EyeIcon fill="white" />
+                        )}
+                        {project.more ? 'Read More' : 'View Demo'}
+                      </a>
+                    </div>
+                    <div 
+                      onClick={() => setNextIndex()}
+                      onKeyUp={() => setNextIndex()}
+                      className='next'
+                    >
+                      {isMobile ? '' : nextTitle} 
+                      <img src={nextIcon} alt="next" />
+                    </div>
+                  </ButtonsWrapper>
+                </Bottom>
               </div>
               </ModalContent>
             </>
