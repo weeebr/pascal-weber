@@ -10,14 +10,15 @@ import { SwipeNotification } from "./../DevModal/index";
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
   const design = designs[openIndex];
+  const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const nextIndex = (openIndex + 1) % designs.length;
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => setOpenIndex(nextIndex),
-    onSwipedRight: () => setOpenIndex(prevIndex),
+    onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
+    onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },
     swipeDuration: 500,
     preventScrollOnSwipe: true,
     trackMouse: true
@@ -33,7 +34,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         <ModalWrapper {...handlers} isMobile={isMobile}>
           {design && (
             <>
-            <SwipeNotification />
+            <SwipeNotification avoidNotification={!!hasSwiped} />
               <span className='close'>
                 <img src={closeIcon} 
                   onClick={() => setOpenIndex(null)}
@@ -75,4 +76,3 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
       </CSSTransition>
   )
 }
-

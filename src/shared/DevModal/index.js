@@ -42,7 +42,7 @@ const SwipeWrapper = styled.div`
   }
 `;
 
-export const SwipeNotification = () => {
+export const SwipeNotification = ({ avoidNotification }) => {
   const [modalOpened, setModalOpened] = React.useState(
     getSessionStorageOrDefault('modal-opened', null)
   );
@@ -54,14 +54,14 @@ export const SwipeNotification = () => {
       }, 4000);
     }
 
-    if (modalOpened === null) {
+    if (modalOpened === null && !avoidNotification) {
       setTimeout(() => {
         setModalOpened(true)
       }, 5000);
     }
-  }, [modalOpened, setModalOpened])
+  }, [modalOpened, setModalOpened, avoidNotification])
 
-  return modalOpened && (
+  return modalOpened && !avoidNotification && (
     <SwipeWrapper>
       <img src={swipeIcon} alt="swipe" />
       Hey good-looking! Swipe if you like what you see 💦🔥
@@ -71,6 +71,7 @@ export const SwipeNotification = () => {
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
   const [imageIndex, setImageIndex] = React.useState(null);
+  const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const isMobile = useMediaQuery('(max-width: 880px)');
   const project = projects[openIndex];
   const nextIndex = (openIndex + 1) % projects.length;
@@ -86,9 +87,9 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
     console.log(idx)
   }
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => setOpenIndex(nextIndex),
-    onSwipedRight: () => setOpenIndex(prevIndex),
+   const handlers = useSwipeable({
+    onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
+    onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },
     swipeDuration: 500,
     preventScrollOnSwipe: true,
     trackMouse: true
@@ -105,7 +106,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
       <ModalWrapper {...handlers} isMobile={isMobile}>
         {project && (
           <>
-            <SwipeNotification />
+            <SwipeNotification avoidNotification={!!hasSwiped} />
             {imageIndex !== null && (
               <ImageFullScreen 
                 onClose={() => handleImageClick(null)} 
