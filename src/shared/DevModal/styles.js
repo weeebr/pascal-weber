@@ -99,7 +99,6 @@ export const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: ${props => props.isMobile ? "flex-start" : 'center'};
-  margin: 0 0 63px 0;
   flex-direction: ${props => props.isMobile ? "column" : 'row'};
 
   & > span {
@@ -136,6 +135,7 @@ export const ModalContent = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    margin: 0 0 63px 0;
 
     .description {
       font-size: 18px;
