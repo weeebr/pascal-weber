@@ -14,6 +14,7 @@ export const ModalContent = styled.div`
   flex-grow: 1;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 62px;
 
   & > div.img {
     margin-top: 20px;
