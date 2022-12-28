@@ -12,10 +12,10 @@ export const FullScreenWrapper = styled.div`
 
   img {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 8px;
     background: #dde3e8;
-    padding: 30px;
+    padding: 20px;
   }
 
   div {
