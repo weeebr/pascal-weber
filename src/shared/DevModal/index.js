@@ -74,7 +74,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                 </ProjectImagesWrapper>
                 {!isMobile && <div className='description'>{project.description}</div>}
               </div>
-              <ButtonsWrapper isMobile={isMobile}>
+              <ButtonsWrapper className="buttons" isMobile={isMobile}>
                 <div 
                   onClick={() => setPrevIndex()}
                   onKeyUp={() => setPrevIndex()}
