@@ -74,36 +74,34 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                   ))}
                 </ProjectImagesWrapper>
                 {!isMobile && <div className='description'>{project.description}</div>}
-                <Bottom isMobile={isMobile}>
-                  <ButtonsWrapper isMobile={isMobile}>
-                    <div 
-                      onClick={() => setPrevIndex()}
-                      onKeyUp={() => setPrevIndex()}
-                      className='prev'>
-                        <img src={prevIcon} alt="next" />
-                        {isMobile ? '' : prevTitle}
-                    </div>
-                    <div className='link'>
-                      <a href={project.url} target="_blank" rel="noopener noreferrer">
-                        {project.more ? (
-                          <UrlIcon fill="white" />
-                          ) : (
-                          <EyeIcon fill="white" />
-                        )}
-                        {project.more ? 'Read More' : 'View Demo'}
-                      </a>
-                    </div>
-                    <div 
-                      onClick={() => setNextIndex()}
-                      onKeyUp={() => setNextIndex()}
-                      className='next'
-                    >
-                      {isMobile ? '' : nextTitle} 
-                      <img src={nextIcon} alt="next" />
-                    </div>
-                  </ButtonsWrapper>
-                </Bottom>
               </div>
+              <ButtonsWrapper isMobile={isMobile}>
+                <div 
+                  onClick={() => setPrevIndex()}
+                  onKeyUp={() => setPrevIndex()}
+                  className='prev'>
+                    <img src={prevIcon} alt="next" />
+                    {isMobile ? '' : prevTitle}
+                </div>
+                <div className='link'>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    {project.more ? (
+                      <UrlIcon fill="white" />
+                      ) : (
+                      <EyeIcon fill="white" />
+                    )}
+                    {project.more ? 'Read More' : 'View Demo'}
+                  </a>
+                </div>
+                <div 
+                  onClick={() => setNextIndex()}
+                  onKeyUp={() => setNextIndex()}
+                  className='next'
+                >
+                  {isMobile ? '' : nextTitle} 
+                  <img src={nextIcon} alt="next" />
+                </div>
+              </ButtonsWrapper>
             </ModalContent>
           </>
         )}
