@@ -18,9 +18,17 @@ export const Summary = styled.div`
 
     .contact-info {
       display: flex;
-      gap: 12px;
+      gap: 24px;
       jusitfy-content: center;
       align-items: center;
+
+      a {
+        display: flex;
+
+        &.github {
+          margin: -4px 4px 0 1px;
+        }
+      }
     }
 
     .job-title {
@@ -33,6 +41,7 @@ export const Summary = styled.div`
 
     .email {
       position: relative;
+      display: flex;
 
       .toast {
         position: absolute;

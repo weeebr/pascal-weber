@@ -38,7 +38,7 @@ export const Sidebar = () => {
           <a href="https://www.linkedin.com/in/p-weber/" target="_blank" rel="noopener noreferrer">
             <img src={linkedInIcon} alt="LinkedIn" width="20px" height={20} />
           </a>
-          <a href="https://github.com/weeebr" target="_blank" rel="noopener noreferrer">
+          <a className="github" href="https://github.com/weeebr" target="_blank" rel="noopener noreferrer">
             <img src={githubIcon} alt="Github" width="20px" height={20} />
           </a>
           <span className="email">

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ProjectsWrapper = styled.div`
   & > span {
@@ -54,14 +54,29 @@ export const ProjectCardWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 8px;
-  width: ${props => props.isMobile ? '100%': '180px'};
-  height: ${props => props.isMobile ? 'auto': '195px'};
+  width: 180px;
+  height: 195px;
   flex-direction: column;
   border: 2px solid #0e3e6a;
   background: white;
   text-align: center;
   cursor: pointer;
   transition: all 1s ease;
+
+  ${props => props.isMobile && (
+    css`
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 19px 30px 16px 40px;
+      width: 100%;
+      height: auto;
+
+      & > span {
+        width: 200px;
+      }
+    `
+  )};
+  
 
   & > span {
     display: block;
