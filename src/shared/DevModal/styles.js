@@ -46,6 +46,9 @@ export const Bottom = styled.span`
 export const ButtonsWrapper = styled.span`
   &.buttons {
     flex-direction: row;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
   }
   display: flex;
   gap: 8px;
