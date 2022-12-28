@@ -110,6 +110,7 @@ export const ModalContent = styled.div`
   justify-content: center;
   align-items: ${props => props.isMobile ? "flex-start" : 'center'};
   flex-direction: ${props => props.isMobile ? "column" : 'row'};
+  height: 100%;
 
   & > span {
     min-width: 200px;
@@ -118,7 +119,7 @@ export const ModalContent = styled.div`
     margin-bottom: ${props => props.isMobile ? "20px" : null};
     text-align: center;
     width: ${props => props.isMobile ? "100%" : null};
-
+    width: ${props => props.isMobile ? "100%" : null};
 
     .title {
       font-size: 24px;
@@ -147,7 +148,6 @@ export const ModalContent = styled.div`
     width: 100%;
     flex-grow: 1;
     overflow: hidden;
-    height: 100%;
 
     .description {
       font-size: 18px;
