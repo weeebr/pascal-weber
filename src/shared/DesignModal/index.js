@@ -13,20 +13,13 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
-  const config = {
-    delta: 10,                             // min distance(px) before a swipe starts. *See Notes*
-    preventScrollOnSwipe: false,           // prevents scroll during swipe (*See Details*)
-    trackTouch: true,                      // track touch input
-    trackMouse: false,                     // track mouse input
-    rotationAngle: 0,                      // set a rotation angle
-    swipeDuration: Infinity,               // allowable duration of a swipe (ms). *See Notes*
-    touchEventOptions: { passive: true },  // options for touch listeners (*See Details*)
-  };
 
   const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => window.prompt(`User Swiped LLL! ${JSON.stringify(eventData)}`),
-    onSwipedRight: (eventData) => window.prompt(`User Swiped RRR! ${JSON.stringify(eventData)}`),
-    ...config,
+    onSwipedLeft: () => setOpenIndex(nextIndex),
+    onSwipedRight: () => setOpenIndex(prevIndex),
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true
   });
 
   return (
