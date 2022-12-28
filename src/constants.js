@@ -110,3 +110,15 @@ export const EyeIcon = ({ fill }) => (
   </g>
   </svg>
 )
+
+export const PrevIcon = ({ fill }) => (
+  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.9 7.856H6.048L3.456 4.868H9.108V3.452H3.456L6.048 0.464H3.9L0.612 4.16L3.9 7.856Z" fill={fill} />
+  </svg>
+)
+
+export const NextIcon = ({ fill }) => (
+  <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.66 7.856H5.82L9.108 4.16L5.82 0.464H3.66L6.264 3.452H0.612V4.868H6.264L3.66 7.856Z" fill={fill} />
+  </svg>
+)

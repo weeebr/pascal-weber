@@ -3,7 +3,7 @@ import closeIcon from '../../assets/close_design.svg';
 import { ModalWrapper, ModalContent, Bottom } from './styles';
 import { CSSTransition } from "react-transition-group";
 import useMediaQuery from "./../useMediaQuery";
-import { designs, prevDesignIcon, nextDesignIcon } from './../../constants';
+import { designs, PrevIcon, NextIcon } from './../../constants';
 import { useSwipeable } from 'react-swipeable';
 import { SwipeNotification } from "./../DevModal/index";
 
@@ -57,7 +57,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                     onClick={() => setPrevIndex()}
                     onKeyUp={() => setPrevIndex()}
                     className='prev'>
-                      <img src={prevDesignIcon} alt="next" />
+                      <PrevIcon fill="white" />
                   </div>
                   <div className='middle'>
                     
@@ -67,7 +67,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                     onKeyUp={() => setNextIndex()}
                     className='next'
                   >
-                    <img src={nextDesignIcon} alt="next" />
+                    <NextIcon fill="white" />
                 </div>
               </Bottom>
             </>

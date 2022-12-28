@@ -9,7 +9,6 @@ export const ProjectImage = styled.div`
 `;
 
 export const ProjectImagesWrapper = styled.span`
-  background: #fafafa;
   padding: 20px;
   display: flex;
   gap: 20px;
@@ -41,7 +40,7 @@ export const Bottom = styled.span`
   left: ${props => props.isMobile ? "12px" : "calc(27px + 200px)"};
   width: ${props => props.isMobile ? "calc(100% - 24px)" : "calc(100% - 39px - 200px)"};
   z-index: 5;
-  background: #f9f9f9;
+  background: #dde3e8;
 `;
 
 export const ButtonsWrapper = styled.span`
@@ -51,7 +50,7 @@ export const ButtonsWrapper = styled.span`
     left: 12px;
     padding: 20px 0;
     margin: 0;
-    background: #f9f9f9;
+    background: #dde3e8;
     width: calc(100% - 24px);
     flex-direction: row;
   }
@@ -96,12 +95,14 @@ export const ButtonsWrapper = styled.span`
 
   .prev, .next {
     color: #0E3E6A;
-    background: transparent;
+    background: black;
     box-shadow: inset 0 0 0 2px #0E3E6A;
 
-    img {
-      width: 16px;
-      margin: ${props => props.isMobile ? "0 0 2px 0px" : null};
+    svg {
+      height: 16px;
+      width: 20px;
+      margin-bottom: 4px;
+      margin-right: 0;
     }
   }
 `
@@ -135,7 +136,7 @@ export const ModalContent = styled.div`
 
     .description {
       font-size: 18px;
-      color: #C3C3C3;
+      color: #afafaf;
       margin-top: 20px;
       width: 100%;
       text-align: center;
@@ -152,7 +153,7 @@ export const ModalContent = styled.div`
 
     .description {
       font-size: 18px;
-      color: #C3C3C3;
+      color: #afafaf;
       margin-top: 20px;
       width: 100%;
       text-align: center;
@@ -164,7 +165,7 @@ export const ModalWrapper = styled.div`
   position: fixed;
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
   height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
-  background: #fff;
+  background: #dde3e8;
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "103px"};
   z-index: 4;

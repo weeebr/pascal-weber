@@ -11,7 +11,7 @@ import { ImageFullScreen } from "./ImageFullScreen";
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
-import { projects, prevIcon, nextIcon } from './../../constants';
+import { projects, PrevIcon, NextIcon } from './../../constants';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
 
@@ -156,7 +156,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                   onClick={() => setPrevIndex()}
                   onKeyUp={() => setPrevIndex()}
                   className='prev'>
-                    <img src={prevIcon} alt="next" />
+                    <PrevIcon fill="white" />
                     {isMobile ? '' : prevTitle}
                 </div>
                 <div className='link'>
@@ -175,7 +175,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                   className='next'
                 >
                   {isMobile ? '' : nextTitle} 
-                  <img src={nextIcon} alt="next" />
+                    <NextIcon fill="white" />
                 </div>
               </ButtonsWrapper>
             </ModalContent>
