@@ -72,7 +72,7 @@ export const ProjectCardWrapper = styled.div`
       height: auto;
 
       & > span {
-        width: 200px;
+        width: 170px;
       }
     `
   )};
