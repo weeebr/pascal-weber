@@ -31,7 +31,7 @@ const SwipeWrapper = styled.div`
   height: auto;
   background: #f9f9f9;
   z-index: 20;
-  padding: 12px;
+  padding: 16px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@ export const SwipeNotification = () => {
     if (modalOpened) {
       setTimeout(() => {
         setModalOpened(false);
-      }, 2000);
+      }, 4000);
     }
 
     if (modalOpened === null) {
@@ -64,7 +64,7 @@ export const SwipeNotification = () => {
   return modalOpened && (
     <SwipeWrapper>
       <img src={swipeIcon} alt="swipe" />
-      You can swipe me!
+      Hey good-looking! Swipe if you like what you see 💦🔥
     </SwipeWrapper>
   )
 }
