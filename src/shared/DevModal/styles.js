@@ -53,6 +53,7 @@ export const ButtonsWrapper = styled.span`
     background: #f9f9f9;
     width: calc(100% - 24px);
     flex-direction: row;
+    border-bottom: 12px solid #0e3e6a;
   }
   display: flex;
   gap: 8px;
