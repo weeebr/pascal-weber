@@ -43,9 +43,19 @@ const SwipeWrapper = styled.div`
 `;
 
 export const SwipeNotification = ({ avoidNotification }) => {
+  const [ isTouch, setTouch ] = React.useState(null);
   const [modalOpened, setModalOpened] = React.useState(
     getSessionStorageOrDefault('modal-opened', null)
   );
+
+  React.useEffect(() => {
+    const isTouchDevice = async () => {
+      return ('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0)
+    }
+    isTouchDevice().then(is => { setTouch(is) })
+  }, [])
 
   React.useEffect(() => {
     if (modalOpened) {
@@ -61,7 +71,11 @@ export const SwipeNotification = ({ avoidNotification }) => {
     }
   }, [modalOpened, setModalOpened, avoidNotification])
 
-  return modalOpened && !avoidNotification && (
+  React.useEffect(() => {
+    isTouch !== null && window.alert(`pwe ${isTouch}`)
+  }, [isTouch])
+
+  return modalOpened && isTouch && !avoidNotification && (
     <SwipeWrapper>
       <img src={swipeIcon} alt="swipe" />
       Hey good-looking! Swipe if you like what you see 💦🔥
