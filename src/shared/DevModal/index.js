@@ -31,7 +31,7 @@ const SwipeWrapper = styled.div`
   height: auto;
   background: #f9f9f9;
   z-index: 20;
-  padding: 8px;
+  padding: 12px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -54,7 +54,7 @@ export const SwipeNotification = () => {
       }, 2000);
     }
 
-    if (modalOpened !== false) {
+    if (modalOpened === null) {
       setTimeout(() => {
         setModalOpened(true)
       }, 5000);
