@@ -16,7 +16,7 @@ export const StyledButton = styled.button`
   overflow: hidden;
   transition: all 0.5s ease;
 
-  &:hover, &:focus {
+  &:hover, &:focus, &.pressed {
     &::before, &::after {
       transform: translateY(0);
     }
