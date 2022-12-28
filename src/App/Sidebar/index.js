@@ -43,7 +43,7 @@ export const Sidebar = () => {
           </a>
           <span className="email">
             <img onKeyUp={() => copyToClipboard('contact@pascal-weber.ch')} onClick={() => copyToClipboard('contact@pascal-weber.ch')} src={emailIcon} alt="E-Mail" width="20px" height={20} data-copy="contact@pascal-weber.ch" />
-            {showToast && <span className="toast">Copied to clipboard</span>}
+            {showToast && <span className="toast">Copied{isMobile ? '' : ' to clipboard'}</span>}
           </span>
         </div>
       </div>
