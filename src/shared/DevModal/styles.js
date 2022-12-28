@@ -101,7 +101,6 @@ export const ButtonsWrapper = styled.span`
 export const ModalContent = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0 0 63px 0;
   align-items: ${props => props.isMobile ? "flex-start" : 'center'};
   flex-direction: ${props => props.isMobile ? "column" : 'row'};
 
