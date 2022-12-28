@@ -135,6 +135,13 @@ export const ModalWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
+
+    ${props => props.isMobile && (
+      css`
+        position: absolute;
+        right: 20px;
+      `
+    )}
     
     img {
       cursor: pointer;
