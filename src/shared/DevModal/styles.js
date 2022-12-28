@@ -19,7 +19,7 @@ export const ProjectImagesWrapper = styled.span`
   ${props => props.isMobile &&
     css`
       width: 100%;
-      height: calc(100vh - 235px);
+      height: calc(100vh - 230px);
       overflow: auto;
       align-items: center;
       justify-content: center;
@@ -39,7 +39,7 @@ export const Bottom = styled.span`
   left: 12px;
   width: calc(100% - 24px);
   z-index: 22222;
-  background: #fff;
+  background: #f9f9f9;
 `;
 
 export const ButtonsWrapper = styled.span`
@@ -88,7 +88,7 @@ export const ButtonsWrapper = styled.span`
 
     img {
       width: 16px;
-      margin: ${props => props.isMobile ? "0" : null};
+      margin: ${props => props.isMobile ? "0 0 2px 0px" : null};
     }
   }
 `

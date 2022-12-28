@@ -10,11 +10,10 @@ import { StyledButton } from "./../../shared/PageToggle/styles";
 import { PageTitle } from "../../shared/Theme/typography";
 import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
 
-export const Design = ({ setOpenIndexDesign }) => {
+export const Design = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
   const isMobile = useMediaQuery('(max-width: 880px)');
   const { pathname } = useLocation();
-
 
   const handleClick = (index) => {
     console.log(index)
@@ -44,7 +43,7 @@ export const Design = ({ setOpenIndexDesign }) => {
         </span>
           <PageSubTitle type="design">Portfolio</PageSubTitle>
       <div>
-        {designs.map((image, index) => (
+        {openIndex === null && designs.map((image, index) => (
           <Thumbnail
             isMobile={isMobile}
             src={image.src} 
@@ -57,7 +56,7 @@ export const Design = ({ setOpenIndexDesign }) => {
         ))}
       </div>
     </GalleryWrapper>
-    <DesignModal design={designs[openIndex]} setOpenIndex={setOpenIndex} />
+    <DesignModal openIndex={openIndex} setOpenIndex={setOpenIndex} />
     </>
   )
 }

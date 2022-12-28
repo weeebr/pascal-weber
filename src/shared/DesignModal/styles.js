@@ -22,17 +22,51 @@ export const ModalContent = styled.div`
     background: url(${props => props.src}) no-repeat center center;
     background-size: contain;
   }
+`;
 
-  & > span {
-    font-size: 18px;
-    color: #C3C3C3;
-    width: 100%;
+export const Bottom = styled.span`
+  position: absolute;
+  bottom: 12px;
+  padding-bottom: 12px;
+  left: 12px;
+  width: calc(100% - 24px);
+  z-index: 22222;
+  background: #f9f9f9;
+  align-items: center;
 
-    &.client {
-      font-size: 24px;
-      font-weight: 600;
-      color: #bf9000;
-      margin-top: 20px;
+  .middle {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    span {
+      font-size: 18px;
+      color: #C3C3C3;
+      width: 100%;
+  
+      &.client {
+        font-size: 24px;
+        font-weight: 600;
+        color: #bf9000;
+        margin-top: 20px;
+      }
+    }
+  } 
+
+  .prev, .next {
+    color: #bf9000;
+    background: transparent;
+    box-shadow: inset 0 0 0 2px #bf9000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43px;
+    width: 56px;
+    cursor: pointer;
+
+    img {
+      width: 16px;
+      margin: ${props => props.isMobile ? "0" : null};
     }
   }
 `;

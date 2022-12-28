@@ -22,7 +22,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const nextTitle = projects[nextIndex]?.title;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
-console.log(prevIndex, prevTitle)
+
   return (
     <CSSTransition
         in={!!project}
