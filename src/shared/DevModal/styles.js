@@ -84,25 +84,25 @@ export const ButtonsWrapper = styled.span`
   }
 
  
-  .next img {
+  .next svg {
     margin: 0 0 3px 8px;
+    margin-left: ${props => props.isMobile ? 0 : null};
   }
 
-  .prev img {
+  .prev svg {
     margin: 0 8px 3px 0;
+    margin-right: ${props => props.isMobile ? 0 : null};
   }
   
 
   .prev, .next {
-    color: #0E3E6A;
+    color: white;
     background: black;
     box-shadow: inset 0 0 0 2px #0E3E6A;
 
     svg {
       height: 16px;
       width: 20px;
-      margin-bottom: 4px;
-      margin-right: 0;
     }
   }
 `

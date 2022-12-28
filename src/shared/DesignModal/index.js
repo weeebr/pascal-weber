@@ -52,7 +52,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                 />
                 
               </ModalContent>
-              <Bottom>
+              <Bottom isMobile={isMobile}>
                 <div 
                     onClick={() => setPrevIndex()}
                     onKeyUp={() => setPrevIndex()}
