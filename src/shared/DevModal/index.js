@@ -1,5 +1,4 @@
 import React from 'react';
-import closeIcon from '../../assets/close.svg';
 import swipeIcon from '../../assets/swipe.svg';
 import { ModalWrapper, 
   ModalContent, 
@@ -11,7 +10,7 @@ import { ImageFullScreen } from "./ImageFullScreen";
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
-import { projects, PrevIcon, NextIcon } from './../../constants';
+import { projects, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
 
@@ -124,12 +123,11 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                 imageIndex={imageIndex} 
               />
             )}
-            <span className='close'>
-              <img src={closeIcon} 
-                onClick={() => setOpenIndex(null)}
-                onKeyUp={() => setOpenIndex(null)}
-                alt="" 
-              />
+            <span className='close' 
+              onClick={() => setOpenIndex(null)}
+              onKeyUp={() => setOpenIndex(null)}
+            >
+              <CloseIcon fill="#3c5366" />
             </span>
             <ModalContent isMobile={isMobile}>
               <span>

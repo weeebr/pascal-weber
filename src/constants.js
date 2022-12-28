@@ -122,3 +122,9 @@ export const NextIcon = ({ fill }) => (
     <path d="M3.66 7.856H5.82L9.108 4.16L5.82 0.464H3.66L6.264 3.452H0.612V4.868H6.264L3.66 7.856Z" fill={fill} />
   </svg>
 )
+
+export const CloseIcon = ({ fill }) => (
+  <svg width="24" cursor="pointer" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22.0001 2L2.00006 22M21.5671 22L1.56714 2" stroke={fill} strokeWidth="3"/>
+  </svg>
+)

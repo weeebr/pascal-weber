@@ -32,7 +32,7 @@ export const ModalContent = styled.div`
     &.client {
       font-size: 24px;
       font-weight: 600;
-      color: #bf9000;
+      color: #3c5366;
       margin-top: -6px;
     }
   }
@@ -78,7 +78,6 @@ export const ModalWrapper = styled.div`
   left: ${props => props.isMobile ? 0 : "270px"};
   top: ${props => props.isMobile ? 0 : "103px"};
   z-index: 4;
-  border: 12px solid #bf9000;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -88,10 +87,7 @@ export const ModalWrapper = styled.div`
     right: 12px;
     top: 12px;
     padding: 8px 12px;
-    
-    img {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 
   &.fade-enter {

@@ -126,7 +126,7 @@ export const ModalContent = styled.div`
     .title {
       font-size: 24px;
       font-weight: 600;
-      color: #0E3E6A;
+      color: #3c5366;
     }
 
     .year {
@@ -169,27 +169,17 @@ export const ModalWrapper = styled.div`
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "103px"};
   z-index: 4;
-  box-shadow: inset 0 0 0 12px #0E3E6A;
   flex-grow: 1;
   display: flex;  
   flex-direction: column;
   overflow: ${props => props.isMobile ? "auto" : null};
 
   span.close {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-
-    ${props => props.isMobile && (
-      css`
-        position: absolute;
-        right: 20px;
-      `
-    )}
-    
-    img {
-      cursor: pointer;
-    }
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 8px 12px;
+    cursor: pointer;
   }
 
   &.fade-enter {

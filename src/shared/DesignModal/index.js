@@ -1,9 +1,8 @@
 import React from 'react';
-import closeIcon from '../../assets/close_design.svg';
 import { ModalWrapper, ModalContent, Bottom } from './styles';
 import { CSSTransition } from "react-transition-group";
 import useMediaQuery from "./../useMediaQuery";
-import { designs, PrevIcon, NextIcon } from './../../constants';
+import { designs, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { useSwipeable } from 'react-swipeable';
 import { SwipeNotification } from "./../DevModal/index";
 
@@ -35,12 +34,12 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
           {design && (
             <>
             <SwipeNotification avoidNotification={!!hasSwiped} />
-              <span className='close'>
-                <img src={closeIcon} 
-                  onClick={() => setOpenIndex(null)}
-                  onKeyUp={() => setOpenIndex(null)}
-                  alt="" 
-                />
+              <span 
+                className='close' 
+                onClick={() => setOpenIndex(null)}
+                onKeyUp={() => setOpenIndex(null)}
+                >
+                <CloseIcon fill="#3c5366" />
               </span>
               <ModalContent src={design.src}>
                 <span className='client'>{design.client}</span>
