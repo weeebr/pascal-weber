@@ -140,6 +140,7 @@ export const ModalContent = styled.div`
     justify-content: center;
     width: 100%;
     flex-grow: 1;
+    overflow: hidden;
 
     .description {
       font-size: 18px;
