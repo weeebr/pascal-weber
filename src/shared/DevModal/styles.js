@@ -18,6 +18,7 @@ export const ProjectImagesWrapper = styled.span`
 
   ${props => props.isMobile &&
     css`
+      overflow-y: scroll;
       width: 100%;
       height: calc(100vh - 230px);
       overflow: auto;
