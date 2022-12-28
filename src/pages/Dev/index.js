@@ -65,7 +65,7 @@ export const Dev = () => {
         </span>
           <PageSubTitle type="dev">Projects</PageSubTitle>
         <div>
-          {projects.map((project, index) => (
+          {openIndex === null && projects.map((project, index) => (
             <ProjectCard  
               key={project.title} 
               index={index} 
