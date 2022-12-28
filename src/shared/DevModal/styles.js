@@ -60,11 +60,6 @@ export const ButtonsWrapper = styled.span`
   width: 100%;
   justify-content: center;
 
-  .link a {
-    background: #0E3E6A;
-    color: white;
-  }
-
   .link a, .prev, .next {
     padding: 12px 20px 10px 20px;
     display: flex;
@@ -75,6 +70,8 @@ export const ButtonsWrapper = styled.span`
     text-decoration: none;
     height: 43px;
     user-select: none;
+    color: white;
+    background: #3c5366;
 
     svg {
       width: 20px;
@@ -93,13 +90,8 @@ export const ButtonsWrapper = styled.span`
     margin: 0 8px 3px 0;
     margin-right: ${props => props.isMobile ? 0 : null};
   }
-  
 
   .prev, .next {
-    color: white;
-    background: black;
-    box-shadow: inset 0 0 0 2px #0E3E6A;
-
     svg {
       height: 16px;
       width: 20px;

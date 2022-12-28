@@ -52,9 +52,8 @@ export const Bottom = styled.span`
   justify-content: center;
 
   .prev, .next {
-    color: white;
-    background: black;
-    box-shadow: inset 0 0 0 2px #bf9000;
+    color: white;    
+    background: #3c5366;
     display: flex;
     justify-content: center;
     align-items: center;
