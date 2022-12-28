@@ -71,10 +71,6 @@ export const SwipeNotification = ({ avoidNotification }) => {
     }
   }, [modalOpened, setModalOpened, avoidNotification])
 
-  React.useEffect(() => {
-    isTouch !== null && window.alert(`pwe ${isTouch}`)
-  }, [isTouch])
-
   return modalOpened && isTouch && !avoidNotification && (
     <SwipeWrapper>
       <img src={swipeIcon} alt="swipe" />
