@@ -5,14 +5,16 @@ import { ModalWrapper,
   ProjectImage, 
   ProjectImagesWrapper, 
   ButtonsWrapper,
-  Bottom
+  Bottom,
 } from './styles';
+import { ImageFullScreen } from "./ImageFullScreen";
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
 import { projects, prevIcon, nextIcon } from './../../constants';
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
+  const [imageIndex, setImageIndex] = React.useState(null);
   const isMobile = useMediaQuery('(max-width: 880px)');
   const project = projects[openIndex];
   const nextIndex = (openIndex + 1) % projects.length;
@@ -23,22 +25,35 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
 
+  const handleImageClick = idx => {
+    setImageIndex(idx)
+    console.log(idx)
+  }
+  
   return (
     <CSSTransition
-        in={!!project}
-        timeout={500}
-        classNames="fade"
-        unmountOnExit
-      >
-        <ModalWrapper isMobile={isMobile}>
-          {project && (
-            <>
-              <span className='close'>
-                <img src={closeIcon} 
-                  onClick={() => setOpenIndex(null)}
-                  onKeyUp={() => setOpenIndex(null)}
-                  alt="" 
-                />
+      in={!!project}
+      timeout={500}
+      classNames="fade"
+      unmountOnExit
+    >
+      <>
+      <ModalWrapper isMobile={isMobile}>
+        {project && (
+          <>
+            {imageIndex !== null && (
+              <ImageFullScreen 
+                onClose={() => handleImageClick(null)} 
+                project={project}
+                imageIndex={imageIndex} 
+              />
+            )}
+            <span className='close'>
+              <img src={closeIcon} 
+                onClick={() => setOpenIndex(null)}
+                onKeyUp={() => setOpenIndex(null)}
+                alt="" 
+              />
             </span>
             <ModalContent isMobile={isMobile}>
               <span>
@@ -48,12 +63,18 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
               </span>
               <div>
                 <ProjectImagesWrapper isMobile={isMobile}>
-                  {project.images.map(image => (
-                    <ProjectImage src={image} key={image} alt="" />
+                  {project.images.map((image, idx) => (
+                    <ProjectImage 
+                      onClick={() => handleImageClick(idx)} 
+                      onKeyUp={() => handleImageClick(idx)} 
+                      src={image} 
+                      key={image} 
+                      alt="" 
+                    />
                   ))}
                 </ProjectImagesWrapper>
                 {!isMobile && <div className='description'>{project.description}</div>}
-                <Bottom>
+                <Bottom isMobile={isMobile}>
                   <ButtonsWrapper isMobile={isMobile}>
                     <div 
                       onClick={() => setPrevIndex()}
@@ -83,11 +104,13 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                   </ButtonsWrapper>
                 </Bottom>
               </div>
-              </ModalContent>
-            </>
-          )}
-        </ModalWrapper>
-      </CSSTransition>
+            </ModalContent>
+          </>
+        )}
+      </ModalWrapper>
+      </>
+    </CSSTransition>
   )
 }
+
 

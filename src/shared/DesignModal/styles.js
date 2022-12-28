@@ -44,7 +44,7 @@ export const Bottom = styled.span`
   padding-bottom: 12px;
   left: 12px;
   width: calc(100% - 24px);
-  z-index: 22222;
+  z-index: 5;
   background: #f9f9f9;
   display: flex;
   gap: 8px;
@@ -64,7 +64,7 @@ export const Bottom = styled.span`
 
     img {
       width: 16px;
-      margin: ${props => props.isMobile ? "0" : null};
+      margin: ${props => props.isMobile ? 0 : null};
     }
   }
 `;
@@ -76,7 +76,7 @@ export const ModalWrapper = styled.div`
   background: #fff;
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "87px"};
-  z-index: 10;
+  z-index: 4;
   border: 12px solid #bf9000;
   flex-grow: 1;
   display: flex;

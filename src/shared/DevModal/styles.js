@@ -8,7 +8,7 @@ export const ProjectImage = styled.div`
 `;
 
 export const ProjectImagesWrapper = styled.span`
-  background: #0e3e6a1f;
+  background: #dde3e8;
   padding: 20px;
   display: flex;
   gap: 20px;
@@ -36,9 +36,9 @@ export const Bottom = styled.span`
   position: absolute;
   bottom: 12px;
   padding-bottom: 12px;
-  left: 12px;
-  width: calc(100% - 24px);
-  z-index: 22222;
+  left: ${props => props.isMobile ? "12px" : "calc(27px + 200px)"};
+  width: ${props => props.isMobile ? "calc(100% - 24px)" : "calc(100% - 39px - 200px)"};
+  z-index: 5;
   background: #f9f9f9;
 `;
 
@@ -154,7 +154,7 @@ export const ModalWrapper = styled.div`
   background: #fff;
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "87px"};
-  z-index: 10;
+  z-index: 4;
   box-shadow: inset 0 0 0 12px #0E3E6A;
   flex-grow: 1;
   display: flex;  

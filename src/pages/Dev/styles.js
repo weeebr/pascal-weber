@@ -67,7 +67,6 @@ export const ProjectCardWrapper = styled.div`
     display: block;
   }
 
-
   &:hover {
     transform: scale(1.08);
     transition: all 0s ease;
