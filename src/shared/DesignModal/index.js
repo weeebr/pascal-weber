@@ -4,6 +4,7 @@ import { ModalWrapper, ModalContent, Bottom } from './styles';
 import { CSSTransition } from "react-transition-group";
 import useMediaQuery from "./../useMediaQuery";
 import { designs, prevDesignIcon, nextDesignIcon } from './../../constants';
+import { useSwipeable } from 'react-swipeable';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
@@ -12,7 +13,21 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
-  console.log(openIndex)
+  const config = {
+    delta: 10,                             // min distance(px) before a swipe starts. *See Notes*
+    preventScrollOnSwipe: false,           // prevents scroll during swipe (*See Details*)
+    trackTouch: true,                      // track touch input
+    trackMouse: false,                     // track mouse input
+    rotationAngle: 0,                      // set a rotation angle
+    swipeDuration: Infinity,               // allowable duration of a swipe (ms). *See Notes*
+    touchEventOptions: { passive: true },  // options for touch listeners (*See Details*)
+  };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: (eventData) => window.prompt(`User Swiped LLL! ${JSON.stringify(eventData)}`),
+    onSwipedRight: (eventData) => window.prompt(`User Swiped RRR! ${JSON.stringify(eventData)}`),
+    ...config,
+  });
 
   return (
     <CSSTransition
@@ -21,7 +36,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         classNames="fade"
         unmountOnExit
       >
-        <ModalWrapper isMobile={isMobile}>
+        <ModalWrapper {...handlers} isMobile={isMobile}>
           {design && (
             <>
               <span className='close'>
