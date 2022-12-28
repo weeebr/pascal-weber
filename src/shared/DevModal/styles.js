@@ -19,7 +19,7 @@ export const ProjectImagesWrapper = styled.span`
   ${props => props.isMobile &&
     css`
       width: 100%;
-      height: calc(100vh - 230px);
+      height: calc(100vh - 235px);
       overflow: auto;
       align-items: center;
       justify-content: center;
