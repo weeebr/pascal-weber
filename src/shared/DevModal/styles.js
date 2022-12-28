@@ -8,7 +8,7 @@ export const ProjectImage = styled.div`
 `;
 
 export const ProjectImagesWrapper = styled.span`
-  background: #0e3e6a;
+  background: #fafafa;
   padding: 20px;
   display: flex;
   gap: 20px;
