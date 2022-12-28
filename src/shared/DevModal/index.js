@@ -5,7 +5,6 @@ import { ModalWrapper,
   ProjectImage, 
   ProjectImagesWrapper, 
   ButtonsWrapper,
-  Bottom,
 } from './styles';
 import { ImageFullScreen } from "./ImageFullScreen";
 import { CSSTransition } from "react-transition-group";
