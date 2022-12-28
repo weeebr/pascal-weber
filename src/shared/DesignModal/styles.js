@@ -74,6 +74,7 @@ export const ModalWrapper = styled.div`
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
   height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
   background: #dde3e8;
+  box-shadow: inset 0 0 0 8px #bf9000;
   left: ${props => props.isMobile ? 0 : "270px"};
   top: ${props => props.isMobile ? 0 : "103px"};
   z-index: 4;
