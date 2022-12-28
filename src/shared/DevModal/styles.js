@@ -45,10 +45,14 @@ export const Bottom = styled.span`
 
 export const ButtonsWrapper = styled.span`
   &.buttons {
-    flex-direction: row;
     position: absolute;
-    bottom: 10px;
-    left: 0;
+    bottom: 12px;
+    left: 12px;
+    padding: 20px 0;
+    margin: 0;
+    background: #f9f9f9;
+    width: calc(100% - 24px);
+    flex-direction: row;
   }
   display: flex;
   gap: 8px;
