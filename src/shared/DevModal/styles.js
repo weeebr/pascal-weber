@@ -133,7 +133,6 @@ export const ModalContent = styled.div`
   & > div {
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
     justify-content: center;
     width: 100%;
 
