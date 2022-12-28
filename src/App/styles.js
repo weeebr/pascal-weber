@@ -8,11 +8,14 @@ export const Main = styled.div`
     padding: 20px;
     background: #F9F9F9;
 
-    span {
+    & > span {
       display: flex;
       justify-content: space-between;
-      gap: 8px;
-      flex-direction: row;
+
+      & > span {
+        display: flex;
+        gap: 8px;
+      }
     }
   }
 `
