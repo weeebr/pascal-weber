@@ -30,6 +30,20 @@ export const Summary = styled.div`
       font-size: 22px;
       line-height: 20px;
     }
+
+    .email {
+      position: relative;
+
+      .toast {
+        position: absolute;
+        left: calc(100% + 12px);
+        top: -4px;
+        white-space: nowrap;
+        background: #7bdf3d2b;
+        color: #008000;
+        padding: 5px 8px 2px 8px;
+      }
+    }
   }
 }`
 
