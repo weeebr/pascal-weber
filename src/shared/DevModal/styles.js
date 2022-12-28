@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -6,6 +6,74 @@ export const ProjectImage = styled.div`
   width: 240px;
   height: 200px;
 `;
+
+export const ProjectImagesWrapper = styled.span`
+  background: #0e3e6a59;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  max-width: 100%;
+
+  ${props => props.isMobile &&
+    css`
+      width: 100%;
+      max-height: calc(100vh - 325px);
+      overflow: auto;
+      justify-content: center;
+      padding: 12px;
+
+
+      & > div {
+        width: 100%;
+      }
+    `
+  }
+`
+
+export const ButtonsWrapper = styled.span`
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+
+  .link a {
+    background: #0E3E6A;
+    color: white;
+  }
+
+  .link a, .prev, .next {
+    padding: 12px 20px 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    height: 43px;
+
+    svg {
+      width: 20px;
+      margin-bottom: 4px;
+      margin-right: 12px;
+    }
+  }
+
+  .prev span {
+    margin: ${props => props.isMobile ? '2px 0 0 0' : '2px 8px 0 0'};
+  }
+
+  .next span {
+    margin: ${props => props.isMobile ? '2px 0 0 0' : '2px 0 0 8px'};
+  }
+
+  .prev, .next {
+    color: #0E3E6A;
+    background: transparent;
+    box-shadow: inset 0 0 0 2px #0E3E6A;
+  }
+`
 
 export const ModalContent = styled.div`
   display: flex;
@@ -37,40 +105,14 @@ export const ModalContent = styled.div`
     flex-wrap: wrap;
     flex-grow: 1;
     align-items: center;
-
-    .images {
-      background: #0e3e6a59;
-      padding: 20px;
-      display: flex;
-      gap: 20px;
-      overflow: hidden;
-      flex-wrap: wrap;
-      width: 100%;
-    }
+    justify-content: center;
 
     .description {
       font-size: 18px;
       color: #C3C3C3;
       margin-top: 20px;
       width: 100%;
-    }
-
-    .link a {
-      padding: 12px 20px 10px 20px;
-      color: white;
-      background: #0E3E6A;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      cursor: pointer;
-      text-decoration: none;
-
-      svg {
-        width: 20px;
-        margin-bottom: 4px;
-        margin-right: 12px;
-      }
+      text-align: center;
     }
   }
 `;
@@ -83,7 +125,7 @@ export const ModalWrapper = styled.div`
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "87px"};
   z-index: 10;
-  border: 12px solid #0E3E6A;
+  box-shadow: inset 0 0 0 12px #0E3E6A;
   flex-grow: 1;
   display: flex;  
   flex-direction: column;

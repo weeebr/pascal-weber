@@ -74,7 +74,7 @@ export const Dev = () => {
           ))}
         </div>
       </ProjectsWrapper>
-      <DevModal project={projects[openIndex]} setOpenIndex={setOpenIndex} />
+      <DevModal openIndex={openIndex} setOpenIndex={setOpenIndex} />
     </>
   )
 }
