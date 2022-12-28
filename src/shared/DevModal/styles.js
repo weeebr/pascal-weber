@@ -98,7 +98,7 @@ export const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: ${props => props.isMobile ? "flex-start" : 'center'};
-  flex-grow: 1;
+  margin: 0 0 63px 0;
   flex-direction: ${props => props.isMobile ? "column" : 'row'};
 
   & > span {
