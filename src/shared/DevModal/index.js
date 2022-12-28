@@ -44,6 +44,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
               <span>
                 <span className='title'>{project.title}</span>
                 <span className='year'>{project.year}</span>  
+                {isMobile && <div className='description'>{project.description}</div>}
               </span>
               <div>
                 <ProjectImagesWrapper isMobile={isMobile}>
@@ -51,8 +52,8 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                     <ProjectImage src={image} key={image} alt="" />
                   ))}
                 </ProjectImagesWrapper>
+                {!isMobile && <div className='description'>{project.description}</div>}
                 <Bottom>
-                <div className='description'>{project.description}</div>
                   <ButtonsWrapper isMobile={isMobile}>
                     <div 
                       onClick={() => setPrevIndex()}

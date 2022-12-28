@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectWrapper, ProjectsWrapper, LinkButton } from './styles';
+import { ProjectCardWrapper, ProjectsWrapper, LinkButton } from './styles';
 import { projects } from '../../constants';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { UrlIcon, EyeIcon } from "./../../constants";
@@ -18,7 +18,7 @@ export const Dev = () => {
 
   const ProjectCard = ({ title, description, year, url, index, setOpen, more, thumbnail, images }) => {
     return (
-      <ProjectWrapper 
+      <ProjectCardWrapper 
         isMobile={isMobile}
         src={thumbnail}
         onClick={() => { setOpenIndex(index) }}
@@ -38,32 +38,30 @@ export const Dev = () => {
             {more ? 'More' : 'Demo'}
           </span>
         </LinkButton>
-      </ProjectWrapper>
+      </ProjectCardWrapper>
     )
   }
 
   return (
     <>
       <ProjectsWrapper>
-        <span>
-          {isMobile && (
-            <>
-              <PageTitle type={pathname}>
-                /{pathname === '/design' ? 'Design' : 'Dev'}
-              </PageTitle>
+        {isMobile && (
+          <span>
+            <PageTitle type={pathname}>
+              /{pathname === '/design' ? 'Design' : 'Dev'}
+            </PageTitle>
 
-              <span>
-                <StyledButton className='cv'>
-                  <Link target='_blank' to={CV} download>
-                    CV
-                  </Link>
-                </StyledButton>
-                <PageToggle />
-              </span>
-            </>
-          )}
-        </span>
-          <PageSubTitle type="dev">Projects</PageSubTitle>
+            <span>
+              <StyledButton className='cv'>
+                <Link target='_blank' to={CV} download>
+                  CV
+                </Link>
+              </StyledButton>
+              <PageToggle />
+            </span>
+          </span>
+        )}
+        <PageSubTitle type="dev">Projects</PageSubTitle>
         <div>
           {openIndex === null && projects.map((project, index) => (
             <ProjectCard  

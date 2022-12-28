@@ -23,6 +23,19 @@ export const ModalContent = styled.div`
     background: url(${props => props.src}) no-repeat center center;
     background-size: contain;
   }
+
+  span {
+    font-size: 18px;
+    color: #C3C3C3;
+    width: 100%;
+
+    &.client {
+      font-size: 24px;
+      font-weight: 600;
+      color: #bf9000;
+      margin-top: -6px;
+    }
+  }
 `;
 
 export const Bottom = styled.span`
@@ -33,26 +46,10 @@ export const Bottom = styled.span`
   width: calc(100% - 24px);
   z-index: 22222;
   background: #f9f9f9;
+  display: flex;
+  gap: 8px;
   align-items: center;
-
-  .middle {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-
-    span {
-      font-size: 18px;
-      color: #C3C3C3;
-      width: 100%;
-  
-      &.client {
-        font-size: 24px;
-        font-weight: 600;
-        color: #bf9000;
-        margin-top: 20px;
-      }
-    }
-  } 
+  justify-content: center;
 
   .prev, .next {
     color: #bf9000;
@@ -86,9 +83,10 @@ export const ModalWrapper = styled.div`
   flex-direction: column;
 
   span.close {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 8px 12px;
     
     img {
       cursor: pointer;

@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 
-export const GalleryWrapper = styled.div`
- & > div {
+export const DesignWrapper = styled.div`
+  & > span {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      display: flex;
+      gap: 8px;
+    }
+  }
+  & > div {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
   }
 `
-export const FullImage = styled.div``
-
 
 export const Thumbnail = styled.div`
   width: ${props => props.isMobile ? "100%" : '217px'};

@@ -8,7 +8,7 @@ export const ProjectImage = styled.div`
 `;
 
 export const ProjectImagesWrapper = styled.span`
-  background: #0e3e6a59;
+  background: #0e3e6a1f;
   padding: 20px;
   display: flex;
   gap: 20px;
@@ -63,6 +63,7 @@ export const ButtonsWrapper = styled.span`
     white-space: nowrap;
     text-decoration: none;
     height: 43px;
+    user-select: none;
 
     svg {
       width: 20px;
@@ -105,6 +106,9 @@ export const ModalContent = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: ${props => props.isMobile ? "20px" : null};
+    text-align: center;
+    width: ${props => props.isMobile ? "100%" : null};
+
 
     .title {
       font-size: 24px;
@@ -115,6 +119,14 @@ export const ModalContent = styled.div`
     .year {
       font-size: 20px;
       color: #0E3E6A;
+    }
+
+    .description {
+      font-size: 18px;
+      color: #C3C3C3;
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
     }
   }
 

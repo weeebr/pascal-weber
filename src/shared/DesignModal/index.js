@@ -32,6 +32,8 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                 />
               </span>
               <ModalContent src={design.src}>
+                <span className='client'>{design.client}</span>
+                <span className='description'>{design.description}</span>
                 <div className='img' 
                   onClick={() => setOpenIndex(null)}
                   onKeyUp={() => setOpenIndex(null)}
@@ -47,8 +49,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                       <img src={prevDesignIcon} alt="next" />
                   </div>
                   <div className='middle'>
-                    <span className='client'>{design.client}</span>
-                    <span className='description'>{design.description}</span>
+                    
                   </div>
                   <div 
                     onClick={() => setNextIndex()}

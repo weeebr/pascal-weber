@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
 export const ProjectsWrapper = styled.div`
+  & > span {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      display: flex;
+      gap: 8px;
+    }
+  }
   & > div {
     display: flex;
     gap: 12px;
@@ -40,7 +49,7 @@ export const LinkButton = styled.a`
 `;
 
 
-export const ProjectWrapper = styled.div`
+export const ProjectCardWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

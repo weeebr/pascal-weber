@@ -1,5 +1,5 @@
 import React from 'react';
-import { Thumbnail, GalleryWrapper } from './styles';
+import { Thumbnail, DesignWrapper } from './styles';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { designs } from '../../constants';
 import { DesignModal } from "./../../shared/DesignModal/index";
@@ -22,41 +22,39 @@ export const Design = () => {
 
   return (
     <>
-      <GalleryWrapper>
-      <span>
-          {isMobile && (
-            <>
-              <PageTitle type={pathname}>
-                /{pathname === '/design' ? 'Design' : 'Dev'}
-              </PageTitle>
+      <DesignWrapper>
+        {isMobile && (
+          <span>
+            <PageTitle type={pathname}>
+              /{pathname === '/design' ? 'Design' : 'Dev'}
+            </PageTitle>
 
-              <span>
-                <StyledButton className='cv'>
-                  <Link target='_blank' to={CV} download>
-                    CV
-                  </Link>
-                </StyledButton>
-                <PageToggle />
-              </span>
-            </>
-          )}
-        </span>
-          <PageSubTitle type="design">Portfolio</PageSubTitle>
-      <div>
-        {openIndex === null && designs.map((image, index) => (
-          <Thumbnail
-            isMobile={isMobile}
-            src={image.src} 
-            key={image.src} 
-            onClick={e => handleClick(index)} 
-            onKeyUp={e => handleClick(index)}
-          >
-            <div className='img'/>
-          </Thumbnail>
-        ))}
-      </div>
-    </GalleryWrapper>
-    <DesignModal openIndex={openIndex} setOpenIndex={setOpenIndex} />
+            <span>
+              <StyledButton className='cv'>
+                <Link target='_blank' to={CV} download>
+                  CV
+                </Link>
+              </StyledButton>
+              <PageToggle />
+            </span>
+          </span>
+        )}
+        <PageSubTitle type="design">Portfolio</PageSubTitle>
+        <div>
+          {openIndex === null && designs.map((image, index) => (
+            <Thumbnail
+              isMobile={isMobile}
+              src={image.src} 
+              key={image.src} 
+              onClick={e => handleClick(index)} 
+              onKeyUp={e => handleClick(index)}
+            >
+              <div className='img'/>
+            </Thumbnail>
+          ))}
+        </div>
+      </DesignWrapper>
+      <DesignModal openIndex={openIndex} setOpenIndex={setOpenIndex} />
     </>
   )
 }
