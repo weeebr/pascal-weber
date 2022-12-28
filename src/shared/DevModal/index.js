@@ -11,6 +11,7 @@ import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
 import { projects, prevIcon, nextIcon } from './../../constants';
+import { useSwipeable } from "react-swipeable";
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
   const [imageIndex, setImageIndex] = React.useState(null);
@@ -28,6 +29,14 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
     setImageIndex(idx)
     console.log(idx)
   }
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setOpenIndex(nextIndex),
+    onSwipedRight: () => setOpenIndex(prevIndex),
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true
+  });
   
   return (
     <CSSTransition
@@ -37,7 +46,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
       unmountOnExit
     >
       <>
-      <ModalWrapper isMobile={isMobile}>
+      <ModalWrapper {...handlers} isMobile={isMobile}>
         {project && (
           <>
             {imageIndex !== null && (
