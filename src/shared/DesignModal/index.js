@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import useMediaQuery from "./../useMediaQuery";
 import { designs, prevDesignIcon, nextDesignIcon } from './../../constants';
 import { useSwipeable } from 'react-swipeable';
+import { SwipeNotification } from "./../DevModal/index";
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
@@ -32,6 +33,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         <ModalWrapper {...handlers} isMobile={isMobile}>
           {design && (
             <>
+            <SwipeNotification />
               <span className='close'>
                 <img src={closeIcon} 
                   onClick={() => setOpenIndex(null)}

@@ -1,5 +1,6 @@
 import React from 'react';
 import closeIcon from '../../assets/close.svg';
+import swipeIcon from '../../assets/swipe.svg';
 import { ModalWrapper, 
   ModalContent, 
   ProjectImage, 
@@ -12,6 +13,61 @@ import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
 import { projects, prevIcon, nextIcon } from './../../constants';
 import { useSwipeable } from "react-swipeable";
+import styled from "styled-components";
+
+function getSessionStorageOrDefault(key, defaultValue) {
+  const stored = sessionStorage.getItem(key);
+  if (!stored) {
+    return defaultValue;
+  }
+  return JSON.parse(stored);
+}
+
+const SwipeWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #f9f9f9;
+  z-index: 20;
+  padding: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 20px;
+  }
+`;
+
+export const SwipeNotification = () => {
+  const [modalOpened, setModalOpened] = React.useState(
+    getSessionStorageOrDefault('modal-opened', null)
+  );
+
+  React.useEffect(() => {
+    if (modalOpened) {
+      setTimeout(() => {
+        setModalOpened(false);
+      }, 2000);
+    }
+
+    if (modalOpened !== false) {
+      setTimeout(() => {
+        setModalOpened(true)
+      }, 5000);
+    }
+  }, [modalOpened, setModalOpened])
+
+  return modalOpened && (
+    <SwipeWrapper>
+      <img src={swipeIcon} alt="swipe" />
+      You can swipe me!
+    </SwipeWrapper>
+  )
+}
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
   const [imageIndex, setImageIndex] = React.useState(null);
@@ -49,6 +105,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
       <ModalWrapper {...handlers} isMobile={isMobile}>
         {project && (
           <>
+            <SwipeNotification />
             {imageIndex !== null && (
               <ImageFullScreen 
                 onClose={() => handleImageClick(null)} 
