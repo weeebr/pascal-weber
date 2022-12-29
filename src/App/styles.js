@@ -5,7 +5,7 @@ export const Main = styled.div`
   flex-grow: 1;
 
   & > div {
-    padding: ${props => props.isMobile ? '28px 22px' : '28px'};
+    padding: 20px;
     background: #F9F9F9;
   }
 `
