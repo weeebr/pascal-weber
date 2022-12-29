@@ -8,7 +8,7 @@ export const FullScreenWrapper = styled.div`
   box-shadow: inset 0 0 0 40px #dde3e8;
   padding: 40px;
   z-index: 6;
-  cursor: pointer;
+  cursor: zoom-out;
 
   span {
     position: absolute;
