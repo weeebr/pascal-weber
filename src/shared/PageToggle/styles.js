@@ -9,12 +9,12 @@ export const StyledButton = styled.button`
   font-size: 24px;
   font-weight: 600;
   font-family: 'League Spartan';
-  padding: 8px 12px;
   cursor: pointer;
   background: ${props => props.isDesign ? '#0E3E6A' : '#bf9000'};
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
+  height: 46px;
 
   &:hover, &:focus, &.pressed {
     &::before, &::after {
@@ -50,7 +50,9 @@ export const StyledButton = styled.button`
     color: white;
     position: relative;
     z-index: 3;
-    whitespace: nowrap;
+    white-space: nowrap;
+    line-height: 46px;
+    padding: 0 4px;
   }
 
   &.cv {
