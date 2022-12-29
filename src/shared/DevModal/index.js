@@ -103,7 +103,6 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
     setOpenIndex(id ? parseInt(id) : null);
   }, [id, setOpenIndex])
 
-  console.log(project)
    const handlers = useSwipeable({
     onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
     onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },

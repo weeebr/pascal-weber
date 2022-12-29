@@ -13,7 +13,6 @@ import useMediaQuery from "./../shared/useMediaQuery";
 export const App = () => {
   const isMobile = useMediaQuery('(max-width: 880px)');
   const [openIndex, setOpenIndex] = React.useState(null);
-  console.log('pwe', 'openIndex', openIndex)
 
   return (
     <div className="App">
