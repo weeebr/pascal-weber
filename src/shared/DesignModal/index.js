@@ -47,7 +47,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         classNames="fade"
         unmountOnExit
       >
-        <ModalWrapper {...handlers} isMobile={isMobile}>
+        <ModalWrapper className="modal" {...handlers} isMobile={isMobile}>
           {design && (
             <>
             <SwipeNotification avoidNotification={!!hasSwiped} />

@@ -157,7 +157,9 @@ export const ModalWrapper = styled.div`
   position: fixed;
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
   height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
-  background: #dde3e8;
+  &.modal {
+    background: #dde3e8;
+  }
   box-shadow: inset 0 0 0 8px #0E3E6A;
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "103px"};

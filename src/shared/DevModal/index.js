@@ -124,7 +124,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
       unmountOnExit
     >
       <>
-      <ModalWrapper {...handlers} isMobile={isMobile}>
+      <ModalWrapper {...handlers} className="modal" isMobile={isMobile}>
         {project && (
           <>
             <SwipeNotification avoidNotification={!!hasSwiped} />
