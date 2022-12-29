@@ -40,7 +40,6 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
       handleClose()
     }
   }, [design, handleClose])
-  console.log('pwe', 'design', openIndex)
 
   return (
     <CSSTransition

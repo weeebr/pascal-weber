@@ -41,7 +41,7 @@ export const StyledButton = styled.button`
 
   &::after {
     transition-delay: 0.2s;
-    background: ${props => props.page === '/design' ? '#0E3E6A' : '#bf9000'};
+    background: ${props => props.isDesign ? '#0E3E6A' : '#bf9000'};
     z-index: 2;
   }
 
