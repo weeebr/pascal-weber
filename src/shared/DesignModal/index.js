@@ -61,12 +61,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
               <ModalContent src={design.src}>
                 <span className='client'>{design.client}</span>
                 <span className='description'>{design.description}</span>
-                <div className='img' 
-                  onClick={() => setOpenIndex(null)}
-                  onKeyUp={() => setOpenIndex(null)}
-                  alt="" 
-                />
-                
+                <div className='img' alt="" />
               </ModalContent>
               <Bottom isMobile={isMobile}>
                 <div 
