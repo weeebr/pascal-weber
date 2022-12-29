@@ -13,8 +13,8 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const nextIndex = (openIndex + 1) % designs.length;
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
-  const setPrevIndex = () => setOpenIndex(prevIndex);
-  const setNextIndex = () => setOpenIndex(nextIndex);
+  const setPrevIndex = () => { setOpenIndex(prevIndex); navigate(`/design/${prevIndex}`); };
+  const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/design/${nextIndex}`); };
   const { id } = useParams();
   const navigate = useNavigate();
 

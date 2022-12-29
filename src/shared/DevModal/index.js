@@ -91,8 +91,8 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
 
   const prevTitle = projects[prevIndex]?.title;
   const nextTitle = projects[nextIndex]?.title;
-  const setPrevIndex = () => setOpenIndex(prevIndex);
-  const setNextIndex = () => setOpenIndex(nextIndex);
+  const setPrevIndex = () => { setOpenIndex(prevIndex); navigate(`/dev/${prevIndex}`); };
+  const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/dev/${nextIndex}`); };
 
   const handleClose = () => {
     setOpenIndex(null);

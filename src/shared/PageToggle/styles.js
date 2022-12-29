@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
   font-family: 'League Spartan';
   padding: 8px 12px;
   cursor: pointer;
-  background: ${props => props.page === '/design' ? '#0E3E6A' : '#bf9000'};
+  background: ${props => props.isDesign ? '#0E3E6A' : '#bf9000'};
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;

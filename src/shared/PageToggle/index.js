@@ -18,7 +18,7 @@ export const PageToggle = () => {
   }, [pressed])
 
   return (
-      <StyledButton className={pressed ? 'pressed' : ''} onTouchStart={() => setPressed(true)} page={pathname}>
+      <StyledButton className={pressed ? 'pressed' : ''} onTouchStart={() => setPressed(true)} isDesign={isDesign}>
         <Link to={`${otherPage}`}>
             /{isDesign ? ' Dev' : ' Design'}
         </Link>
