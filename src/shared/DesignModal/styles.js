@@ -77,13 +77,13 @@ export const Bottom = styled.span`
 export const ModalWrapper = styled.div`
   position: fixed;
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
-  height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
+  height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
   &.modal {
     background: #f9efd0;
   }
   box-shadow: inset 0 0 0 8px #bf9000;
   left: ${props => props.isMobile ? 0 : "270px"};
-  top: ${props => props.isMobile ? 0 : "103px"};
+  top: ${props => props.isMobile ? 0 : "87px"};
   z-index: 4;
   flex-grow: 1;
   display: flex;
