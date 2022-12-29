@@ -35,6 +35,10 @@ export const ModalContent = styled.div`
       color: #3c5366;
       margin-top: -6px;
     }
+
+    &.description {
+      margin-top: 20px;
+    }
   }
 `;
 
