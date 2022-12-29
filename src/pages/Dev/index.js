@@ -3,25 +3,30 @@ import { ProjectCardWrapper, ProjectsWrapper, LinkButton } from './styles';
 import { projects } from '../../constants';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { UrlIcon, EyeIcon } from "./../../constants";
-import { DevModal } from "../../shared/DevModal";
 import useMediaQuery from "./../../shared/useMediaQuery";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate  } from "react-router-dom";
 import { PageTitle } from "../../shared/Theme/typography";
 import { StyledButton } from "./../../shared/PageToggle/styles";
 import { PageToggle } from "./../../shared/PageToggle/index";
 import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
 
-export const Dev = () => {
-  const [openIndex, setOpenIndex] = React.useState(null);
+export const Dev = ({setOpenIndex, openIndex}) => {
   const { pathname } = useLocation();
+  const isDesign = pathname.includes('design');
   const isMobile = useMediaQuery('(max-width: 880px)');
+  const navigate = useNavigate();
+
+  const handleOpen = index => {
+    setOpenIndex(index)
+    navigate(`/dev/${index}`);
+  }
 
   const ProjectCard = ({ title, description, year, url, index, setOpen, more, thumbnail, images }) => {
     return (
       <ProjectCardWrapper 
         isMobile={isMobile}
         src={thumbnail}
-        onClick={() => { setOpenIndex(index) }}
+        onClick={() => handleOpen(index)}
       >
         <span>
           <p className='title'>{title}</p>
@@ -47,8 +52,8 @@ export const Dev = () => {
       <ProjectsWrapper>
         {isMobile && (
           <span>
-            <PageTitle type={pathname}>
-              /{pathname === '/design' ? 'Design' : 'Dev'}
+            <PageTitle isDesign={isDesign}>
+              /{isDesign ? 'Design' : 'Dev'}
             </PageTitle>
 
             <span>
@@ -61,9 +66,9 @@ export const Dev = () => {
             </span>
           </span>
         )}
-        <PageSubTitle type="dev">Projects</PageSubTitle>
+        <PageSubTitle isDesign={isDesign}>Projects</PageSubTitle>
         <div>
-          {openIndex === null && projects.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard  
               key={project.title} 
               index={index} 
@@ -72,7 +77,6 @@ export const Dev = () => {
           ))}
         </div>
       </ProjectsWrapper>
-      <DevModal openIndex={openIndex} setOpenIndex={setOpenIndex} />
     </>
   )
 }

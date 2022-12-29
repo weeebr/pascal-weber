@@ -5,6 +5,7 @@ import useMediaQuery from "./../useMediaQuery";
 import { designs, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { useSwipeable } from 'react-swipeable';
 import { SwipeNotification } from "./../DevModal/index";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
@@ -14,6 +15,8 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const handlers = useSwipeable({
     onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
@@ -22,6 +25,15 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
     preventScrollOnSwipe: true,
     trackMouse: true
   });
+
+  const handleClose = () => {
+    setOpenIndex(null);
+    navigate('/design');
+  }
+
+  React.useEffect(() => {
+    setOpenIndex(id ? parseInt(id) : null);
+  }, [id, setOpenIndex]) 
 
   return (
     <CSSTransition
@@ -36,8 +48,8 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
             <SwipeNotification avoidNotification={!!hasSwiped} />
               <span 
                 className='close' 
-                onClick={() => setOpenIndex(null)}
-                onKeyUp={() => setOpenIndex(null)}
+                onClick={handleClose}
+                onKeyUp={handleClose}
                 >
                 <CloseIcon fill="#3c5366" />
               </span>

@@ -3,13 +3,17 @@ import './App.css';
 import { TopBar } from "./TopBar";
 import { Sidebar } from "./Sidebar";
 import { Dev } from "../pages/Dev";
+import { DevModal } from "../shared/DevModal";
 import { Design } from "../pages/Design";
+import { DesignModal } from "../shared/DesignModal";
 import { Main } from "./styles";
 import { Routes, Route } from "react-router-dom";
 import useMediaQuery from "./../shared/useMediaQuery";
 
 export const App = () => {
   const isMobile = useMediaQuery('(max-width: 880px)');
+  const [openIndex, setOpenIndex] = React.useState(null);
+  console.log('pwe', 'openIndex', openIndex)
 
   return (
     <div className="App">
@@ -17,10 +21,13 @@ export const App = () => {
         {!isMobile && <Sidebar />}
       
         <Main isMobile={isMobile}>
-          <TopBar />
+           <TopBar />
           <Routes>
-            <Route exact path="*" element={<Dev />} />
-            <Route path="/design" element={<Design/>} />
+            <Route path="/dev/:id" element={<DevModal openIndex={openIndex} setOpenIndex={setOpenIndex}  />} />
+            <Route path="/design/:id" element={<DesignModal openIndex={openIndex} setOpenIndex={setOpenIndex} />} />
+            <Route path="/design" element={<Design setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
+            <Route exact path="/dev" element={<Dev setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
+            <Route exact path="/" element={<Dev setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
           </Routes>
         </Main>
       </div>

@@ -4,7 +4,7 @@ import { PageSubTitle } from "./../../shared/Theme/typography";
 import { designs } from '../../constants';
 import { DesignModal } from "./../../shared/DesignModal/index";
 import useMediaQuery from "./../../shared/useMediaQuery";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { PageToggle } from "./../../shared/PageToggle/index";
 import { StyledButton } from "./../../shared/PageToggle/styles";
 import { PageTitle } from "../../shared/Theme/typography";
@@ -14,10 +14,12 @@ export const Design = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
   const isMobile = useMediaQuery('(max-width: 880px)');
   const { pathname } = useLocation();
+  const isDesign = pathname.includes('design');
+  const navigate = useNavigate();
 
-  const handleClick = (index) => {
-    console.log(index)
+  const handleOpen = index => {
     setOpenIndex(index)
+    navigate(`/design/${index}`);
   }
 
   return (
@@ -25,8 +27,8 @@ export const Design = () => {
       <DesignWrapper>
         {isMobile && (
           <span>
-            <PageTitle type={pathname}>
-              /{pathname === '/design' ? 'Design' : 'Dev'}
+            <PageTitle isDesign={isDesign}>
+              /{isDesign ? 'Design' : 'Dev'}
             </PageTitle>
 
             <span>
@@ -39,15 +41,15 @@ export const Design = () => {
             </span>
           </span>
         )}
-        <PageSubTitle type="design">Portfolio</PageSubTitle>
+        <PageSubTitle isDesign={isDesign}>Portfolio</PageSubTitle>
         <div>
           {openIndex === null && designs.map((image, index) => (
             <Thumbnail
               isMobile={isMobile}
               src={image.src} 
               key={image.src} 
-              onClick={e => handleClick(index)} 
-              onKeyUp={e => handleClick(index)}
+              onClick={e => handleOpen(index)} 
+              onKeyUp={e => handleOpen(index)}
             >
               <div className='img'/>
             </Thumbnail>

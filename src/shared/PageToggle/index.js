@@ -6,7 +6,8 @@ export const PageToggle = () => {
   const { pathname } = useLocation();
   const [ pressed, setPressed] = React.useState(false);
 
-  const otherPage = pathname === '/design' ? '/' : '/design';
+  const isDesign = pathname.includes('design');
+  const otherPage = isDesign ? '/' : '/design';
 
   React.useEffect(() => {
     if (pressed) {
@@ -19,7 +20,7 @@ export const PageToggle = () => {
   return (
       <StyledButton className={pressed ? 'pressed' : ''} onTouchStart={() => setPressed(true)} page={pathname}>
         <Link to={`${otherPage}`}>
-            /{pathname === '/design' ? ' Dev' : ' Design'}
+            /{isDesign ? ' Dev' : ' Design'}
         </Link>
       </StyledButton>
   );

@@ -11,6 +11,7 @@ import useMediaQuery from "./../../shared/useMediaQuery";
 export const TopBar = () => {
   const { pathname } = useLocation();
   const isMobile = useMediaQuery('(max-width: 880px)');
+  const isDesign = pathname.includes('design');
 
   return (
     <TopBarWrapper>
@@ -19,8 +20,8 @@ export const TopBar = () => {
       )}
       {!isMobile && (
         <>
-          <PageTitle type={pathname}>
-            /{pathname === '/design' ? 'Design' : 'Dev'}
+          <PageTitle isDesign={isDesign}>
+            /{isDesign ? 'Design' : 'Dev'}
           </PageTitle>
 
           <span>

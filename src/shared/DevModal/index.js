@@ -13,6 +13,7 @@ import useMediaQuery from "../useMediaQuery";
 import { projects, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
+import { useParams, useNavigate } from "react-router-dom";
 
 function getSessionStorageOrDefault(key, defaultValue) {
   const stored = sessionStorage.getItem(key);
@@ -85,17 +86,24 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const project = projects[openIndex];
   const nextIndex = (openIndex + 1) % projects.length;
   const prevIndex = ((openIndex - 1) % projects.length + projects.length) % projects.length;
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const prevTitle = projects[prevIndex]?.title;
   const nextTitle = projects[nextIndex]?.title;
   const setPrevIndex = () => setOpenIndex(prevIndex);
   const setNextIndex = () => setOpenIndex(nextIndex);
 
-  const handleImageClick = idx => {
-    setImageIndex(idx)
-    console.log(idx)
+  const handleClose = () => {
+    setOpenIndex(null);
+    navigate('/dev');
   }
 
+  React.useEffect(() => {
+    setOpenIndex(id ? parseInt(id) : null);
+  }, [id, setOpenIndex])
+
+  console.log(project)
    const handlers = useSwipeable({
     onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
     onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },
@@ -118,14 +126,14 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
             <SwipeNotification avoidNotification={!!hasSwiped} />
             {imageIndex !== null && (
               <ImageFullScreen 
-                onClose={() => handleImageClick(null)} 
+                onClose={() => setImageIndex(null)} 
                 project={project}
                 imageIndex={imageIndex} 
               />
             )}
             <span className='close' 
-              onClick={() => setOpenIndex(null)}
-              onKeyUp={() => setOpenIndex(null)}
+              onClick={handleClose}
+              onKeyUp={handleClose}
             >
               <CloseIcon fill="#3c5366" />
             </span>
@@ -139,8 +147,8 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                 <ProjectImagesWrapper isMobile={isMobile}>
                   {project.images.map((image, idx) => (
                     <ProjectImage 
-                      onClick={() => handleImageClick(idx)} 
-                      onKeyUp={() => handleImageClick(idx)} 
+                      onClick={() => setImageIndex(idx)} 
+                      onKeyUp={() => setImageIndex(idx)} 
                       src={image} 
                       key={image} 
                       alt="" 
