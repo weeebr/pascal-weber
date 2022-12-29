@@ -6,5 +6,6 @@ export const Main = styled.div`
 
   & > div {
     padding: ${props => props.isMobile ? '28px 22px' : '28px'};
+    background: #F9F9F9;
   }
 `
