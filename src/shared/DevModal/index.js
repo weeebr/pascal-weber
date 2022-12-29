@@ -96,7 +96,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
 
   const handleClose = React.useCallback(() => {
     setOpenIndex(null);
-    navigate('/dev');
+    navigate('/');
   }, [navigate, setOpenIndex])
 
   React.useEffect(() => {
