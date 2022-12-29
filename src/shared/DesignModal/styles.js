@@ -22,6 +22,7 @@ export const ModalContent = styled.div`
     height: 100%;
     background: url(${props => props.src}) no-repeat center center;
     background-size: contain;
+    transition: all .2s cubic-bezier(0.42, 0, 0.93, 0.43);
   }
 
   span {

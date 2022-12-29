@@ -20,7 +20,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
-    onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },
+    onSwipedRight: () => { setHasSwiped(true); setPrevIndex() },
     swipeDuration: 500,
     preventScrollOnSwipe: true,
     trackMouse: true
