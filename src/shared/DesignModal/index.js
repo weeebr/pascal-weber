@@ -27,9 +27,8 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   });
 
   const handleClose = React.useCallback(() => {
-    setOpenIndex(null);
     navigate('/design');
-  }, [navigate, setOpenIndex])
+  }, [navigate])
 
   React.useEffect(() => {
     setOpenIndex(id ? parseInt(id) : null);

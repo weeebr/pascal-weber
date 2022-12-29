@@ -95,9 +95,8 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/dev/${nextIndex}`); };
 
   const handleClose = React.useCallback(() => {
-    setOpenIndex(null);
     navigate('/');
-  }, [navigate, setOpenIndex])
+  }, [navigate])
 
   React.useEffect(() => {
     setOpenIndex(id ? parseInt(id) : null);

@@ -41,7 +41,7 @@ export const Design = ({openIndex, setOpenIndex}) => {
         )}
         <PageSubTitle isDesign={isDesign}>Portfolio</PageSubTitle>
         <div>
-          {openIndex === null && designs.map((image, index) => (
+          {designs.map((image, index) => (
             <Thumbnail
               isMobile={isMobile}
               src={image.src} 
