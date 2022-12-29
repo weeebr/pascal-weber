@@ -94,14 +94,20 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const setPrevIndex = () => { setOpenIndex(prevIndex); navigate(`/dev/${prevIndex}`); };
   const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/dev/${nextIndex}`); };
 
-  const handleClose = () => {
+  const handleClose = React.useCallback(() => {
     setOpenIndex(null);
     navigate('/dev');
-  }
+  }, [navigate, setOpenIndex])
 
   React.useEffect(() => {
     setOpenIndex(id ? parseInt(id) : null);
   }, [id, setOpenIndex])
+
+  React.useEffect(() => {
+    if (!project) {
+      handleClose()
+    }
+  }, [handleClose, project])
 
    const handlers = useSwipeable({
     onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },

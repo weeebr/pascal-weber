@@ -2,7 +2,6 @@ import React from 'react';
 import { Thumbnail, DesignWrapper } from './styles';
 import { PageSubTitle } from "./../../shared/Theme/typography";
 import { designs } from '../../constants';
-import { DesignModal } from "./../../shared/DesignModal/index";
 import useMediaQuery from "./../../shared/useMediaQuery";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { PageToggle } from "./../../shared/PageToggle/index";
@@ -10,8 +9,7 @@ import { StyledButton } from "./../../shared/PageToggle/styles";
 import { PageTitle } from "../../shared/Theme/typography";
 import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
 
-export const Design = () => {
-  const [openIndex, setOpenIndex] = React.useState(null);
+export const Design = ({openIndex, setOpenIndex}) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
   const { pathname } = useLocation();
   const isDesign = pathname.includes('design');
@@ -56,7 +54,6 @@ export const Design = () => {
           ))}
         </div>
       </DesignWrapper>
-      <DesignModal openIndex={openIndex} setOpenIndex={setOpenIndex} />
     </>
   )
 }

@@ -26,14 +26,21 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
     trackMouse: true
   });
 
-  const handleClose = () => {
+  const handleClose = React.useCallback(() => {
     setOpenIndex(null);
     navigate('/design');
-  }
+  }, [navigate, setOpenIndex])
 
   React.useEffect(() => {
     setOpenIndex(id ? parseInt(id) : null);
   }, [id, setOpenIndex]) 
+
+  React.useEffect(() => {
+    if (!design) {
+      handleClose()
+    }
+  }, [design, handleClose])
+  console.log('pwe', 'design', openIndex)
 
   return (
     <CSSTransition
