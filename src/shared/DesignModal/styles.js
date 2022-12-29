@@ -33,7 +33,7 @@ export const ModalContent = styled.div`
     &.client {
       font-size: 24px;
       font-weight: 600;
-      color: #3c5366;
+      color: #bf9000;
       margin-top: -6px;
     }
 
@@ -50,7 +50,7 @@ export const Bottom = styled.span`
   left: 12px;
   width: calc(100% - 24px);
   z-index: 5;
-  background: #dde3e8;
+  background: #f9efd0;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -58,7 +58,7 @@ export const Bottom = styled.span`
 
   .prev, .next {
     color: white;    
-    background: #3c5366;
+    background: #bf9000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ export const ModalWrapper = styled.div`
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
   height: ${props => props.isMobile ? "100%" : "calc(100% - 103px)"};
   &.modal {
-    background: #dde3e8;
+    background: #f9efd0;
   }
   box-shadow: inset 0 0 0 8px #bf9000;
   left: ${props => props.isMobile ? 0 : "270px"};
