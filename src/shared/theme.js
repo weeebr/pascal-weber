@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const breakpoints = {
+  mobile: 880,
+  tablet: 1024,
+  desktop: 1280,
+  largeDesktop: 1440,
+};
+
 export const theme = {
   colors: {
     divider: '#D9D9D9',

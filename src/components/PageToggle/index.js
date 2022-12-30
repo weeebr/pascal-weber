@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyledButton } from "./styles";
 import { Link } from "react-router-dom";
-import { isDesignPage } from "shared/hooks";
+import { usePage } from 'shared/hooks';
 
 export const PageToggle = () => {
   const [ pressed, setPressed] = React.useState(false);
-  const isDesign = isDesignPage();
+  const { isDesign } = usePage();
   const otherPage = isDesign ? '/' : '/design';
 
   React.useEffect(() => {
@@ -17,10 +17,10 @@ export const PageToggle = () => {
   }, [pressed])
 
   return (
-      <StyledButton className={pressed ? 'pressed' : ''} onTouchStart={() => setPressed(true)} isDesign={isDesign}>
-        <Link to={`${otherPage}`}>
-            /{isDesign ? ' Dev' : ' Design'}
-        </Link>
-      </StyledButton>
+    <StyledButton className={pressed ? 'pressed' : ''} onTouchStart={() => setPressed(true)} isDesign={isDesign}>
+      <Link to={`${otherPage}`}>
+          /{isDesign ? ' Dev' : ' Design'}
+      </Link>
+    </StyledButton>
   );
 }

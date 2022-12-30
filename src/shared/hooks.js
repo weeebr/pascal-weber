@@ -1,15 +1,20 @@
 import React from "react";
+import { breakpoints } from "./theme";
 import { useLocation } from "react-router-dom";
 
-export const useMobileQuery = () => {
-  return useMediaQuery('(max-width: 880px)');
+export const useThemeBreakpoints = () => {
+  const { mobile } = breakpoints;
+  const isMobile = useMediaQuery(`(max-width: ${mobile}px)`);
+  
+  return { isMobile };
 }
 
-export const isDesignPage = () => {
-  return () => {
-    const { pathname } = useLocation();
-    return pathname.includes('design');
-  }
+export const usePage = () => {
+  const { pathname } = useLocation();
+  const isDesign = pathname.includes('design');
+  const isDev = pathname.includes('dev');
+  
+  return { isDesign, isDev };
 }
 
 export const useClipboard = () => {

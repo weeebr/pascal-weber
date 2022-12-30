@@ -1,7 +1,7 @@
 import React from 'react';
 import { ModalWrapper, ModalContent, Bottom } from './styles';
 import { CSSTransition } from "react-transition-group";
-import { useMobileQuery } from "shared/hooks";
+import { useThemeBreakpoints } from "shared/hooks";
 import { designs } from 'shared/constants';
 import { PrevIcon, NextIcon, CloseIcon } from 'shared/icons';
 import { useSwipeable } from 'react-swipeable';
@@ -10,14 +10,15 @@ import { useNavigate } from "react-router-dom";
 import { theme } from 'shared/theme';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
-  const isMobile = useMobileQuery();
-  const design = designs[openIndex];
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
+  const { isMobile } = useThemeBreakpoints();
+  const design = designs[openIndex];
+  const navigate = useNavigate();
+ 
   const nextIndex = (openIndex + 1) % designs.length;
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
   const setPrevIndex = () => { setOpenIndex(prevIndex); navigate(`/design/${prevIndex}`); };
   const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/design/${nextIndex}`); };
-  const navigate = useNavigate();
 
   const handlers = useSwipeable({
     onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
@@ -47,7 +48,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         <ModalWrapper className="modal" {...handlers} isMobile={isMobile}>
           {design && (
             <>
-            <SwipeNotification avoidNotification={!!hasSwiped} />
+              <SwipeNotification avoidNotification={!!hasSwiped} />
               <span 
                 className='close' 
                 onClick={handleClose}
@@ -55,11 +56,13 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                 >
                 <CloseIcon fill={theme.colors.secondary.main} />
               </span>
+
               <ModalContent src={design.src}>
                 <span className='client'>{design.client}</span>
                 <span className='description'>{design.description}</span>
                 <div className='img' alt="" />
               </ModalContent>
+
               <Bottom isMobile={isMobile}>
                 <div 
                     onClick={() => setPrevIndex()}

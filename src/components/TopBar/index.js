@@ -5,12 +5,12 @@ import { TopBarWrapper } from "./styles";
 import { PageTitle } from "shared/theme";
 import { Link } from "react-router-dom";
 import { Sidebar } from "../Sidebar";
-import { useMobileQuery, isDesignPage } from "shared/hooks";
+import { useThemeBreakpoints, usePage } from "shared/hooks";
 import { CV } from "shared/files";
 
 export const TopBar = () => {
-  const isMobile = useMobileQuery();
-  const isDesign = isDesignPage();
+  const { isMobile } = useThemeBreakpoints();
+  const { isDesign } = usePage();
 
   return (
     <TopBarWrapper>

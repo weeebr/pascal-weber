@@ -3,13 +3,13 @@ import { Summary, PortraitFoto, MoreWrapper } from "./styles";
 import { ProfileTitle } from "shared/theme";
 import { pascalFoto, pascalFotoAlternative } from 'shared/images'
 import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
-import { useMobileQuery, isDesignPage, useClipboard } from "shared/hooks";
+import { useThemeBreakpoints, usePage, useClipboard } from "shared/hooks";
 
 export const Sidebar = () => {
   const [showToast, setShowToast] = React.useState(false);
-  const isMobile = useMobileQuery();
+  const { isMobile } = useThemeBreakpoints();
+  const { isDesign } = usePage();
   const clip = useClipboard();
-  const isDesign = isDesignPage();
 
   const handleEmailClick = () => {
     clip.copy('contact@pascal-weber.ch');

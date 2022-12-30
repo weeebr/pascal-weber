@@ -7,10 +7,10 @@ import { Design } from "pages/Design";
 import { DesignModal } from "pages/DesignModal";
 import { Main } from "./styles";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { useMobileQuery } from "shared/hooks";
+import { useThemeBreakpoints } from "shared/hooks";
 
 export const App = () => {
-  const isMobile = useMobileQuery();
+  const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();

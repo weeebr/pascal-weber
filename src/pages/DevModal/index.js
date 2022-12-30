@@ -9,7 +9,7 @@ import { ImageFullScreen } from "components/ImageFullScreen";
 import { SwipeNotification } from "components/SwipeNotification";
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "shared/icons";
-import { useMobileQuery } from "shared/hooks";
+import { useThemeBreakpoints } from "shared/hooks";
 import { PrevIcon, NextIcon, CloseIcon } from 'shared/icons';
 import { projects } from 'shared/constants';
 import { theme } from 'shared/theme';
@@ -17,18 +17,26 @@ import { useSwipeable } from "react-swipeable";
 import { useNavigate } from "react-router-dom";
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
-  const [imageIndex, setImageIndex] = React.useState(null);
+  const [ imageIndex, setImageIndex] = React.useState(null);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
-  const isMobile = useMobileQuery();
+  const { isMobile } = useThemeBreakpoints();
   const project = projects[openIndex];
+  const navigate = useNavigate();
+  
   const nextIndex = (openIndex + 1) % projects.length;
   const prevIndex = ((openIndex - 1) % projects.length + projects.length) % projects.length;
-  const navigate = useNavigate();
-
   const prevTitle = projects[prevIndex]?.title;
   const nextTitle = projects[nextIndex]?.title;
   const setPrevIndex = () => { setOpenIndex(prevIndex); navigate(`/dev/${prevIndex}`); };
   const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/dev/${nextIndex}`); };
+
+   const handlers = useSwipeable({
+    onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
+    onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true
+  });
 
   const handleClose = React.useCallback(() => {
     navigate('/');
@@ -40,13 +48,6 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
     }
   }, [handleClose, project])
 
-   const handlers = useSwipeable({
-    onSwipedLeft: () => { setHasSwiped(true); setNextIndex(); },
-    onSwipedRight: () => { setHasSwiped(true); setPrevIndex(); },
-    swipeDuration: 500,
-    preventScrollOnSwipe: true,
-    trackMouse: true
-  });
   
   return (
     <CSSTransition
@@ -59,7 +60,6 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
       <ModalWrapper {...handlers} className="modal" isMobile={isMobile}>
         {project && (
           <>
-            <SwipeNotification avoidNotification={!!hasSwiped} />
             {imageIndex !== null && (
               <ImageFullScreen 
                 onClose={() => setImageIndex(null)} 
@@ -67,12 +67,14 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                 imageIndex={imageIndex} 
               />
             )}
+            <SwipeNotification avoidNotification={!!hasSwiped} />
             <span className='close' 
               onClick={handleClose}
               onKeyUp={handleClose}
             >
               <CloseIcon fill={theme.colors.primary.main} />
             </span>
+            
             <ModalContent isMobile={isMobile}>
               <span>
                 <span className='title'>{project.title}</span>
