@@ -23,7 +23,7 @@ const SwipeWrapper = styled.div`
   left: 0;
   width: 100%;
   height: auto;
-  background: #f9f9f9;
+  background: ${theme.colors.background};
   z-index: 20;
   padding: 16px;
   text-align: center;
@@ -127,7 +127,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
               onClick={handleClose}
               onKeyUp={handleClose}
             >
-              <CloseIcon fill={theme.colors.primary} />
+              <CloseIcon fill={theme.colors.primary.main} />
             </span>
             <ModalContent isMobile={isMobile}>
               <span>

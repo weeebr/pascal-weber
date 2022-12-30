@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
+import React from 'react';
 import { BackgroundWrapper } from "./styles.js";
 
 export const Background = () => { 

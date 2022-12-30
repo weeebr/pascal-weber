@@ -11,10 +11,7 @@ export const StyledButton = styled.button`
   font-weight: 600;
   font-family: 'League Spartan';
   cursor: pointer;
-  background: ${props => props.isDesign 
-    ? theme.colors.primary 
-    : theme.colors.secondary 
-  };
+  background: ${props => theme.otherColor(props)};
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
@@ -45,10 +42,7 @@ export const StyledButton = styled.button`
 
   &::after {
     transition-delay: 0.2s;
-    background: ${props => props.isDesign 
-      ? theme.colors.primary 
-      : theme.colors.secondary 
-    };
+    background: ${props => theme.otherColor(props)};
     z-index: 2;
   }
 

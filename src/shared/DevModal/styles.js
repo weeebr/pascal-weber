@@ -47,7 +47,7 @@ export const Bottom = styled.span`
   left: ${props => props.isMobile ? "12px" : "calc(27px + 200px)"};
   width: ${props => props.isMobile ? "calc(100% - 24px)" : "calc(100% - 39px - 200px)"};
   z-index: 5;
-  background: #dde3e8;
+  background: ${theme.colors.primary.background};
 `;
 
 export const ButtonsWrapper = styled.span`
@@ -57,7 +57,7 @@ export const ButtonsWrapper = styled.span`
     left: 12px;
     padding: 20px 0;
     margin: 0;
-    background: #dde3e8;
+    background: ${theme.colors.primary.background};
     width: calc(100% - 24px);
     flex-direction: row;
   }
@@ -78,7 +78,7 @@ export const ButtonsWrapper = styled.span`
     height: 43px;
     user-select: none;
     color: white;
-    background: ${ theme.colors.primary };
+    background: ${theme.colors.primary.main};
 
     svg {
       width: 20px;
@@ -125,17 +125,17 @@ export const ModalContent = styled.div`
     .title {
       font-size: 24px;
       font-weight: 600;
-      color: ${theme.colors.primary};
+      color: ${theme.colors.primary.main};
     }
 
     .year {
       font-size: 20px;
-      color: #0E3E6A;
+      color: ${theme.colors.primary.main};
     }
 
     .description {
       font-size: 18px;
-      color: #afafaf;
+      color: ${theme.colors.text.main};
       margin-top: 20px;
       width: 100%;
       text-align: center;
@@ -152,7 +152,7 @@ export const ModalContent = styled.div`
 
     .description {
       font-size: 18px;
-      color: #afafaf;
+      color: ${theme.colors.text.main};
       margin-top: 20px;
       width: 100%;
       text-align: center;
@@ -165,9 +165,9 @@ export const ModalWrapper = styled.div`
   width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
   height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
   &.modal {
-    background: #dde3e8;
+    background: ${theme.colors.primary.background};
   }
-  box-shadow: inset 0 0 0 8px #0E3E6A;
+  box-shadow: inset 0 0 0 8px ${theme.colors.primary.main};
   left: ${props => props.isMobile ? "0px" : "270px"};
   top: ${props => props.isMobile ? "0px" : "87px"};
   z-index: 4;

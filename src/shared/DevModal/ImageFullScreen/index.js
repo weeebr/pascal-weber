@@ -17,7 +17,7 @@ export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
     >
       <FullScreenWrapper isMobile={isMobile} onClick={onClose} src={src}>
         <div />
-        <span><CloseIcon fill={theme.colors.primary} /></span>
+        <span><CloseIcon fill={theme.colors.primary.main} /></span>
       </FullScreenWrapper>
     </CSSTransition>
   )

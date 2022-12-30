@@ -37,9 +37,9 @@ export const Dev = ({setOpenIndex, openIndex}) => {
         <LinkButton href={url}>
           <span className='link'>
             {more ? (
-              <UrlIcon fill={theme.colors.primary} />
+              <UrlIcon fill={theme.colors.primary.main} />
             ) : (
-              <EyeIcon fill={theme.colors.primary} />
+              <EyeIcon fill={theme.colors.primary.main} />
             )}
             {more ? 'More' : 'Demo'}
           </span>

@@ -52,7 +52,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                 onClick={handleClose}
                 onKeyUp={handleClose}
                 >
-                <CloseIcon fill={ theme.colors.secondary } />
+                <CloseIcon fill={theme.colors.secondary.main} />
               </span>
               <ModalContent src={design.src}>
                 <span className='client'>{design.client}</span>

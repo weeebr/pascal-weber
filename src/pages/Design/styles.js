@@ -21,7 +21,7 @@ export const DesignWrapper = styled.div`
 export const Thumbnail = styled.div`
   width: ${props => props.isMobile ? "100%" : '217px'};
   height: 150px;
-  border: 2px solid ${ theme.colors.secondary };
+  border: 2px solid ${theme.colors.secondary.main};
   transition: all 1s ease;
   cursor: pointer;
   background: white;
@@ -39,7 +39,7 @@ export const Thumbnail = styled.div`
   &:hover {
     transform: scale(1.08);
     transition: all 0s ease;
-    background: ${ theme.colors.secondary };
+    background: ${theme.colors.secondary.main};
 
     div.img {
       filter: sepia(1);

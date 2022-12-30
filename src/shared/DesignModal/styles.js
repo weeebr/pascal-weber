@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../Theme/typography";
 
 export const ProjectImage = styled.div`
@@ -34,7 +34,7 @@ export const ModalContent = styled.div`
     &.client {
       font-size: 24px;
       font-weight: 600;
-      color: ${ theme.colors.secondary };
+      color: ${theme.colors.secondary.main};
     }
 
     &.description {
@@ -50,7 +50,7 @@ export const Bottom = styled.span`
   left: 12px;
   width: calc(100% - 24px);
   z-index: 5;
-  background: #f9efd0;
+  background: ${theme.colors.secondary.background};
   display: flex;
   gap: 8px;
   align-items: center;
@@ -58,7 +58,7 @@ export const Bottom = styled.span`
 
   .prev, .next {
     color: white;    
-    background: ${ theme.colors.secondary };
+    background: ${theme.colors.secondary.main};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,19 +75,29 @@ export const Bottom = styled.span`
 `;
 
 export const ModalWrapper = styled.div`
-  position: fixed;
-  width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
-  height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
   &.modal {
-    background: #f9efd0;
+    background: ${theme.colors.secondary.background};
   }
-  box-shadow: inset 0 0 0 8px ${ theme.colors.secondary };
-  left: ${props => props.isMobile ? 0 : "270px"};
-  top: ${props => props.isMobile ? 0 : "87px"};
+  position: fixed;
   z-index: 4;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  box-shadow: inset 0 0 0 8px ${theme.colors.secondary.main};
+
+  width: calc(100% - 270px);
+  height: calc(100% - 87px);
+  left: 270px;
+  top: 87px;
+ 
+  ${props => props.isMobile && (
+    css`
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    `
+  )};
 
   span.close {
     position: absolute;

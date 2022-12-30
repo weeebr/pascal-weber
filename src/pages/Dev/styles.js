@@ -24,7 +24,7 @@ export const LinkButton = styled.a`
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    color: ${ theme.colors.primary };
+    color: ${theme.colors.primary.main};
     font-size: 14px;
     font-weight: 600;
     padding: 4px 8px 1px 8px;
@@ -38,12 +38,12 @@ export const LinkButton = styled.a`
 
   &:hover {
     span.link {
-      color: ${ theme.colors.primary };
+      color: ${theme.colors.primary.main};
       background: white;
       transition: all 0s ease;
 
       svg path {
-        fill: ${ theme.colors.primary };
+        fill: ${theme.colors.primary.main};
       }
     }
   }
@@ -58,7 +58,7 @@ export const ProjectCardWrapper = styled.div`
   width: 180px;
   height: 195px;
   flex-direction: column;
-  border: 2px solid ${ theme.colors.primary };
+  border: 2px solid ${theme.colors.primary.main};
   background: white;
   text-align: center;
   cursor: pointer;
@@ -86,7 +86,7 @@ export const ProjectCardWrapper = styled.div`
   &:hover {
     transform: scale(1.08);
     transition: all 0s ease;
-    background: #0E3E6A;
+    background: ${theme.colors.primary.main};
     color: white;
 
     & span {

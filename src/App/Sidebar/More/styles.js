@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from "./../../../shared/Theme/typography";
 
 export const MoreWrapper = styled.div`
   padding: 0 20px 20px 20px;
@@ -6,7 +7,7 @@ export const MoreWrapper = styled.div`
   p {
     margin: 0;
     font-size: 18px;
-    color: #C3C3C3;
+    color: ${theme.colors.text.light};
     font-family: 'League Spartan';
   }
 `

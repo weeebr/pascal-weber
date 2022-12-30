@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../shared/Theme/typography';
 
 export const Summary = styled.div`
-  background: #F9F9F9;
+  background: ${theme.colors.background};
   max-width: ${props => props.isMobile ? "100%" : "270px"};
   position: relative;
   display: flex;
