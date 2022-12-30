@@ -3,12 +3,11 @@ import { ProjectCardWrapper, ProjectsWrapper, LinkButton } from './styles';
 import { projects } from 'shared/constants';
 import { PageSubTitle } from "shared/theme";
 import { CV } from "shared/files";
-import { UrlIcon, EyeIcon } from "shared/constants";
+import { UrlIcon, EyeIcon } from "shared/icons";
 import { useMediaQuery } from "shared/hooks";
 import { useLocation, Link, useNavigate  } from "react-router-dom";
-import { PageTitle } from "shared/theme";
+import { theme, PageTitle } from "shared/theme";
 import { StyledButton } from "components/PageToggle/styles";
-import { theme } from "shared/theme";
 import { PageToggle } from "components/PageToggle";
 
 export const Dev = ({setOpenIndex, openIndex}) => {

@@ -1,7 +1,7 @@
 import { CSSTransition } from "react-transition-group";
 import { FullScreenWrapper } from "./styles";
 import { useMediaQuery } from "shared/hooks";
-import { CloseIcon } from 'shared/constants';
+import { CloseIcon } from 'shared/icons';
 import { theme } from 'shared/theme';
 
 export const ImageFullScreen = ({ imageIndex, project, onClose }) => {

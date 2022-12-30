@@ -7,14 +7,14 @@ import { ModalWrapper,
 } from './styles';
 import { ImageFullScreen } from "../../components/ImageFullScreen";
 import { CSSTransition } from "react-transition-group";
-import { UrlIcon, EyeIcon } from "shared/constants";
-import { useMediaQuery } from "shared/hooks";
-import { projects, PrevIcon, NextIcon, CloseIcon } from 'shared/constants';
+import { UrlIcon, EyeIcon } from "shared/icons";
+import { useMediaQuery, useSession } from "shared/hooks";
+import { PrevIcon, NextIcon, CloseIcon } from 'shared/icons';
+import { projects } from 'shared/constants';
 import { theme } from 'shared/theme';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useSession } from "shared/hooks";
 import { swipeIcon } from "shared/icons";
 
 const SwipeWrapper = styled.div`
