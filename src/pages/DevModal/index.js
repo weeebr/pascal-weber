@@ -5,77 +5,21 @@ import { ModalWrapper,
   ProjectImagesWrapper, 
   ButtonsWrapper,
 } from './styles';
-import { ImageFullScreen } from "../../components/ImageFullScreen";
+import { ImageFullScreen } from "components/ImageFullScreen";
+import { SwipeNotification } from "components/SwipeNotification";
 import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "shared/icons";
-import { useMediaQuery, useSession } from "shared/hooks";
+import { useMobileQuery } from "shared/hooks";
 import { PrevIcon, NextIcon, CloseIcon } from 'shared/icons';
 import { projects } from 'shared/constants';
 import { theme } from 'shared/theme';
 import { useSwipeable } from "react-swipeable";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { swipeIcon } from "shared/icons";
-
-const SwipeWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background: ${theme.colors.background.main};
-  z-index: 20;
-  padding: 16px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    margin-right: 8px;
-    width: 20px;
-  }
-`;
-
-export const SwipeNotification = ({ avoidNotification }) => {
-  const [ isTouch, setTouch ] = React.useState(null);
-  const [modalOpened, setModalOpened] = useSession('modal-opened', null);
-
-  React.useEffect(() => {
-    const isTouchDevice = async () => {
-      return ('ontouchstart' in window) ||
-       (navigator.maxTouchPoints > 0) ||
-       (navigator.msMaxTouchPoints > 0)
-    }
-    isTouchDevice().then(is => { setTouch(is) })
-  }, [])
-
-  React.useEffect(() => {
-    if (modalOpened) {
-      setTimeout(() => {
-        setModalOpened(false);
-      }, 4000);
-    }
-
-    if (modalOpened === null && !avoidNotification) {
-      setTimeout(() => {
-        setModalOpened(true)
-      }, 5000);
-    }
-  }, [modalOpened, setModalOpened, avoidNotification])
-
-  return modalOpened && isTouch && !avoidNotification && (
-    <SwipeWrapper>
-      <img src={swipeIcon} alt="swipe" />
-      Hey good-looking! Swipe if you like what you see 💦🔥
-    </SwipeWrapper>
-  )
-}
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
   const [imageIndex, setImageIndex] = React.useState(null);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
-  const isMobile = useMediaQuery('(max-width: 880px)');
+  const isMobile = useMobileQuery();
   const project = projects[openIndex];
   const nextIndex = (openIndex + 1) % projects.length;
   const prevIndex = ((openIndex - 1) % projects.length + projects.length) % projects.length;

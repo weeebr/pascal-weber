@@ -1,4 +1,33 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+
+export const useMobileQuery = () => {
+  return useMediaQuery('(max-width: 880px)');
+}
+
+export const isDesignPage = () => {
+  return () => {
+    const { pathname } = useLocation();
+    return pathname.includes('design');
+  }
+}
+
+export const useClipboard = () => {
+  const copy = text => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    } else {
+      const input = document.createElement('input');
+      input.setAttribute('value', text);
+      document.body.appendChild(input);
+      input.select();
+      const result = document.execCommand('copy');
+      document.body.removeChild(input);
+      return result;
+    }
+  }
+  return { copy }
+}
 
 export const useSession = (key, defaultValue = null) => {
   const item = sessionStorage.getItem(key);

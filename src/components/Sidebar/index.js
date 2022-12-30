@@ -3,30 +3,21 @@ import { Summary, PortraitFoto, MoreWrapper } from "./styles";
 import { ProfileTitle } from "shared/theme";
 import { pascalFoto, pascalFotoAlternative } from 'shared/images'
 import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
-import { useMediaQuery } from "shared/hooks";
-import { useLocation } from "react-router-dom";
+import { useMobileQuery, isDesignPage, useClipboard } from "shared/hooks";
 
 export const Sidebar = () => {
-  const isMobile = useMediaQuery('(max-width: 880px)');
   const [showToast, setShowToast] = React.useState(false);
-  const { pathname } = useLocation();
-  const isDesign = pathname.includes('design');
+  const isMobile = useMobileQuery();
+  const clip = useClipboard();
+  const isDesign = isDesignPage();
 
+  const handleEmailClick = () => {
+    clip.copy('contact@pascal-weber.ch');
 
-  const copyToClipboard = (text) => {
-    setTimeout(() => setShowToast(false), 1000);
     setShowToast(true);
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text);
-    } else {
-      const input = document.createElement('input');
-      input.setAttribute('value', text);
-      document.body.appendChild(input);
-      input.select();
-      const result = document.execCommand('copy');
-      document.body.removeChild(input);
-      return result;
-    }
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
   }
 
   return (
@@ -43,7 +34,14 @@ export const Sidebar = () => {
             <img src={githubIcon} alt="Github" width="20px" height={20} />
           </a>
           <span className="email">
-            <img onKeyUp={() => copyToClipboard('contact@pascal-weber.ch')} onClick={() => copyToClipboard('contact@pascal-weber.ch')} src={emailIcon} alt="E-Mail" width="20px" height={20} data-copy="contact@pascal-weber.ch" />
+            <img 
+              onKeyUp={handleEmailClick} 
+              onClick={handleEmailClick} 
+              src={emailIcon} 
+              alt="E-Mail" 
+              width={20} 
+              height={20} 
+            />
             {showToast && <span className="toast">Copied{isMobile ? '' : ' to clipboard'}</span>}
           </span>
         </div>

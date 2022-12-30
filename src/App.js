@@ -7,10 +7,10 @@ import { Design } from "pages/Design";
 import { DesignModal } from "pages/DesignModal";
 import { Main } from "./styles";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { useMediaQuery } from "shared/hooks";
+import { useMobileQuery } from "shared/hooks";
 
 export const App = () => {
-  const isMobile = useMediaQuery('(max-width: 880px)');
+  const isMobile = useMobileQuery();
   const [openIndex, setOpenIndex] = React.useState(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -35,8 +35,8 @@ export const App = () => {
           <Routes>
             <Route path="/dev/:id" element={<DevModal openIndex={openIndex || id} setOpenIndex={setOpenIndex}  />} />
             <Route path="/design/:id" element={<DesignModal openIndex={openIndex || id} setOpenIndex={setOpenIndex} />} />
-            <Route path="/design" element={<Design setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
-            <Route exact path="*" element={<Dev setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
+            <Route path="/design" element={<Design setOpenIndex={setOpenIndex} />} />
+            <Route exact path="*" element={<Dev setOpenIndex={setOpenIndex} />} />
           </Routes>
         </Main>
       </div>

@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyledButton } from "./styles";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { isDesignPage } from "shared/hooks";
 
 export const PageToggle = () => {
-  const { pathname } = useLocation();
   const [ pressed, setPressed] = React.useState(false);
-
-  const isDesign = pathname.includes('design');
+  const isDesign = isDesignPage();
   const otherPage = isDesign ? '/' : '/design';
 
   React.useEffect(() => {

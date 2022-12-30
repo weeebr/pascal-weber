@@ -1,16 +1,16 @@
 import React from 'react';
 import { ModalWrapper, ModalContent, Bottom } from './styles';
 import { CSSTransition } from "react-transition-group";
-import { useMediaQuery } from "shared/hooks";
+import { useMobileQuery } from "shared/hooks";
 import { designs } from 'shared/constants';
 import { PrevIcon, NextIcon, CloseIcon } from 'shared/icons';
 import { useSwipeable } from 'react-swipeable';
-import { SwipeNotification } from "pages/DevModal";
+import { SwipeNotification } from "components/SwipeNotification";
 import { useNavigate } from "react-router-dom";
 import { theme } from 'shared/theme';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
-  const isMobile = useMediaQuery('(max-width: 880px)');
+  const isMobile = useMobileQuery();
   const design = designs[openIndex];
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const nextIndex = (openIndex + 1) % designs.length;

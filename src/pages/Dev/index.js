@@ -4,16 +4,15 @@ import { projects } from 'shared/constants';
 import { PageSubTitle } from "shared/theme";
 import { CV } from "shared/files";
 import { UrlIcon, EyeIcon } from "shared/icons";
-import { useMediaQuery } from "shared/hooks";
-import { useLocation, Link, useNavigate  } from "react-router-dom";
+import { useMobileQuery, isDesignPage } from "shared/hooks";
+import { Link, useNavigate  } from "react-router-dom";
 import { theme, PageTitle } from "shared/theme";
 import { StyledButton } from "components/PageToggle/styles";
 import { PageToggle } from "components/PageToggle";
 
-export const Dev = ({setOpenIndex, openIndex}) => {
-  const { pathname } = useLocation();
-  const isDesign = pathname.includes('design');
-  const isMobile = useMediaQuery('(max-width: 880px)');
+export const Dev = ({setOpenIndex}) => {
+  const isMobile = useMobileQuery();
+  const isDesign = isDesignPage();
   const navigate = useNavigate();
 
   const handleOpen = index => {

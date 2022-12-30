@@ -2,18 +2,18 @@ import React from 'react';
 import { Thumbnail, DesignWrapper } from './styles';
 import { PageSubTitle } from "shared/theme";
 import { designs } from 'shared/constants';
-import { useMediaQuery } from "shared/hooks";
-import { useLocation, useNavigate, Link } from "react-router-dom";
-import { PageToggle } from "components/PageToggle/index";
+import { useMobileQuery } from "shared/hooks";
+import {  useNavigate, Link } from "react-router-dom";
+import { PageToggle } from "components/PageToggle";
 import { StyledButton } from "components/PageToggle/styles";
 import { PageTitle } from "shared/theme";
 import { CV } from 'shared/files'
+import { isDesignPage } from "shared/hooks";
 
-export const Design = ({openIndex, setOpenIndex}) => {
-  const isMobile = useMediaQuery('(max-width: 880px)');
-  const { pathname } = useLocation();
-  const isDesign = pathname.includes('design');
+export const Design = ({setOpenIndex}) => {
   const navigate = useNavigate();
+  const isMobile = useMobileQuery();
+  const isDesign = isDesignPage();
 
   const handleOpen = index => {
     setOpenIndex(index)
