@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const breakpoints = {
   mobile: 880,
-  tablet: 1024,
+  tablet: 1309,
   desktop: 1280,
   largeDesktop: 1440,
 };

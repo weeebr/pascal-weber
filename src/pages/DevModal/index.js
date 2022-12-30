@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 export const DevModal = ({ openIndex, setOpenIndex }) => {
   const [ imageIndex, setImageIndex] = React.useState(null);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
-  const { isMobile } = useThemeBreakpoints();
+  const { isMobile, isTablet } = useThemeBreakpoints();
   const project = projects[openIndex];
   const navigate = useNavigate();
   
@@ -82,7 +82,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
                 {isMobile && <div className='description'>{project.description}</div>}
               </span>
               <div>
-                <ProjectImagesWrapper isMobile={isMobile}>
+                <ProjectImagesWrapper isMobile={isMobile} isTablet={isTablet}>
                   {project.images.map((image, idx) => (
                     <ProjectImage 
                       onClick={() => setImageIndex(idx)} 

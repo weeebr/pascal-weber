@@ -23,6 +23,14 @@ export const ProjectImagesWrapper = styled.span`
   flex-wrap: wrap;
   max-width: 100%;
 
+  ${props => props.isTablet && (
+    css`
+    & > div {
+      width: 160px;
+      height: 133px;
+    }`
+  )}
+
   ${props => props.isMobile &&
     css`
       overflow-y: scroll;

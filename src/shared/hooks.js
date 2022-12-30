@@ -3,10 +3,11 @@ import { breakpoints } from "./theme";
 import { useLocation } from "react-router-dom";
 
 export const useThemeBreakpoints = () => {
-  const { mobile } = breakpoints;
+  const { mobile, tablet } = breakpoints;
   const isMobile = useMediaQuery(`(max-width: ${mobile}px)`);
-  
-  return { isMobile };
+  const isTablet = useMediaQuery(`(max-width: ${tablet}px)`);
+
+  return { isMobile, isTablet };
 }
 
 export const usePage = () => {
