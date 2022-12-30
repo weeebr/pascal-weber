@@ -1,14 +1,13 @@
 import React from "react";
-import './App.css';
-import { TopBar } from "./TopBar";
-import { Sidebar } from "./Sidebar";
-import { Dev } from "../pages/Dev";
-import { DevModal } from "../shared/DevModal";
-import { Design } from "../pages/Design";
-import { DesignModal } from "../shared/DesignModal";
+import { TopBar } from "components/TopBar";
+import { Sidebar } from "components/Sidebar";
+import { Dev } from "pages/Dev";
+import { DevModal } from "pages/DevModal";
+import { Design } from "pages/Design";
+import { DesignModal } from "pages/DesignModal";
 import { Main } from "./styles";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import useMediaQuery from "./../shared/useMediaQuery";
+import { useMediaQuery } from "shared/hooks";
 
 export const App = () => {
   const isMobile = useMediaQuery('(max-width: 880px)');

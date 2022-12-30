@@ -1,16 +1,17 @@
 import React from "react";
-import { More } from "./More";
-import { Summary, PortraitFoto } from "./styles";
-import { ProfileTitle } from "../../shared/Theme/typography";
-import pascalFoto from '../../assets/pascal-weber.png'
-import githubIcon from '../../assets/github.svg'
-import emailIcon from '../../assets/email.svg'
-import linkedInIcon from '../../assets/linkedin.svg'
-import useMediaQuery from "./../../shared/useMediaQuery";
+import { Summary, PortraitFoto, MoreWrapper } from "./styles";
+import { ProfileTitle } from "shared/theme";
+import { pascalFoto, pascalFotoAlternative } from 'shared/images'
+import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
+import { useMediaQuery } from "shared/hooks";
+import { useLocation } from "react-router-dom";
 
 export const Sidebar = () => {
   const isMobile = useMediaQuery('(max-width: 880px)');
   const [showToast, setShowToast] = React.useState(false);
+  const { pathname } = useLocation();
+  const isDesign = pathname.includes('design');
+
 
   const copyToClipboard = (text) => {
     setTimeout(() => setShowToast(false), 1000);
@@ -31,12 +32,12 @@ export const Sidebar = () => {
   return (
     <Summary isMobile={isMobile}>
       <div className="summary">
-        <PortraitFoto src={pascalFoto}><img className="img" alt="" /></PortraitFoto>
+        <PortraitFoto src={isDesign ? pascalFotoAlternative : pascalFoto}><img className="img" alt="" /></PortraitFoto>
         <ProfileTitle>Pascal Weber</ProfileTitle>
         <div className="job-title">Experienced Frontend Engineer</div>
         <div className="contact-info">
           <a href="https://www.linkedin.com/in/p-weber/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedInIcon} alt="LinkedIn" width="20px" height={20} />
+            <img src={linkedinIcon} alt="LinkedIn" width="20px" height={20} />
           </a>
           <a className="github" href="https://github.com/weeebr" target="_blank" rel="noopener noreferrer">
             <img src={githubIcon} alt="Github" width="20px" height={20} />
@@ -47,7 +48,11 @@ export const Sidebar = () => {
           </span>
         </div>
       </div>
-      <More />
+      <MoreWrapper>
+        <div className="more">
+          <p className="short-description">A passion for clean and elegant code, UX and details. Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>
+        </div>
+    </MoreWrapper>
     </Summary>
   )
 }

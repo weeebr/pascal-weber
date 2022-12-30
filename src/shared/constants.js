@@ -1,52 +1,23 @@
-import redstuss0 from './assets/red-struss.jpg';
-import redstuss1 from './assets/red-struss1.png';
-import redstuss2 from './assets/red-struss2.png';
-import redstuss3 from './assets/red-struss3.png';
-import noxx0 from './assets/noxx.jpg';
-import noxx1 from './assets/noxx1.png';
-import noxx2 from './assets/noxx2.png';
-import noxx3 from './assets/noxx3.png';
-import fishtank0 from './assets/fishtank.jpg';
-import fishtank1 from './assets/fishtank1.png';
-import fishtank2 from './assets/fishtank2.png';
-import deedsdao0 from './assets/deedsdao.png';
-import deedsdao1 from './assets/deedsdao1.png';
-import deedsdao2 from './assets/deedsdao2.png';
-import deedsdao3 from './assets/deedsdao3.png';
-import parashift0 from './assets/parashift.webp';
-import parashift1 from './assets/parashift1.png';
-import parashift2 from './assets/parashift2.png';
-import parashift3 from './assets/parashift3.png';
-
-import designs1 from './assets/designs/01.jpg';
-import designs2 from './assets/designs/02.jpg';
-import designs3 from './assets/designs/03.jpg';
-import designs4 from './assets/designs/04.jpg';
-import designs5 from './assets/designs/05.jpg';
-import designs6 from './assets/designs/06.jpg';
-import designs7 from './assets/designs/07.jpg';
-import designs8 from './assets/designs/08.jpg';
-import designs9 from './assets/designs/09.jpg';
-import designs10 from './assets/designs/10.jpg';
+import { projectImages, designImages } from "./images";
 
 export const designs = [
-  { description: 'Cover of a school project (package design, school project)', client: 'BBBaden', src: designs1 },
-  { description: 'Photo manipulation (school project)', client: 'AGS BS', src: designs2 },
-  { description: 'Birthday poster for my sister', client: 'Nora Weber', src: designs3 },
-  { description: 'Fictional advertising of a fragrance spray (school project)', client: 'AGS BS', src: designs4 },
-  { description: 'Cover of a school project (sports nutrition, school project)', client: 'BBBaden', src: designs5 },
-  { description: 'X-Mas card 2012', client: 'various people', src: designs6 },
-  { description: 'Banner for a logo', client: 'mindflow', src: designs7 },
-  { description: 'Birthday flyer', client: 'Ivo Schoenholzer', src: designs8 },
-  { description: 'X-Mas card 2011', client: 'various people', src: designs9 },
-  { description: 'Logo competition (won #1 place)', client: 'IchWillParty', src: designs10 }
+  { description: 'Cover of a school project (package design, school project)', client: 'BBBaden', src: designImages[0] },
+  { description: 'Photo manipulation (school project)', client: 'AGS BS', src: designImages[1] },
+  { description: 'Birthday poster for my sister', client: 'Nora Weber', src: designImages[2] },
+  { description: 'Fictional advertising of a fragrance spray (school project)', client: 'AGS BS', src: designImages[3] },
+  { description: 'Cover of a school project (sports nutrition, school project)', client: 'BBBaden', src: designImages[4] },
+  { description: 'X-Mas card 2012', client: 'various people', src: designImages[5] },
+  { description: 'Banner for a logo', client: 'mindflow', src: designImages[6] },
+  { description: 'Birthday flyer', client: 'Ivo Schoenholzer', src: designImages[7] },
+  { description: 'X-Mas card 2011', client: 'various people', src: designImages[8] },
+  { description: 'Logo competition (won #1 place)', client: 'IchWillParty', src: designImages[9] }
 ];
 
 export const projects = [
   {
     title: "DeedsDAO",
-    thumbnail: deedsdao0,
-    images: [deedsdao1, deedsdao2, deedsdao3],
+    thumbnail: projectImages.deedsdao[0],
+    images:  projectImages.deedsdao.slice(1),
     description: "Design and Implementation",
     year: "2022",
     more: true,
@@ -54,8 +25,8 @@ export const projects = [
   },
   {
     title: "Parashift AG",
-    thumbnail: parashift0,
-    images: [parashift1, parashift2, parashift3],
+    thumbnail: projectImages.parashift[0],
+    images: projectImages.parashift.slice(1),
     description: "Complete redesign I was fully in charge of, for a sophisticated document processing platform",
     year: "2021-2022",
     more: true,
@@ -63,24 +34,24 @@ export const projects = [
   },
   {
     title: "noxx-musik.ch",
-    thumbnail: noxx0,
-    images: [noxx1, noxx2, noxx3],
+    thumbnail: projectImages.noxx[0],
+    images: projectImages.noxx.slice(1),
     description: "Design and Implementation",
     year: "2021",
     url: "https://noxx-musik.ch"
   },
   {
     title: "fish-tank.io",
-    thumbnail: fishtank0,
-    images: [fishtank1, fishtank2],
+    thumbnail: projectImages.fishtank[0],
+    images: projectImages.fishtank.slice(1),
     description: "Design and Implementation",
     year: "2021",
     url: "https://fish-tank.io"
   },
   {
     title: "red-struss",
-    thumbnail: redstuss0,
-    images: [redstuss1, redstuss2, redstuss3],
+    thumbnail: projectImages.redstuss[0],
+    images: projectImages.redstuss.slice(1),
     description: "Design and Implementation",
     year: "2019",
     url: "https://red-struss.netlify.app"

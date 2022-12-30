@@ -1,21 +1,21 @@
 import React from 'react';
-import swipeIcon from '../../assets/swipe.svg';
 import { ModalWrapper, 
   ModalContent, 
   ProjectImage, 
   ProjectImagesWrapper, 
   ButtonsWrapper,
 } from './styles';
-import { ImageFullScreen } from "./ImageFullScreen";
+import { ImageFullScreen } from "../../components/ImageFullScreen";
 import { CSSTransition } from "react-transition-group";
-import { UrlIcon, EyeIcon } from "./../../constants";
-import useMediaQuery from "../useMediaQuery";
-import { projects, PrevIcon, NextIcon, CloseIcon } from './../../constants';
-import { theme } from '..//Theme/typography';
+import { UrlIcon, EyeIcon } from "shared/constants";
+import { useMediaQuery } from "shared/hooks";
+import { projects, PrevIcon, NextIcon, CloseIcon } from 'shared/constants';
+import { theme } from 'shared/theme';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useSession } from "./../hooks";
+import { useSession } from "shared/hooks";
+import { swipeIcon } from "shared/icons";
 
 const SwipeWrapper = styled.div`
   position: absolute;
@@ -23,7 +23,7 @@ const SwipeWrapper = styled.div`
   left: 0;
   width: 100%;
   height: auto;
-  background: ${theme.colors.background};
+  background: ${theme.colors.background.main};
   z-index: 20;
   padding: 16px;
   text-align: center;

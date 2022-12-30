@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme } from "../Theme/typography";
+import { theme } from "shared/theme";
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -28,7 +28,7 @@ export const ModalContent = styled.div`
 
   span {
     font-size: 18px;
-    color: #afafaf;
+    color: ${theme.colors.text.main};;
     width: 100%;
 
     &.client {
@@ -50,7 +50,7 @@ export const Bottom = styled.span`
   left: 12px;
   width: calc(100% - 24px);
   z-index: 5;
-  background: ${theme.colors.secondary.background};
+  background: ${theme.colors.secondary.background.main};
   display: flex;
   gap: 8px;
   align-items: center;

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { theme } from '../../shared/Theme/typography';
+import { theme } from 'shared/theme';
 
 export const Summary = styled.div`
-  background: ${theme.colors.background};
+  background: ${theme.colors.background.main};
   max-width: ${props => props.isMobile ? "100%" : "270px"};
   position: relative;
   display: flex;
@@ -49,13 +49,24 @@ export const Summary = styled.div`
         left: calc(100% + 12px);
         top: -4px;
         white-space: nowrap;
-        background: #7bdf3d2b;
-        color: #008000;
+        background: ${theme.colors.background.success};
+        color: ${theme.colors.text.success};
         padding: 5px 8px 2px 8px;
       }
     }
   }
 }`
+
+export const MoreWrapper = styled.div`
+  padding: 0 20px 20px 20px;
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    color: ${theme.colors.text.light};
+    font-family: 'League Spartan';
+  }
+`
 
 export const PortraitFoto = styled.div`
   width: 145px;

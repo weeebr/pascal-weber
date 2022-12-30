@@ -1,13 +1,13 @@
 import React from 'react';
 import { Thumbnail, DesignWrapper } from './styles';
-import { PageSubTitle } from "./../../shared/Theme/typography";
-import { designs } from '../../constants';
-import useMediaQuery from "./../../shared/useMediaQuery";
+import { PageSubTitle } from "shared/theme";
+import { designs } from 'shared/constants';
+import { useMediaQuery } from "shared/hooks";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { PageToggle } from "./../../shared/PageToggle/index";
-import { StyledButton } from "./../../shared/PageToggle/styles";
-import { PageTitle } from "../../shared/Theme/typography";
-import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
+import { PageToggle } from "components/PageToggle/index";
+import { StyledButton } from "components/PageToggle/styles";
+import { PageTitle } from "shared/theme";
+import { CV } from 'shared/files'
 
 export const Design = ({openIndex, setOpenIndex}) => {
   const isMobile = useMediaQuery('(max-width: 880px)');

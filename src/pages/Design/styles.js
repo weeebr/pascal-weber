@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '../../shared/Theme/typography';
+import { theme } from 'shared/theme';
 
 export const DesignWrapper = styled.div`
   & > span {

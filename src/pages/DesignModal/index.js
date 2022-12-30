@@ -1,12 +1,12 @@
 import React from 'react';
 import { ModalWrapper, ModalContent, Bottom } from './styles';
 import { CSSTransition } from "react-transition-group";
-import useMediaQuery from "./../useMediaQuery";
-import { designs, PrevIcon, NextIcon, CloseIcon } from './../../constants';
+import { useMediaQuery } from "shared/hooks";
+import { designs, PrevIcon, NextIcon, CloseIcon } from '../../shared/constants';
 import { useSwipeable } from 'react-swipeable';
-import { SwipeNotification } from "./../DevModal/index";
+import { SwipeNotification } from "pages/DevModal";
 import { useNavigate } from "react-router-dom";
-import { theme } from './../Theme/typography';
+import { theme } from 'shared/theme';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');

@@ -1,15 +1,15 @@
 import React from 'react';
 import { ProjectCardWrapper, ProjectsWrapper, LinkButton } from './styles';
-import { projects } from '../../constants';
-import { PageSubTitle } from "./../../shared/Theme/typography";
-import { UrlIcon, EyeIcon } from "./../../constants";
-import useMediaQuery from "./../../shared/useMediaQuery";
+import { projects } from 'shared/constants';
+import { PageSubTitle } from "shared/theme";
+import { CV } from "shared/files";
+import { UrlIcon, EyeIcon } from "shared/constants";
+import { useMediaQuery } from "shared/hooks";
 import { useLocation, Link, useNavigate  } from "react-router-dom";
-import { PageTitle } from "../../shared/Theme/typography";
-import { StyledButton } from "./../../shared/PageToggle/styles";
-import { theme } from "./../../shared/Theme/typography";
-import { PageToggle } from "./../../shared/PageToggle/index";
-import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
+import { PageTitle } from "shared/theme";
+import { StyledButton } from "components/PageToggle/styles";
+import { theme } from "shared/theme";
+import { PageToggle } from "components/PageToggle";
 
 export const Dev = ({setOpenIndex, openIndex}) => {
   const { pathname } = useLocation();

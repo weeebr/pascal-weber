@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const theme = {
   colors: {
+    divider: '#D9D9D9',
     primary: {
       main: '#0E3E6A',
       background: '#dde3e8'
@@ -12,10 +13,13 @@ export const theme = {
     },
     text: {
       main: '#afafaf',
-      light: '#C3C3C3'
+      light: '#C3C3C3',
+      success: '#008000',
     },
-    divider: '#D9D9D9',
-    background: '#F9F9F9',
+    background: {
+      main: '#F9F9F9',
+      success: '#7bdf3d2b',
+    }
   },
   currentColor: props => props.isDesign ? '#bf9000' : '#0E3E6A',
   otherColor: props => !props.isDesign ? '#bf9000' : '#0E3E6A',

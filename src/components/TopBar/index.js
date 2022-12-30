@@ -1,12 +1,12 @@
 import React from 'react';
-import { PageToggle } from "../../shared/PageToggle";
-import { StyledButton } from "../../shared/PageToggle/styles";
+import { PageToggle } from "../PageToggle";
+import { StyledButton } from "../PageToggle/styles";
 import { TopBarWrapper } from "./styles";
-import { PageTitle } from "../../shared/Theme/typography";
+import { PageTitle } from "shared/theme";
 import { useLocation, Link } from "react-router-dom";
-import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
-import { Sidebar } from "./../Sidebar/index";
-import useMediaQuery from "./../../shared/useMediaQuery";
+import { Sidebar } from "../Sidebar";
+import { useMediaQuery } from "shared/hooks";
+import { CV } from "shared/files";
 
 export const TopBar = () => {
   const { pathname } = useLocation();

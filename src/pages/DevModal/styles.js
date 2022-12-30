@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme } from '..//Theme/typography';
+import { theme } from 'shared/theme';
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -47,7 +47,7 @@ export const Bottom = styled.span`
   left: ${props => props.isMobile ? "12px" : "calc(27px + 200px)"};
   width: ${props => props.isMobile ? "calc(100% - 24px)" : "calc(100% - 39px - 200px)"};
   z-index: 5;
-  background: ${theme.colors.primary.background};
+  background: ${theme.colors.primary.background.main};
 `;
 
 export const ButtonsWrapper = styled.span`
@@ -57,7 +57,7 @@ export const ButtonsWrapper = styled.span`
     left: 12px;
     padding: 20px 0;
     margin: 0;
-    background: ${theme.colors.primary.background};
+    background: ${theme.colors.primary.background.main};
     width: calc(100% - 24px);
     flex-direction: row;
   }
