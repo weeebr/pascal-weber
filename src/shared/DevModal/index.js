@@ -14,15 +14,8 @@ import { projects, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { theme } from '..//Theme/typography';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
-import { useParams, useNavigate } from "react-router-dom";
-
-function getSessionStorageOrDefault(key, defaultValue) {
-  const stored = sessionStorage.getItem(key);
-  if (!stored) {
-    return defaultValue;
-  }
-  return JSON.parse(stored);
-}
+import { useNavigate } from "react-router-dom";
+import { useSession } from "./../hooks";
 
 const SwipeWrapper = styled.div`
   position: absolute;
@@ -39,15 +32,14 @@ const SwipeWrapper = styled.div`
   align-items: center;
 
   img {
+    margin-right: 8px;
     width: 20px;
   }
 `;
 
 export const SwipeNotification = ({ avoidNotification }) => {
   const [ isTouch, setTouch ] = React.useState(null);
-  const [modalOpened, setModalOpened] = React.useState(
-    getSessionStorageOrDefault('modal-opened', null)
-  );
+  const [modalOpened, setModalOpened] = useSession('modal-opened', null);
 
   React.useEffect(() => {
     const isTouchDevice = async () => {
@@ -87,7 +79,6 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const project = projects[openIndex];
   const nextIndex = (openIndex + 1) % projects.length;
   const prevIndex = ((openIndex - 1) % projects.length + projects.length) % projects.length;
-  const { id } = useParams();
   const navigate = useNavigate();
 
   const prevTitle = projects[prevIndex]?.title;
@@ -98,10 +89,6 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   const handleClose = React.useCallback(() => {
     navigate('/');
   }, [navigate])
-
-  React.useEffect(() => {
-    setOpenIndex(id ? parseInt(id) : null);
-  }, [id, setOpenIndex])
 
   React.useEffect(() => {
     if (!project) {

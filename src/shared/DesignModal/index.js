@@ -5,7 +5,7 @@ import useMediaQuery from "./../useMediaQuery";
 import { designs, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { useSwipeable } from 'react-swipeable';
 import { SwipeNotification } from "./../DevModal/index";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { theme } from './../Theme/typography';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
@@ -16,7 +16,6 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const prevIndex = ((openIndex - 1) % designs.length + designs.length) % designs.length;
   const setPrevIndex = () => { setOpenIndex(prevIndex); navigate(`/design/${prevIndex}`); };
   const setNextIndex = () => { setOpenIndex(nextIndex); navigate(`/design/${nextIndex}`); };
-  const { id } = useParams();
   const navigate = useNavigate();
 
   const handlers = useSwipeable({
@@ -30,10 +29,6 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const handleClose = React.useCallback(() => {
     navigate('/design');
   }, [navigate])
-
-  React.useEffect(() => {
-    setOpenIndex(id ? parseInt(id) : null);
-  }, [id, setOpenIndex]) 
 
   React.useEffect(() => {
     if (!design) {

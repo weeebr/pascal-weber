@@ -15,6 +15,7 @@ export const App = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const id = pathname.split('/')[2];
 
   React.useEffect(() => {
     const possibleRootPaths = ['dev', 'design'];
@@ -33,8 +34,8 @@ export const App = () => {
         <Main isMobile={isMobile}>
            <TopBar />
           <Routes>
-            <Route path="/dev/:id" element={<DevModal openIndex={openIndex} setOpenIndex={setOpenIndex}  />} />
-            <Route path="/design/:id" element={<DesignModal openIndex={openIndex} setOpenIndex={setOpenIndex} />} />
+            <Route path="/dev/:id" element={<DevModal openIndex={openIndex || id} setOpenIndex={setOpenIndex}  />} />
+            <Route path="/design/:id" element={<DesignModal openIndex={openIndex || id} setOpenIndex={setOpenIndex} />} />
             <Route path="/design" element={<Design setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
             <Route exact path="*" element={<Dev setOpenIndex={setOpenIndex} openIndex={openIndex} />} />
           </Routes>
