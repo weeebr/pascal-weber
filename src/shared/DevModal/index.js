@@ -11,6 +11,7 @@ import { CSSTransition } from "react-transition-group";
 import { UrlIcon, EyeIcon } from "./../../constants";
 import useMediaQuery from "../useMediaQuery";
 import { projects, PrevIcon, NextIcon, CloseIcon } from './../../constants';
+import { theme } from '..//Theme/typography';
 import { useSwipeable } from "react-swipeable";
 import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
@@ -139,7 +140,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
               onClick={handleClose}
               onKeyUp={handleClose}
             >
-              <CloseIcon fill="#3c5366" />
+              <CloseIcon fill={theme.colors.primary} />
             </span>
             <ModalContent isMobile={isMobile}>
               <span>

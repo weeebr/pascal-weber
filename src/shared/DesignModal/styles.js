@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../Theme/typography";
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -33,8 +34,7 @@ export const ModalContent = styled.div`
     &.client {
       font-size: 24px;
       font-weight: 600;
-      color: #bf9000;
-      margin-top: -6px;
+      color: ${ theme.colors.secondary };
     }
 
     &.description {
@@ -58,7 +58,7 @@ export const Bottom = styled.span`
 
   .prev, .next {
     color: white;    
-    background: #bf9000;
+    background: ${ theme.colors.secondary };
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +81,7 @@ export const ModalWrapper = styled.div`
   &.modal {
     background: #f9efd0;
   }
-  box-shadow: inset 0 0 0 8px #bf9000;
+  box-shadow: inset 0 0 0 8px ${ theme.colors.secondary };
   left: ${props => props.isMobile ? 0 : "270px"};
   top: ${props => props.isMobile ? 0 : "87px"};
   z-index: 4;

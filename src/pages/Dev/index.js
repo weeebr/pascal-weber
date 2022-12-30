@@ -7,6 +7,7 @@ import useMediaQuery from "./../../shared/useMediaQuery";
 import { useLocation, Link, useNavigate  } from "react-router-dom";
 import { PageTitle } from "../../shared/Theme/typography";
 import { StyledButton } from "./../../shared/PageToggle/styles";
+import { theme } from "./../../shared/Theme/typography";
 import { PageToggle } from "./../../shared/PageToggle/index";
 import CV from '../../assets/CV_Frontend_Engineer_Pascal_Weber.pdf'
 
@@ -36,9 +37,9 @@ export const Dev = ({setOpenIndex, openIndex}) => {
         <LinkButton href={url}>
           <span className='link'>
             {more ? (
-              <UrlIcon fill="#0e3e6a" />
+              <UrlIcon fill={theme.colors.primary} />
             ) : (
-              <EyeIcon fill="#0e3e6a" />
+              <EyeIcon fill={theme.colors.primary} />
             )}
             {more ? 'More' : 'Demo'}
           </span>

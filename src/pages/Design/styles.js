@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../shared/Theme/typography';
 
 export const DesignWrapper = styled.div`
   & > span {
@@ -20,7 +21,7 @@ export const DesignWrapper = styled.div`
 export const Thumbnail = styled.div`
   width: ${props => props.isMobile ? "100%" : '217px'};
   height: 150px;
-  border: 2px solid #bf9000;
+  border: 2px solid ${ theme.colors.secondary };
   transition: all 1s ease;
   cursor: pointer;
   background: white;
@@ -38,7 +39,7 @@ export const Thumbnail = styled.div`
   &:hover {
     transform: scale(1.08);
     transition: all 0s ease;
-    background: #bf9000;
+    background: ${ theme.colors.secondary };
 
     div.img {
       filter: sepia(1);

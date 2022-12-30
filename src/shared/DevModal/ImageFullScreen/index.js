@@ -2,6 +2,7 @@ import { CSSTransition } from "react-transition-group";
 import { FullScreenWrapper } from "./styles";
 import useMediaQuery from "./../../useMediaQuery";
 import { CloseIcon } from '../../../constants';
+import { theme } from '../../Theme/typography';
 
 export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
   const src = project.images[imageIndex]
@@ -16,7 +17,7 @@ export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
     >
       <FullScreenWrapper isMobile={isMobile} onClick={onClose} src={src}>
         <div />
-        <span><CloseIcon fill="#3c5366" /></span>
+        <span><CloseIcon fill={theme.colors.primary} /></span>
       </FullScreenWrapper>
     </CSSTransition>
   )

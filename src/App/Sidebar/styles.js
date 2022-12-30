@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { theme } from '../../shared/Theme/typography';
 
 export const Summary = styled.div`
   background: #F9F9F9;
   max-width: ${props => props.isMobile ? "100%" : "270px"};
   position: relative;
   display: flex;
-  border-right: ${props => props.isMobile ? null : "1px solid #C3C3C3;"};
+  border-right: ${props => props.isMobile ? null : `1px solid ${theme.colors.divider}`};
   flex-direction: column;
   justify-content: center;
   text-align: ${props => props.isMobile ? "center" : "right"};

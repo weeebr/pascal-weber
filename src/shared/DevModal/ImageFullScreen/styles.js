@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const FullScreenWrapper = styled.div`
   position: fixed;
   left: ${props => props.isMobile ? 0 : "270px"};

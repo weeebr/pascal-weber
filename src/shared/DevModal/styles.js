@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { theme } from '..//Theme/typography';
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -77,7 +78,7 @@ export const ButtonsWrapper = styled.span`
     height: 43px;
     user-select: none;
     color: white;
-    background: #3c5366;
+    background: ${ theme.colors.primary };
 
     svg {
       width: 20px;
@@ -124,7 +125,7 @@ export const ModalContent = styled.div`
     .title {
       font-size: 24px;
       font-weight: 600;
-      color: #3c5366;
+      color: ${theme.colors.primary};
     }
 
     .year {

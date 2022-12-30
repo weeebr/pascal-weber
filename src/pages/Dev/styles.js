@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { theme } from '../../shared/Theme/typography';
 
 export const ProjectsWrapper = styled.div`
   & > span {
@@ -23,7 +24,7 @@ export const LinkButton = styled.a`
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    color: #0E3E6A;
+    color: ${ theme.colors.primary };
     font-size: 14px;
     font-weight: 600;
     padding: 4px 8px 1px 8px;
@@ -37,12 +38,12 @@ export const LinkButton = styled.a`
 
   &:hover {
     span.link {
-      color: #0E3E6A;
+      color: ${ theme.colors.primary };
       background: white;
       transition: all 0s ease;
 
       svg path {
-        fill: #0E3E6A;
+        fill: ${ theme.colors.primary };
       }
     }
   }
@@ -57,7 +58,7 @@ export const ProjectCardWrapper = styled.div`
   width: 180px;
   height: 195px;
   flex-direction: column;
-  border: 2px solid #0e3e6a;
+  border: 2px solid ${ theme.colors.primary };
   background: white;
   text-align: center;
   cursor: pointer;

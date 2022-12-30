@@ -23,3 +23,12 @@ export const ProfileTitle = styled.h1`
   color: black;
   line-height: 27px;
 `
+
+export const theme = {
+  colors: {
+    primary: '#0E3E6A',
+    primaryDark: '#3c5366',
+    secondary: '#bf9000',
+    divider: '#D9D9D9',
+  },
+}

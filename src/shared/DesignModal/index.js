@@ -6,6 +6,7 @@ import { designs, PrevIcon, NextIcon, CloseIcon } from './../../constants';
 import { useSwipeable } from 'react-swipeable';
 import { SwipeNotification } from "./../DevModal/index";
 import { useNavigate, useParams } from "react-router-dom";
+import { theme } from './../Theme/typography';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
   const isMobile = useMediaQuery('(max-width: 880px)');
@@ -56,7 +57,7 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
                 onClick={handleClose}
                 onKeyUp={handleClose}
                 >
-                <CloseIcon fill="#bf9000" />
+                <CloseIcon fill={ theme.colors.secondary } />
               </span>
               <ModalContent src={design.src}>
                 <span className='client'>{design.client}</span>

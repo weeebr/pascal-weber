@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../shared/Theme/typography';
 
 export const StyledButton = styled.button`
   border: none;
@@ -10,7 +11,10 @@ export const StyledButton = styled.button`
   font-weight: 600;
   font-family: 'League Spartan';
   cursor: pointer;
-  background: ${props => props.isDesign ? '#0E3E6A' : '#bf9000'};
+  background: ${props => props.isDesign 
+    ? theme.colors.primary 
+    : theme.colors.secondary 
+  };
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
@@ -35,13 +39,16 @@ export const StyledButton = styled.button`
   }
 
   &::before {
-    background: #D9D9D9;
+    background: ${theme.colors.divider};
     z-index: 1;
   }
 
   &::after {
     transition-delay: 0.2s;
-    background: ${props => props.isDesign ? '#0E3E6A' : '#bf9000'};
+    background: ${props => props.isDesign 
+      ? theme.colors.primary 
+      : theme.colors.secondary 
+    };
     z-index: 2;
   }
 
