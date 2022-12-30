@@ -4,12 +4,14 @@ body, html {
   font-size: 18px;
   line-height: 1.15;
   background: #F9F9F9;
+  -webkit-user-select: none;
+  user-select: none;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
