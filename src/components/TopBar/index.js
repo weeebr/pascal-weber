@@ -6,6 +6,7 @@ import { PageTitle } from "shared/theme";
 import { Link } from "react-router-dom";
 import { Sidebar } from "../Sidebar";
 import { useThemeBreakpoints, usePage } from "shared/hooks";
+import { downloadIcon } from "shared/icons";
 import { CV } from "shared/files";
 
 export const TopBar = () => {
@@ -26,7 +27,8 @@ export const TopBar = () => {
           <span>
             <StyledButton className='cv'>
               <Link target='_blank' to={CV} download>
-                CV
+                <span>CV</span>
+                <img src={downloadIcon} width="18px" height="18px" alt='download' />
               </Link>
             </StyledButton>
             <PageToggle />

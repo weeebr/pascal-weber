@@ -60,6 +60,20 @@ export const StyledButton = styled.button`
     background: black;
     color: white;
 
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        margin-right: 8px;
+      }
+
+      img {
+        margin-top: -2px;
+      }
+    }
+
     &::after {
       background: black;
     }

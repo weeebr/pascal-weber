@@ -2,11 +2,13 @@ import github from 'assets/github.svg';
 import email from 'assets/email.svg';
 import linkedin from 'assets/linkedin.svg';
 import swipe from 'assets/swipe.svg';
+import download from 'assets/download.svg';
 
 export const githubIcon = github
 export const emailIcon = email
 export const linkedinIcon = linkedin
 export const swipeIcon = swipe
+export const downloadIcon = download
 
 export const UrlIcon = ({ fill }) => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
