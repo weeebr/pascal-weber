@@ -51,6 +51,11 @@ export const PageTitle = styled.h2`
   margin: 0;
   color: ${props => theme.currentColor(props) };
   transition: all 0.5s ease-in-out;
+
+  a {
+    text-decoration: none;
+    color: ${props => theme.currentColor(props) };
+  }
 `
 
 export const ProfileTitle = styled.h1`

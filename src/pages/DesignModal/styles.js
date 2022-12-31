@@ -108,8 +108,12 @@ export const ModalWrapper = styled.div`
       background: ${theme.colors.secondary.main} !important;
       padding: 0;
       overflow: hidden;
+      width: 0;
+      left: 50%;
 
-      & > * {
+      & * {
+        width: 0;
+        heigth: 0;
         opacity: 0;
       }
     `

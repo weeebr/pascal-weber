@@ -20,9 +20,11 @@ export const TopBar = () => {
       )}
       {!isMobile && (
         <>
-          <PageTitle isDesign={isDesign}>
-            /{isDesign ? 'Design' : 'Dev'}
-          </PageTitle>
+            <PageTitle isDesign={isDesign}>
+              <Link to={isDesign ? '/design' : '/'}>
+                    /{isDesign ? 'Design' : 'Dev'}
+              </Link>
+            </PageTitle>
 
           <span>
             <StyledButton className='cv'>
