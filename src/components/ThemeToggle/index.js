@@ -1,5 +1,6 @@
 import React from "react";
 import { SunIcon, MoonIcon } from "shared/icons";
+import { theme, themeDark } from "shared/theme";
 import "./styles.css";
 
 export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
@@ -10,6 +11,13 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
    */
 
   const toggleState = () => {
+    const docEl = document.documentElement;
+
+    if (isDarkTheme) {
+      docEl.style.setProperty("--background", theme.colors.background.main);
+    } else {
+      docEl.style.setProperty("--background", themeDark.colors.background.main);
+    }
     setDarkTheme((prevState) => !prevState);
   };
 

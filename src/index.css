@@ -3,7 +3,7 @@ body, html {
   font-weight: lighter;
   font-size: 18px;
   line-height: 1.15;
-  background: #F9F9F9;
+  background: var(--background);
   -webkit-user-select: none;
   user-select: none;
   margin: 0;
