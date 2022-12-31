@@ -17,7 +17,7 @@ import { useSwipeable } from "react-swipeable";
 import { useNavigate } from "react-router-dom";
 
 export const DevModal = ({ openIndex, setOpenIndex }) => {
-  const [ isFade, setFade] = React.useState(true);
+  const [ fade, setFade] = React.useState(false);
   const [ imageIndex, setImageIndex] = React.useState(null);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const { isMobile, isTablet } = useThemeBreakpoints();
@@ -44,7 +44,7 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
   }, [navigate])
 
   React.useEffect(() => {
-    setTimeout(() => setFade(false), 1500);
+    setFade(true)
   }, [])
 
   React.useEffect(() => {
@@ -62,7 +62,12 @@ export const DevModal = ({ openIndex, setOpenIndex }) => {
       unmountOnExit
     >
       <>
-      <ModalWrapper {...handlers} className="modal" isFade={isFade} isMobile={isMobile}>
+      <ModalWrapper 
+        {...handlers}
+        className="modal" 
+        fade={fade} 
+        isMobile={isMobile}
+      >
         {project && (
           <>
             {imageIndex !== null && (

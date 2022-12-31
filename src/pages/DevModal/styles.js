@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { theme } from 'shared/theme';
+import { themeConstants } from "shared/theme";
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -170,19 +171,45 @@ export const ModalContent = styled.div`
 
 export const ModalWrapper = styled.div`
   position: fixed;
-  width: ${props => props.isMobile ? "100%" : "calc(100% - 270px)"};
-  height: ${props => props.isMobile ? "100%" : "calc(100% - 87px)"};
+  
   &.modal {
     background: ${theme.colors.primary.background};
   }
   box-shadow: inset 0 0 0 8px ${theme.colors.primary.main};
-  left: ${props => props.isMobile ? "0px" : "270px"};
-  top: ${props => props.isMobile ? "0px" : "87px"};
   z-index: 4;
   flex-grow: 1;
   display: flex;  
   flex-direction: column;
-  overflow: ${props => props.isMobile ? "auto" : null};
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+
+  width: calc(100% -  ${themeConstants.sidebarWidth});
+  height: calc(100% - ${themeConstants.topbarWidth});
+  left: ${themeConstants.sidebarWidth};
+  top: ${themeConstants.topbarWidth};
+ 
+  ${props => props.isMobile && (
+    css`
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    `
+  )};
+
+  ${props => !props.fade && (
+    css`
+      height: 0;
+      box-shadow: none;
+      background: ${theme.colors.primary.main} !important;
+      padding: 0;
+      overflow: hidden;
+
+      & > * {
+        opacity: 0;
+      }
+    `
+  )};
 
   span.close {
     position: absolute;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { theme } from 'shared/theme';
+import { theme, themeConstants } from 'shared/theme';
 
 export const Summary = styled.div`
   background: ${theme.colors.background.main};
-  max-width: ${props => props.isMobile ? "100%" : "270px"};
+  max-width: ${props => props.isMobile ? "100%" : themeConstants.sidebarWidth};
   position: relative;
   display: flex;
   border-right: ${props => props.isMobile ? null : `1px solid ${theme.colors.divider}`};

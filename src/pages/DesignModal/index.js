@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { theme } from 'shared/theme';
 
 export const DesignModal = ({ openIndex, setOpenIndex }) => {
+  const [ fade, setFade] = React.useState(false);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const { isMobile } = useThemeBreakpoints();
   const design = designs[openIndex];
@@ -33,6 +34,10 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
   }, [navigate])
 
   React.useEffect(() => {
+    setFade(true)
+  }, [])
+
+  React.useEffect(() => {
     if (!design) {
       handleClose()
     }
@@ -45,7 +50,12 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         classNames="fade"
         unmountOnExit
       >
-        <ModalWrapper className="modal" {...handlers} isMobile={isMobile}>
+        <ModalWrapper 
+          className="modal" 
+          {...handlers} 
+          fade={fade} 
+          isMobile={isMobile}
+        >
           {design && (
             <>
               <SwipeNotification avoidNotification={!!hasSwiped} />

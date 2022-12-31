@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme } from "shared/theme";
+import { theme, themeConstants } from "shared/theme";
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -84,11 +84,13 @@ export const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: inset 0 0 0 8px ${theme.colors.secondary.main};
+  overflow: hidden;
+  transition: all .3s ease-in-out;
 
-  width: calc(100% - 270px);
-  height: calc(100% - 87px);
-  left: 270px;
-  top: 87px;
+  width: calc(100% -  ${themeConstants.sidebarWidth});
+  height: calc(100% - ${themeConstants.topbarWidth});
+  left: ${themeConstants.sidebarWidth};
+  top: ${themeConstants.topbarWidth};
  
   ${props => props.isMobile && (
     css`
@@ -96,6 +98,20 @@ export const ModalWrapper = styled.div`
       height: 100%;
       left: 0;
       top: 0;
+    `
+  )};
+
+  ${props => !props.fade && (
+    css`
+      height: 0;
+      box-shadow: none;
+      background: ${theme.colors.secondary.main} !important;
+      padding: 0;
+      overflow: hidden;
+
+      & > * {
+        opacity: 0;
+      }
     `
   )};
 

@@ -7,6 +7,11 @@ export const breakpoints = {
   largeDesktop: 1440,
 };
 
+export const themeConstants = {
+  sidebarWidth: '270px',
+  topbarWidth: '87px',
+};
+
 export const theme = {
   colors: {
     divider: '#D9D9D9',
