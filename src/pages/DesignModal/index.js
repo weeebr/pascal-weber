@@ -9,7 +9,7 @@ import { SwipeNotification } from "components/SwipeNotification";
 import { useNavigate } from "react-router-dom";
 import { theme } from 'shared/theme';
 
-export const DesignModal = ({ openIndex, setOpenIndex }) => {
+export const DesignModal = ({ darkClass, openIndex, setOpenIndex }) => {
   const [ fade, setFade] = React.useState(false);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
   const { isMobile } = useThemeBreakpoints();
@@ -51,9 +51,9 @@ export const DesignModal = ({ openIndex, setOpenIndex }) => {
         unmountOnExit
       >
         <ModalWrapper 
-          className="modal" 
           {...handlers} 
-          fade={fade} 
+          fade={fade}
+          className={`modal ${darkClass}`}
           isMobile={isMobile}
         >
           {design && (

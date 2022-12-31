@@ -5,7 +5,7 @@ import { pascalFoto, pascalFotoAlternative } from 'shared/images'
 import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
 import { useThemeBreakpoints, usePage, useClipboard } from "shared/hooks";
 
-export const Sidebar = () => {
+export const Sidebar = ({darkClass}) => {
   const [showToast, setShowToast] = React.useState(false);
   const { isMobile } = useThemeBreakpoints();
   const { isDesign } = usePage();
@@ -22,10 +22,10 @@ export const Sidebar = () => {
   }
 
   return (
-    <Summary isMobile={isMobile}>
+    <Summary className={darkClass} isMobile={isMobile}>
       <div className="summary">
         <PortraitFoto src={src}><img className="img" alt="" /></PortraitFoto>
-        <ProfileTitle>Pascal Weber</ProfileTitle>
+        <ProfileTitle className={darkClass}>Pascal Weber</ProfileTitle>
         <div className="job-title">Experienced Frontend Engineer</div>
         <div className="contact-info">
           <a href="https://www.linkedin.com/in/p-weber/" target="_blank" rel="noopener noreferrer">
@@ -47,7 +47,7 @@ export const Sidebar = () => {
           </span>
         </div>
       </div>
-      <MoreWrapper>
+      <MoreWrapper className={darkClass}>
         <div className="more">
           <p className="short-description">A passion for clean and elegant code, UX and details. Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>
         </div>

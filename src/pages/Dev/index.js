@@ -9,8 +9,9 @@ import { Link, useNavigate  } from "react-router-dom";
 import { theme, PageTitle } from "shared/theme";
 import { StyledButton } from "components/PageToggle/styles";
 import { PageToggle } from "components/PageToggle";
+import { ThemeToggle } from "./../../components/ThemeToggle/index";
 
-export const Dev = ({setOpenIndex}) => {
+export const Dev = ({darkClass, isDarkTheme, setDarkTheme, setOpenIndex}) => {
   const { isMobile } = useThemeBreakpoints();
   const { isDesign }  = usePage();
   const navigate = useNavigate();
@@ -26,13 +27,14 @@ export const Dev = ({setOpenIndex}) => {
         isMobile={isMobile}
         src={thumbnail}
         onClick={() => handleOpen(index)}
+        className={darkClass}
       >
         <span>
           <p className='title'>{title}</p>
           <p className='year'>{year}</p>
         </span>
         {!isMobile && <div className="img" alt="" />}
-        <LinkButton href={url}>
+        <LinkButton className={darkClass} href={url}>
           <span className='link'>
             {more ? (
               <UrlIcon fill={theme.colors.primary.main} />
@@ -48,15 +50,16 @@ export const Dev = ({setOpenIndex}) => {
 
   return (
     <>
-      <ProjectsWrapper>
+      <ProjectsWrapper isMobile={isMobile}>
         {isMobile && (
           <span>
-              <PageTitle isDesign={isDesign}>
-            <Link to={isDesign ? '/design' : '/'}>
+            <PageTitle className={darkClass} isDesign={isDesign}>
+              <Link to={isDesign ? '/design' : '/'}>
                 /{isDesign ? 'Design' : 'Dev'}
-            </Link>
-              </PageTitle>
+              </Link>
+            </PageTitle>
 
+            <ThemeToggle isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} />
 
             <span>
               <StyledButton className='cv'>
@@ -68,7 +71,7 @@ export const Dev = ({setOpenIndex}) => {
             </span>
           </span>
         )}
-        <PageSubTitle isDesign={isDesign}>Projects</PageSubTitle>
+        <PageSubTitle className={darkClass} isMobile={isMobile} isDesign={isDesign}>Projects</PageSubTitle>
         <div>
           {projects.map((project, index) => (
             <ProjectCard  

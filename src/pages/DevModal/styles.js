@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme } from 'shared/theme';
-import { themeConstants } from "shared/theme";
+import { theme, themeDark, themeConstants } from 'shared/theme';
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -122,6 +121,10 @@ export const ModalContent = styled.div`
   flex-direction: ${props => props.isMobile ? "column" : 'row'};
   height: 100%;
 
+  &.dark > span {
+    color: white;
+  }
+
   & > span {
     min-width: 200px;
     display: flex;
@@ -130,16 +133,15 @@ export const ModalContent = styled.div`
     text-align: center;
     width: ${props => props.isMobile ? "100%" : null};
     width: ${props => props.isMobile ? "100%" : null};
+    color: ${theme.colors.primary.main};
 
     .title {
       font-size: 24px;
       font-weight: 600;
-      color: ${theme.colors.primary.main};
     }
 
     .year {
       font-size: 20px;
-      color: ${theme.colors.primary.main};
     }
 
     .description {
@@ -174,6 +176,10 @@ export const ModalWrapper = styled.div`
   
   &.modal {
     background: ${theme.colors.primary.background};
+    &.dark {
+      background: ${themeDark.colors.primary.background};
+      box-shadow: inset 0 0 0 8px ${themeDark.colors.primary.borders};
+    }
   }
   box-shadow: inset 0 0 0 8px ${theme.colors.primary.main};
   z-index: 4;
@@ -184,9 +190,9 @@ export const ModalWrapper = styled.div`
   transition: all .3s ease-in-out;
 
   width: calc(100% -  ${themeConstants.sidebarWidth});
-  height: calc(100% - ${themeConstants.topbarWidth});
+  height: calc(100% - ${themeConstants.topbarHeight});
   left: ${themeConstants.sidebarWidth};
-  top: ${themeConstants.topbarWidth};
+  top: ${themeConstants.topbarHeight};
  
   ${props => props.isMobile && (
     css`

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme, themeConstants } from "shared/theme";
+import { theme, themeDark, themeConstants } from "shared/theme";
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -77,6 +77,10 @@ export const Bottom = styled.span`
 export const ModalWrapper = styled.div`
   &.modal {
     background: ${theme.colors.secondary.background};
+    &.dark {
+      background: ${themeDark.colors.secondary.background};
+      box-shadow: inset 0 0 0 8px ${themeDark.colors.secondary.borders};
+    }
   }
   position: fixed;
   z-index: 4;
@@ -88,9 +92,9 @@ export const ModalWrapper = styled.div`
   transition: all .3s ease-in-out;
 
   width: calc(100% -  ${themeConstants.sidebarWidth});
-  height: calc(100% - ${themeConstants.topbarWidth});
+  height: calc(100% - ${themeConstants.topbarHeight});
   left: ${themeConstants.sidebarWidth};
-  top: ${themeConstants.topbarWidth};
+  top: ${themeConstants.topbarHeight};
  
   ${props => props.isMobile && (
     css`

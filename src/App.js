@@ -13,9 +13,12 @@ export const App = () => {
   const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
   const [, setUserCanTouch] = useSession('user-can-touch', false);
+  const [themeDark, ] = useSession('theme-dark', false);
+  const [isDarkTheme, setDarkTheme] = React.useState(themeDark);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const id = pathname.split('/')[2];
+  const darkClass = isDarkTheme ? 'dark' : '';
 
   React.useEffect(() => {
     const possibleRootPaths = ['dev', 'design'];
@@ -33,18 +36,50 @@ export const App = () => {
     }, false);
   }, [setUserCanTouch])
 
+
   return (
     <div className="App">
       <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
-        {!isMobile && <Sidebar />}
+        {!isMobile && <Sidebar darkClass={darkClass} />}
       
-        <Main isMobile={isMobile}>
-           <TopBar />
+        <Main className={darkClass}>
+           <TopBar 
+            darkClass={darkClass} 
+            isDarkTheme={isDarkTheme} 
+            setDarkTheme={setDarkTheme} 
+          />
+
           <Routes>
-            <Route path="/dev/:id" element={<DevModal openIndex={openIndex || id} setOpenIndex={setOpenIndex}  />} />
-            <Route path="/design/:id" element={<DesignModal openIndex={openIndex || id} setOpenIndex={setOpenIndex} />} />
-            <Route path="/design" element={<Design setOpenIndex={setOpenIndex} />} />
-            <Route exact path="*" element={<Dev setOpenIndex={setOpenIndex} />} />
+            <Route path="/dev/:id" element={
+              <DevModal 
+                darkClass={darkClass}
+                setOpenIndex={setOpenIndex}
+                openIndex={openIndex || id}  
+              />}
+            />
+            <Route path="/design/:id" element={
+              <DesignModal 
+                darkClass={darkClass}
+                openIndex={openIndex || id} 
+                setOpenIndex={setOpenIndex} 
+              />} 
+            />
+            <Route path="/design" element={
+              <Design 
+                darkClass={darkClass}
+                isDarkTheme={isDarkTheme} 
+                setDarkTheme={setDarkTheme} 
+                setOpenIndex={setOpenIndex} 
+                />} 
+            />
+            <Route exact path="*" element={
+              <Dev 
+                darkClass={darkClass}
+                isDarkTheme={isDarkTheme} 
+                setDarkTheme={setDarkTheme} 
+                setOpenIndex={setOpenIndex} 
+              />} 
+            />
           </Routes>
         </Main>
       </div>

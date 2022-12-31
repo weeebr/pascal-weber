@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from 'shared/theme';
+import { theme, themeDark } from 'shared/theme';
 
 export const DesignWrapper = styled.div`
   & > span {
@@ -9,6 +9,7 @@ export const DesignWrapper = styled.div`
     span {
       display: flex;
       gap: 8px;
+      align-items: center;
     }
   }
   & > div {
@@ -24,8 +25,12 @@ export const Thumbnail = styled.div`
   border: 2px solid ${theme.colors.secondary.main};
   transition: all 1s ease;
   cursor: pointer;
-  background: white;
+  background: ${theme.colors.secondary.background};
   padding: 4px;
+
+  &.dark {
+    background: ${themeDark.colors.secondary.background};
+  }
 
   div.img {
     width: 100%;

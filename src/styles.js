@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from "./shared/theme";
+import { theme, themeDark } from "./shared/theme";
 
 export const Main = styled.div`
   background: ${theme.colors.background.main};
@@ -7,6 +7,9 @@ export const Main = styled.div`
 
   & > div {
     padding: 20px;
-    background: ${theme.colors.background.main};
+  }
+
+  &.dark {
+    background: ${themeDark.colors.background.main};S
   }
 `

@@ -9,7 +9,7 @@ export const breakpoints = {
 
 export const themeConstants = {
   sidebarWidth: '270px',
-  topbarWidth: '87px',
+  topbarHeight: '103px',
 };
 
 export const theme = {
@@ -37,12 +37,43 @@ export const theme = {
   otherColor: props => !props.isDesign ? '#bf9000' : '#0E3E6A',
 }
 
+export const themeDark = {
+  colors: {
+    divider: '#4e5c68',
+    primary: {
+      main: '#0E3E6A',
+      background: '#132538',
+      borders: '#0E3E6A'
+    },
+    secondary: {
+      main: '#bf9000',
+      background: '#2a2413',
+      borders: '#bf9000',
+    },
+    text: {
+      main: '#afafaf',
+      light: '#5f6e7e',
+      success: '#008000',
+    },
+    background: {
+      main: '#071524',
+      success: '#7bdf3d2b',
+    }
+  },
+  currentColor: props => props.isDesign ? '#bf9000' : '#0E3E6A',
+  otherColor: props => !props.isDesign ? '#bf9000' : '#0E3E6A',
+}
+
 export const PageSubTitle = styled.h3`
-  margin: 0 0 20px 0;
+  margin: ${props => props.isMobile ? '20px 0 20px 0' : '0 0 20px 0;' }; 
   color: ${props => theme.currentColor(props) };
   font-weight: 600;
   font-size: 24px;
   transition: all 0.5s ease-in-out;
+
+  &.dark {
+    color: white;
+  }
 `;
 
 export const PageTitle = styled.h2`
@@ -51,6 +82,14 @@ export const PageTitle = styled.h2`
   margin: 0;
   color: ${props => theme.currentColor(props) };
   transition: all 0.5s ease-in-out;
+
+  &.dark {
+    a {
+      color: white;
+    }
+    background: ${props => theme.currentColor(props) };
+    padding: 4px 12px;
+  }
 
   a {
     text-decoration: none;
@@ -65,4 +104,8 @@ export const ProfileTitle = styled.h1`
   font-size: 30px;
   color: black;
   line-height: 27px;
+
+  &.dark {
+    color: white;
+  }
 `

@@ -4,9 +4,9 @@ import { theme, themeConstants } from "shared/theme";
 export const FullScreenWrapper = styled.div`
   position: fixed;
   width: calc(100% - ${themeConstants.sidebarWidth});
-  height: calc(100% - ${themeConstants.topbarWidth});
+  height: calc(100% - ${themeConstants.topbarHeight});
   left: ${themeConstants.sidebarWidth};
-  top: ${themeConstants.topbarWidth};
+  top: ${themeConstants.topbarHeight};
   box-shadow: inset 0 0 0 40px ${theme.colors.primary.background};
   padding: 40px;
   z-index: 6;

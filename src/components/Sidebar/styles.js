@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme, themeConstants } from 'shared/theme';
+import { theme, themeDark, themeConstants } from 'shared/theme';
 
 export const Summary = styled.div`
   background: ${theme.colors.background.main};
@@ -9,7 +9,18 @@ export const Summary = styled.div`
   border-right: ${props => props.isMobile ? null : `1px solid ${theme.colors.divider}`};
   flex-direction: column;
   justify-content: center;
+  height: ${props => props.isMobile ? 'auto' : '100vh'};
   text-align: ${props => props.isMobile ? "center" : "right"};
+
+  &.dark {
+    background: ${themeDark.colors.background.main};
+    border-color: ${themeDark.colors.divider};
+
+
+    .summary .job-title {
+      color: ${themeDark.colors.text.main};
+    }
+  }
 
   .summary {
     display: flex;
@@ -59,6 +70,10 @@ export const Summary = styled.div`
 
 export const MoreWrapper = styled.div`
   padding: 0 20px 20px 20px;
+
+  &.dark p {
+    color: ${themeDark.colors.text.light};
+  }
 
   p {
     margin: 0;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from 'shared/theme';
+import { theme, themeDark } from 'shared/theme';
 
 export const StyledButton = styled.button`
   border: none;
@@ -60,7 +60,23 @@ export const StyledButton = styled.button`
     background: black;
     color: white;
 
-    &:hover a img {
+    &.dark {
+      background: white;
+
+      &::after {
+        background: white;
+      }
+
+      span {
+        color: black;
+      }
+
+      svg path {
+        fill: black;
+      }
+    }
+
+    &:hover a svg {
       margin-top: 3px;
     }
 
@@ -73,7 +89,7 @@ export const StyledButton = styled.button`
         margin-right: 8px;
       }
 
-      img {
+      svg {
         margin-top: -2px;
         transition: all 0.3s ease;
       }

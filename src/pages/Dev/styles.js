@@ -1,14 +1,22 @@
 import styled, { css } from 'styled-components';
-import { theme } from 'shared/theme';
+import { theme, themeDark } from 'shared/theme';
 
 export const ProjectsWrapper = styled.div`
   & > span {
     display: flex;
     justify-content: space-between;
+    
+  ${props => props.isMobile && (
+    css`
+      height: 54px;
+      align-items: center;
+    `
+  )}
 
     span {
       display: flex;
       gap: 8px;
+      align-items: center;
     }
   }
   & > div {
@@ -19,6 +27,14 @@ export const ProjectsWrapper = styled.div`
 `
 export const LinkButton = styled.a`
   text-decoration: none;
+
+  &.dark span.link {
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+  }
   
   span {
     display: flex;
@@ -58,11 +74,18 @@ export const ProjectCardWrapper = styled.div`
   width: 180px;
   height: 195px;
   flex-direction: column;
-  border: 2px solid ${theme.colors.primary.main};
+  border: 3px solid ${theme.colors.primary.main};
   background: white;
   text-align: center;
   cursor: pointer;
   transition: all 1s ease;
+
+  &.dark {
+    & > * {
+      color: white;
+    }
+    background: ${themeDark.colors.primary.background};
+  }
 
   ${props => props.isMobile && (
     css`

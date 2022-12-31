@@ -9,8 +9,9 @@ import { StyledButton } from "components/PageToggle/styles";
 import { PageTitle } from "shared/theme";
 import { CV } from 'shared/files'
 import { usePage } from "shared/hooks";
+import { ThemeToggle } from 'components/ThemeToggle';
 
-export const Design = ({setOpenIndex}) => {
+export const Design = ({darkClass, isDarkTheme, setDarkTheme, setOpenIndex}) => {
   const navigate = useNavigate();
   const { isMobile } = useThemeBreakpoints();
   const { isDesign } = usePage();
@@ -29,6 +30,8 @@ export const Design = ({setOpenIndex}) => {
               /{isDesign ? 'Design' : 'Dev'}
             </PageTitle>
 
+            <ThemeToggle isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} />
+
             <span>
               <StyledButton className='cv'>
                 <Link target='_blank' to={CV} download>
@@ -46,6 +49,7 @@ export const Design = ({setOpenIndex}) => {
               isMobile={isMobile}
               src={image.src} 
               key={image.src} 
+              className={darkClass}
               onClick={e => handleOpen(index)} 
               onKeyUp={e => handleOpen(index)}
             >
