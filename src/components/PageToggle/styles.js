@@ -60,6 +60,10 @@ export const StyledButton = styled.button`
     background: black;
     color: white;
 
+    &:hover a img {
+      margin-top: 3px;
+    }
+
     a {
       display: flex;
       justify-content: center;
@@ -71,6 +75,7 @@ export const StyledButton = styled.button`
 
       img {
         margin-top: -2px;
+        transition: all 0.3s ease;
       }
     }
 

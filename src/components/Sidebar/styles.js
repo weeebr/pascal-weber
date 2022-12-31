@@ -73,5 +73,6 @@ export const PortraitFoto = styled.div`
   height: 145px;
   overflow: hidden;
   border-radius: 50%;
+  transition: all 1.5s ease;
   background: url(${props => props.src}) no-repeat center center;
 `

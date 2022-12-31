@@ -37,6 +37,7 @@ export const PageSubTitle = styled.h3`
   color: ${props => theme.currentColor(props) };
   font-weight: 600;
   font-size: 24px;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const PageTitle = styled.h2`
@@ -44,6 +45,7 @@ export const PageTitle = styled.h2`
   font-weight: 700;
   margin: 0;
   color: ${props => theme.currentColor(props) };
+  transition: all 0.5s ease-in-out;
 `
 
 export const ProfileTitle = styled.h1`
