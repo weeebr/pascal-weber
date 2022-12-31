@@ -9,9 +9,8 @@ import { Link, useNavigate  } from "react-router-dom";
 import { theme, PageTitle } from "shared/theme";
 import { StyledButton } from "components/PageToggle/styles";
 import { PageToggle } from "components/PageToggle";
-import { ThemeToggle } from "./../../components/ThemeToggle/index";
 
-export const Dev = ({darkClass, isDarkTheme, setDarkTheme, setOpenIndex}) => {
+export const Dev = ({darkClass,  setOpenIndex}) => {
   const { isMobile } = useThemeBreakpoints();
   const { isDesign }  = usePage();
   const navigate = useNavigate();
@@ -58,8 +57,6 @@ export const Dev = ({darkClass, isDarkTheme, setDarkTheme, setOpenIndex}) => {
                 /{isDesign ? 'Design' : 'Dev'}
               </Link>
             </PageTitle>
-
-            <ThemeToggle isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} />
 
             <span>
               <StyledButton className='cv'>

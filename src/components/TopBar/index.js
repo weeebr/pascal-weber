@@ -17,7 +17,7 @@ export const TopBar = ({darkClass, isDarkTheme, setDarkTheme}) => {
   return (
     <TopBarWrapper isMobile={isMobile} className={darkClass}>
       {isMobile && (
-        <Sidebar darkClass={darkClass} />
+        <Sidebar isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} darkClass={darkClass} />
       )}
       {!isMobile && (
         <>

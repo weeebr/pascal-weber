@@ -4,8 +4,9 @@ import { ProfileTitle } from "shared/theme";
 import { pascalFoto, pascalFotoAlternative } from 'shared/images'
 import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
 import { useThemeBreakpoints, usePage, useClipboard } from "shared/hooks";
+import { ThemeToggle } from "components/ThemeToggle";
 
-export const Sidebar = ({darkClass}) => {
+export const Sidebar = ({darkClass, isDarkTheme, setDarkTheme}) => {
   const [showToast, setShowToast] = React.useState(false);
   const { isMobile } = useThemeBreakpoints();
   const { isDesign } = usePage();
@@ -52,6 +53,8 @@ export const Sidebar = ({darkClass}) => {
           <p className="short-description">A passion for clean and elegant code, UX and details. Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>
         </div>
     </MoreWrapper>
+      {isMobile && <ThemeToggle isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} />}
+
     </Summary>
   )
 }
