@@ -13,8 +13,8 @@ export const App = () => {
   const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
   const [, setUserCanTouch] = useSession('user-can-touch', false);
-  const [themeDark, ] = useSession('theme-dark', false);
-  const [isDarkTheme, setDarkTheme] = React.useState(themeDark);
+  const [themeDark] = useSession('theme-dark', false);
+  const [isDarkTheme, setDarkTheme] = useSession('theme-dark', themeDark);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const id = pathname.split('/')[2];
@@ -40,7 +40,7 @@ export const App = () => {
   return (
     <div className="App">
       <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
-        {!isMobile && <Sidebar darkClass={darkClass} />}
+        {!isMobile && <Sidebar darkClass={darkClass} isDarkTheme={isDarkTheme} setDarkTheme={setDarkTheme} />}
       
         <Main className={darkClass}>
            <TopBar 

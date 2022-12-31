@@ -1,25 +1,21 @@
 import React from "react";
 import { SunIcon, MoonIcon } from "shared/icons";
-import { theme, themeDark } from "shared/theme";
 import "./styles.css";
 
 export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
+  const docEl = document.documentElement;
+  console.log('pwe', 'isDarkTheme', isDarkTheme)
+  const toggleState = React.useCallback(() => {
+    docEl.style.setProperty("--background", isDarkTheme ? 'white' : 'black');
 
-  /*
-   * Read the blog post here:
-   * https://letsbuildui.dev/articles/building-a-dark-mode-theme-toggle
-   */
+    setDarkTheme(!isDarkTheme);
+  }, [docEl.style, isDarkTheme, setDarkTheme]);
 
-  const toggleState = () => {
-    const docEl = document.documentElement;
-
-    if (isDarkTheme) {
-      docEl.style.setProperty("--background", theme.colors.background.main);
-    } else {
-      docEl.style.setProperty("--background", themeDark.colors.background.main);
+  React.useEffect(() => {
+    if (docEl.style.getPropertyValue("--background") === "") {
+      docEl.style.setProperty("--background", isDarkTheme ? 'black' : 'white');
     }
-    setDarkTheme((prevState) => !prevState);
-  };
+  }, [docEl.style, isDarkTheme])
 
   return (
     <label className="toggle-wrapper" htmlFor="toggle">
