@@ -10,6 +10,7 @@ export const Sidebar = () => {
   const { isMobile } = useThemeBreakpoints();
   const { isDesign } = usePage();
   const clip = useClipboard();
+  const src = React.useMemo(() => isDesign ? pascalFotoAlternative : pascalFoto, [isDesign])
 
   const handleEmailClick = () => {
     clip.copy('contact@pascal-weber.ch');
@@ -23,7 +24,7 @@ export const Sidebar = () => {
   return (
     <Summary isMobile={isMobile}>
       <div className="summary">
-        <PortraitFoto src={isDesign ? pascalFotoAlternative : pascalFoto}><img className="img" alt="" /></PortraitFoto>
+        <PortraitFoto src={src}><img className="img" alt="" /></PortraitFoto>
         <ProfileTitle>Pascal Weber</ProfileTitle>
         <div className="job-title">Experienced Frontend Engineer</div>
         <div className="contact-info">

@@ -4,17 +4,8 @@ import { SwipeWrapper } from "./styles";
 import { swipeIcon } from "shared/icons";
 
 export const SwipeNotification = ({ avoidNotification }) => {
-  const [ isTouch, setTouch ] = React.useState(null);
   const [modalOpened, setModalOpened] = useSession('modal-opened', null);
-
-  React.useEffect(() => {
-    const isTouchDevice = async () => {
-      return ('ontouchstart' in window) ||
-       (navigator.maxTouchPoints > 0) ||
-       (navigator.msMaxTouchPoints > 0)
-    }
-    isTouchDevice().then(is => { setTouch(is) })
-  }, [])
+  const [ userCanTouch ] = useSession('user-can-touch');
 
   React.useEffect(() => {
     if (modalOpened) {
@@ -30,7 +21,7 @@ export const SwipeNotification = ({ avoidNotification }) => {
     }
   }, [modalOpened, setModalOpened, avoidNotification])
 
-  return modalOpened && isTouch && !avoidNotification && (
+  return modalOpened && userCanTouch && !avoidNotification && (
     <SwipeWrapper>
       <img src={swipeIcon} alt="swipe" />
       Hey good-looking! Swipe if you like what you see 💦🔥

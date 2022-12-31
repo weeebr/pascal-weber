@@ -7,11 +7,12 @@ import { Design } from "pages/Design";
 import { DesignModal } from "pages/DesignModal";
 import { Main } from "./styles";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { useThemeBreakpoints } from "shared/hooks";
+import { useThemeBreakpoints, useSession } from "shared/hooks";
 
 export const App = () => {
   const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
+  const [, setUserCanTouch] = useSession('user-can-touch', false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const id = pathname.split('/')[2];
@@ -24,6 +25,13 @@ export const App = () => {
       navigate("/");
     }
   }, [navigate, pathname])
+
+  React.useEffect(() => {
+    window.addEventListener('touchstart', function onFirstTouch() {
+      setUserCanTouch(true);
+      window.removeEventListener('touchstart', onFirstTouch, false);
+    }, false);
+  }, [setUserCanTouch])
 
   return (
     <div className="App">
