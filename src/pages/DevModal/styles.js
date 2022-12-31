@@ -63,7 +63,7 @@ export const ButtonsWrapper = styled.span`
     position: absolute;
     bottom: 12px;
     left: 12px;
-    padding: 20px 0;
+    padding: ${props => props.isMobile ? "12px 0" : "20px 0"};
     margin: 0;
     background: ${theme.colors.primary.background.main};
     width: calc(100% - 24px);
