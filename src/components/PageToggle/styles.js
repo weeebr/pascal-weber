@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme, themeDark } from 'shared/theme';
+import { theme } from 'shared/theme';
 
 export const StyledButton = styled.button`
   border: none;
