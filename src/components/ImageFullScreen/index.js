@@ -4,7 +4,7 @@ import { useThemeBreakpoints } from "shared/hooks";
 import { CloseIcon } from 'shared/icons';
 import { theme } from 'shared/theme';
 
-export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
+export const ImageFullScreen = ({ imageIndex, project, onClose, darkClass }) => {
   const src = project.images[imageIndex]
   const { isMobile } = useThemeBreakpoints();
   
@@ -15,7 +15,7 @@ export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
       classNames="fade"
       unmountOnExit
     >
-      <FullScreenWrapper isMobile={isMobile} onClick={onClose} src={src}>
+      <FullScreenWrapper className={darkClass} isMobile={isMobile} onClick={onClose} src={src}>
         <div />
         <span><CloseIcon fill={theme.colors.primary.main} /></span>
       </FullScreenWrapper>

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme, themeConstants } from "shared/theme";
+import { theme, themeDark, themeConstants } from "shared/theme";
 
 export const FullScreenWrapper = styled.div`
   position: fixed;
@@ -11,6 +11,18 @@ export const FullScreenWrapper = styled.div`
   padding: 40px;
   z-index: 6;
   cursor: zoom-out;
+
+  &.dark {
+    box-shadow: inset 0 0 0 40px ${themeDark.colors.primary.background};
+
+    div {
+      background: url(${props => props.src}) no-repeat center center, ${themeDark.colors.primary.background};
+    }
+
+    span {
+      background: ${themeDark.colors.primary.background};
+    }
+  }
 
   ${props => props.isMobile && (
     css`

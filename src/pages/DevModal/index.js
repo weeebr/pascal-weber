@@ -74,7 +74,8 @@ export const DevModal = ({ darkClass, openIndex, setOpenIndex }) => {
               <ImageFullScreen 
                 onClose={() => setImageIndex(null)} 
                 project={project}
-                imageIndex={imageIndex} 
+                imageIndex={imageIndex}
+                darkClass={darkClass}
               />
             )}
             <SwipeNotification avoidNotification={!!hasSwiped} />
