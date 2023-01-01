@@ -11,18 +11,18 @@ export const SwipeNotification = ({ avoidNotification }) => {
     if (modalOpened) {
       setTimeout(() => {
         setModalOpened(false);
-      }, 4000);
+      }, 8000);
     }
 
     if (modalOpened === null && !avoidNotification) {
       setTimeout(() => {
         setModalOpened(true)
-      }, 8000);
+      }, 4000);
     }
   }, [modalOpened, setModalOpened, avoidNotification])
 
   return modalOpened && userCanTouch && !avoidNotification && (
-    <SwipeWrapper>
+    <SwipeWrapper onClick={() => setModalOpened(true)} onKeyUp={() => setModalOpened(true)}>
       <img src={swipeIcon} alt="swipe" />
       Hey good-looking! Swipe if you like what you see 💦🔥
     </SwipeWrapper>
