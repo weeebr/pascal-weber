@@ -8,17 +8,18 @@ import { DesignModal } from "pages/DesignModal";
 import { Main } from "./styles";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useThemeBreakpoints, useSession } from "shared/hooks";
+import { useTouchListener } from "./shared/hooks";
 
 export const App = () => {
   const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
-  const [, setUserCanTouch] = useSession('user-can-touch', false);
   const [themeDark] = useSession('theme-dark', false);
   const [isDarkTheme, setDarkTheme] = useSession('theme-dark', themeDark);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const id = pathname.split('/')[2];
   const darkClass = isDarkTheme ? 'dark' : '';
+  useTouchListener()
 
   React.useEffect(() => {
     const possibleRootPaths = ['dev', 'design'];
@@ -28,14 +29,6 @@ export const App = () => {
       navigate("/");
     }
   }, [navigate, pathname])
-
-  React.useEffect(() => {
-    window.addEventListener('touchstart', function onFirstTouch() {
-      setUserCanTouch(true);
-      window.removeEventListener('touchstart', onFirstTouch, false);
-    }, false);
-  }, [setUserCanTouch])
-
 
   return (
     <div className="App">

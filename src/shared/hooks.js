@@ -2,6 +2,17 @@ import React from "react";
 import { breakpoints } from "./theme";
 import { useLocation } from "react-router-dom";
 
+export const useTouchListener = () => {
+  const [, setUserCanTouch] = useSession('user-can-touch', false);
+
+  React.useEffect(() => {
+    window.addEventListener('touchstart', function onFirstTouch() {
+      setUserCanTouch(true);
+      window.removeEventListener('touchstart', onFirstTouch, false);
+    }, false);
+  }, [setUserCanTouch])
+}
+
 export const useThemeBreakpoints = () => {
   const { mobile, tablet } = breakpoints;
   const isMobile = useMediaQuery(`(max-width: ${mobile}px)`);
