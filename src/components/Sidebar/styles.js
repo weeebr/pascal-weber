@@ -75,7 +75,7 @@ export const MoreWrapper = styled.div`
 
   p {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     color: ${theme.colors.text.light};
     font-family: 'League Spartan';
   }
