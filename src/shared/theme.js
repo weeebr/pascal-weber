@@ -29,7 +29,7 @@ export const theme = {
       success: '#008000',
     },
     background: {
-      main: '#F9F9F9',
+      main: 'f3f2f2',
       success: '#7bdf3d2b',
     },
     toggle: {
@@ -40,7 +40,7 @@ export const theme = {
 }
 
 export const currentThemeColor = isDesign => isDesign ? '#bf9000' : '#0E3E6A';
-export const currentThemeBg = isDarkTheme => isDarkTheme ? '#071524' : '#F9F9F9';
+export const currentThemeBg = isDarkTheme => isDarkTheme ? '#071524' : '##f3f2f2';
 
 export const themeDark = {
   colors: {
