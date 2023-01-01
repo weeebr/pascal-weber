@@ -18,7 +18,7 @@ export const ToggleWrapper = styled.label`
 
       &::before {
         background: ${themeDark.colors.toggle.button};
-        transform: translateX(43px);
+        transform: translateX(44px);
       }
     }
 
