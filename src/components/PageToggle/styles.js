@@ -58,10 +58,13 @@ export const StyledButton = styled.button`
 
   &.cv {
     background: black;
-    color: white;
 
     &.dark {
       background: white;
+
+      a {
+        color: black;
+      }
 
       &::after {
         background: white;

@@ -72,7 +72,7 @@ export const themeDark = {
 }
 
 export const PageSubTitle = styled.h3`
-  margin: 0 0 20px 0; 
+  margin: ${props => props.isMobile ? '12px 0 20px 0' : '0 0 20px 0'}; 
   color: ${props => currentThemeColor(props.isDesign) };
   font-weight: 600;
   font-size: 24px;

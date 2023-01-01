@@ -3,7 +3,7 @@ import { ProjectCardWrapper, ProjectsWrapper, LinkButton } from './styles';
 import { projects } from 'shared/constants';
 import { PageSubTitle } from "shared/theme";
 import { CV } from "shared/files";
-import { UrlIcon, EyeIcon } from "shared/icons";
+import { UrlIcon, EyeIcon, DownloadIcon } from "shared/icons";
 import { useThemeBreakpoints, usePage } from "shared/hooks";
 import { Link, useNavigate  } from "react-router-dom";
 import { theme, PageTitle } from "shared/theme";
@@ -53,15 +53,16 @@ export const Dev = ({darkClass,  setOpenIndex}) => {
         {isMobile && (
           <span>
             <PageTitle className={darkClass} isDesign={isDesign}>
-              <Link to={isDesign ? '/design' : '/'}>
-                /{isDesign ? 'Design' : 'Dev'}
+              <Link to={'/'}>
+                /Dev
               </Link>
             </PageTitle>
 
             <span>
-              <StyledButton className='cv'>
+              <StyledButton className={`cv ${darkClass}`}>
                 <Link target='_blank' to={CV} download>
-                  CV
+                  <span>CV</span>
+                  <DownloadIcon width="18px" height="18px" alt='download' />
                 </Link>
               </StyledButton>
               <PageToggle />

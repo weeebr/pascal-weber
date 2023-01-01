@@ -26,7 +26,7 @@ export const TopBar = ({darkClass, isDarkTheme, setDarkTheme}) => {
                     /{isDesign ? 'Design' : 'Dev'}
               </Link>
             </PageTitle>
-            <ThemeToggle isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} />
+            <ThemeToggle isDarkTheme={isDarkTheme} setDarkTheme={setDarkTheme} />
 
           <span>
             <StyledButton className={`cv ${darkClass}`}>
