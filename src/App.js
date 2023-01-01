@@ -35,7 +35,7 @@ export const App = () => {
       if (isDarkTheme) {
         document.querySelector("html").classList.add("dark");
       } else {
-        document.querySelector("html").classList.remove("dark");
+        document.querySelector("html").classList.add("light");
       }
     }
     setMounted(true);

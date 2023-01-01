@@ -8,7 +8,9 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
   const toggleState = React.useCallback(() => {
     if (isDarkTheme) {
       document.querySelector("html").classList.remove("dark");
+      document.querySelector("html").classList.add("light");
     } else {
+      document.querySelector("html").classList.remove("light");
       document.querySelector("html").classList.add("dark");
     }
 

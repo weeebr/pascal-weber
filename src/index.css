@@ -24,18 +24,32 @@ code {
     monospace;
 }
 
-html::before {
+html::before, html::after {
   content: "";
   position: fixed;
   height: 100%;
   width: 100%;
+  top: 0;
+  left: 0;
   background: var(--background);
-  transform: translateX(-100%);
   transition: all .5s ease-in-out;
   z-index: 0;
+}
+
+html.light::after {
+  background: var(--background);
+  transform: translateX(0);
+}
+
+html.light::before {
+  transform: translateX(-100%);
 }
 
 html.dark::before {
   background: var(--background-dark);
   transform: translateX(0);
+}
+
+html.dark::after {
+  transform: translateX(100%);
 }
