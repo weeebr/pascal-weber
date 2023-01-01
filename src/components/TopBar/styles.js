@@ -4,14 +4,12 @@ import { theme, themeDark, themeConstants } from 'shared/theme';
 export const TopBarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  background: ${theme.colors.background.main};
   padding: 20px;
   border-bottom: 1px solid ${theme.colors.divider};
   height: ${props => props.isMobile ? null : themeConstants.topbarHeight};
   align-items: center;
 
   &.dark {
-    background: ${themeDark.colors.background.main};
     border-color: ${themeDark.colors.divider};
   }
 

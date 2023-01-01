@@ -16,7 +16,7 @@ import { theme } from 'shared/theme';
 import { useSwipeable } from "react-swipeable";
 import { useNavigate } from "react-router-dom";
 
-export const DevModal = ({ darkClass, openIndex, setOpenIndex }) => {
+export const DevModal = ({ darkClass, isDarkTheme, openIndex, setOpenIndex }) => {
   const [ fade, setFade] = React.useState(false);
   const [ imageIndex, setImageIndex] = React.useState(null);
   const [ hasSwiped, setHasSwiped ] = React.useState(false);
@@ -83,7 +83,7 @@ export const DevModal = ({ darkClass, openIndex, setOpenIndex }) => {
               onClick={handleClose}
               onKeyUp={handleClose}
             >
-              <CloseIcon fill={theme.colors.primary.main} />
+              <CloseIcon fill={isDarkTheme ? 'white' : theme.colors.primary.main} />
             </span>
             
             <ModalContent className={darkClass} isMobile={isMobile}>

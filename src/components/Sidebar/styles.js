@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { theme, themeDark, themeConstants } from 'shared/theme';
 
 export const Summary = styled.div`
-  background: ${theme.colors.background.main};
   max-width: ${props => props.isMobile ? "100%" : themeConstants.sidebarWidth};
   position: relative;
   display: flex;
@@ -13,9 +12,7 @@ export const Summary = styled.div`
   text-align: ${props => props.isMobile ? "center" : "right"};
 
   &.dark {
-    background: ${themeDark.colors.background.main};
     border-color: ${themeDark.colors.divider};
-
 
     .summary .job-title {
       color: ${themeDark.colors.text.main};

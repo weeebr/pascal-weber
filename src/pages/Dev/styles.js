@@ -81,10 +81,10 @@ export const ProjectCardWrapper = styled.div`
   transition: all 1s ease;
 
   &.dark {
+    background: transparent;
     & > * {
       color: white;
     }
-    background: ${themeDark.colors.primary.background};
   }
 
   ${props => props.isMobile && (

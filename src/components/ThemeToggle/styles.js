@@ -8,16 +8,16 @@ export const ToggleWrapper = styled.label`
     height: 36px;
     width: 80px;
     padding: 5px 0;
-    background: ${theme.toggle.background};
+    background: ${theme.colors.toggle.background};
     border-radius: 40px;
     position: relative;
     cursor: pointer;
 
     &.dark {
-      background: ${themeDark.toggle.background};
+      background: ${themeDark.colors.toggle.background};
 
       &::before {
-        background: ${themeDark.toggle.button};
+        background: ${themeDark.colors.toggle.button};
         transform: translateX(43px);
       }
     }
@@ -28,7 +28,7 @@ export const ToggleWrapper = styled.label`
       height: 30px;
       width: 30px;
       border-radius: 50%;
-      background:  ${theme.toggle.button};
+      background: ${theme.colors.toggle.button};
       position: absolute;
       z-index: 2;
       margin: -2px 0px 0 3px;
@@ -52,7 +52,7 @@ export const ToggleWrapper = styled.label`
       svg {
         height: 30px;
         width: 30px;
-        z-index: 0;
+        z-index: 1;
       }
     }
   }

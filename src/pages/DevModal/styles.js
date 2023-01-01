@@ -205,9 +205,11 @@ export const ModalWrapper = styled.div`
 
   ${props => !props.fade && (
     css`
+      &.modal.modal {
+        background: ${theme.colors.primary.main}
+      }
       height: 0;
       box-shadow: none;
-      background: ${theme.colors.primary.main} !important;
       padding: 0;
       overflow: hidden;
       width: 0;

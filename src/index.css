@@ -1,9 +1,13 @@
+:root {
+  --background: #f9f9f9;
+  --background-dark: #071524;
+}
+
 body, html {
   font-family: 'League Spartan', sans-serif;
   font-weight: lighter;
   font-size: 18px;
   line-height: 1.15;
-  background: var(--background);
   -webkit-user-select: none;
   user-select: none;
   margin: 0;
@@ -18,4 +22,20 @@ body, html {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: var(--background);
+  transform: translateX(-100%);
+  transition: all .5s ease-in-out;
+  z-index: 0;
+}
+
+html.dark::before {
+  background: var(--background-dark);
+  transform: translateX(0);
 }

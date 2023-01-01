@@ -32,7 +32,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
+      <div style={{ display: 'flex', width: '100%', height: '100vh', zIndex: 1, position: 'relative' }}>
         {!isMobile && <Sidebar darkClass={darkClass} isDarkTheme={isDarkTheme} setDarkTheme={setDarkTheme} />}
       
         <Main className={darkClass}>
@@ -46,6 +46,7 @@ export const App = () => {
             <Route path="/dev/:id" element={
               <DevModal 
                 darkClass={darkClass}
+                isDarkTheme={isDarkTheme} 
                 setOpenIndex={setOpenIndex}
                 openIndex={openIndex || id}  
               />}

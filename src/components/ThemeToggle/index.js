@@ -7,16 +7,15 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
   const docEl = document.documentElement;
 
   const toggleState = React.useCallback(() => {
-    docEl.style.setProperty("--background", currentThemeBg(!isDarkTheme));
+    if (isDarkTheme) {
+      document.querySelector("html").classList.remove("dark");
+    } else {
+      document.querySelector("html").classList.add("dark");
+    }
 
     setDarkTheme(!isDarkTheme);
-  }, [docEl.style, isDarkTheme, setDarkTheme]);
+  }, [isDarkTheme, setDarkTheme]);
 
-  React.useEffect(() => {
-    if (docEl.style.getPropertyValue("--background") === "") {
-      docEl.style.setProperty("--background", currentThemeBg(isDarkTheme));
-    }
-  }, [docEl.style, isDarkTheme])
 
   return (
     <ToggleWrapper htmlFor="toggle">
