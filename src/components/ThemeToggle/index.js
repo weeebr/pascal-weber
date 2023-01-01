@@ -1,34 +1,29 @@
 import React from "react";
 import { SunIcon, MoonIcon } from "shared/icons";
-import { currentToggleButton, currentToggleBg } from "shared/theme";
-import "./styles.css";
+import { currentThemeBg } from "shared/theme";
+import { ToggleWrapper } from "./styles";
 
 export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
   const docEl = document.documentElement;
 
   const toggleState = React.useCallback(() => {
-    docEl.style.setProperty("--background", currentToggleButton(!isDarkTheme));
-    docEl.style.setProperty("--toggle-bg", currentToggleBg(!isDarkTheme));
+    docEl.style.setProperty("--background", currentThemeBg(!isDarkTheme));
 
     setDarkTheme(!isDarkTheme);
   }, [docEl.style, isDarkTheme, setDarkTheme]);
 
   React.useEffect(() => {
     if (docEl.style.getPropertyValue("--background") === "") {
-      docEl.style.setProperty("--toggle-bg", currentToggleBg(isDarkTheme));
-      docEl.style.setProperty("--background", currentToggleButton(isDarkTheme));
+      docEl.style.setProperty("--background", currentThemeBg(isDarkTheme));
     }
   }, [docEl.style, isDarkTheme])
 
   return (
-    <label className="toggle-wrapper" htmlFor="toggle">
-      <div className={`toggle ${!isDarkTheme ? "enabled" : "disabled"}`}>
-        <span className="hidden">
-          {isDarkTheme ? "Enable Light Mode" : "Enable Dark Mode"}
-        </span>
+    <ToggleWrapper htmlFor="toggle">
+      <div className={`toggle ${isDarkTheme ? "dark" : ""}`}>
         <div className="icons">
-          <SunIcon />
-          <MoonIcon />
+          <SunIcon fill={currentThemeBg(isDarkTheme)} />
+          <MoonIcon fill={currentThemeBg(isDarkTheme)} />
         </div>
         <input
           id="toggle"
@@ -39,6 +34,6 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
           onClick={toggleState}
         />
       </div>
-    </label>
+    </ToggleWrapper>
   );
 }

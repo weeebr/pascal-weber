@@ -40,8 +40,7 @@ export const theme = {
 }
 
 export const currentThemeColor = isDesign => isDesign ? '#bf9000' : '#0E3E6A';
-export const currentToggleBg = isDarkTheme => isDarkTheme ? '#4e5c68' : '#D9D9D9';
-export const currentToggleButton = isDarkTheme => isDarkTheme ? 'black' : 'white';
+export const currentThemeBg = isDarkTheme => isDarkTheme ? '#071524' : '#F9F9F9';
 
 export const themeDark = {
   colors: {
