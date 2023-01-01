@@ -17,7 +17,7 @@ export const SwipeNotification = ({ avoidNotification }) => {
     if (modalOpened === null && !avoidNotification) {
       setTimeout(() => {
         setModalOpened(true)
-      }, 5000);
+      }, 8000);
     }
   }, [modalOpened, setModalOpened, avoidNotification])
 
