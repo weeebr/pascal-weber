@@ -25,7 +25,7 @@ export const Sidebar = ({darkClass, isDarkTheme, setDarkTheme}) => {
   return (
     <Summary className={darkClass} isMobile={isMobile}>
       <div className="summary">
-        <PortraitFoto src={src}><img className="img" alt="" /></PortraitFoto>
+        <PortraitFoto src={src} />
         <ProfileTitle className={darkClass}>Pascal Weber</ProfileTitle>
         <div className="job-title">Experienced Frontend Engineer</div>
         <div className="contact-info">
