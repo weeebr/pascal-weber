@@ -1,21 +1,22 @@
 import React from "react";
 import { SunIcon, MoonIcon } from "shared/icons";
+import { currentToggleButton, currentToggleBg } from "shared/theme";
 import "./styles.css";
 
 export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
   const docEl = document.documentElement;
-  console.log('pwe', 'isDarkTheme', isDarkTheme)
+
   const toggleState = React.useCallback(() => {
-    docEl.style.setProperty("--background", isDarkTheme ? 'white' : 'black');
-    docEl.style.setProperty("--toggle-bg", isDarkTheme ?  '#D9D9D9' : '#4e5c68');
+    docEl.style.setProperty("--background", currentToggleButton(!isDarkTheme));
+    docEl.style.setProperty("--toggle-bg", currentToggleBg(!isDarkTheme));
 
     setDarkTheme(!isDarkTheme);
   }, [docEl.style, isDarkTheme, setDarkTheme]);
 
   React.useEffect(() => {
     if (docEl.style.getPropertyValue("--background") === "") {
-      docEl.style.setProperty("--toggle-bg", isDarkTheme ? '#4e5c68' : '#D9D9D9');
-      docEl.style.setProperty("--background", isDarkTheme ? 'black' : 'white');
+      docEl.style.setProperty("--toggle-bg", currentToggleBg(isDarkTheme));
+      docEl.style.setProperty("--background", currentToggleButton(isDarkTheme));
     }
   }, [docEl.style, isDarkTheme])
 

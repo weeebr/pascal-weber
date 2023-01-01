@@ -22,7 +22,7 @@ export const Design = ({darkClass, setOpenIndex}) => {
 
   return (
     <>
-      <DesignWrapper>
+      <DesignWrapper isMobile={isMobile}>
         {isMobile && (
           <span>
             <PageTitle isDesign={isDesign}>

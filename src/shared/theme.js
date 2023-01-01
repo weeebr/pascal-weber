@@ -31,11 +31,17 @@ export const theme = {
     background: {
       main: '#F9F9F9',
       success: '#7bdf3d2b',
+    },
+    toggle: {
+      button: 'white',
+      background: '#D9D9D9'
     }
   },
-  currentColor: props => props.isDesign ? '#bf9000' : '#0E3E6A',
-  otherColor: props => !props.isDesign ? '#bf9000' : '#0E3E6A',
 }
+
+export const currentThemeColor = isDesign => isDesign ? '#bf9000' : '#0E3E6A';
+export const currentToggleBg = isDarkTheme => isDarkTheme ? '#4e5c68' : '#D9D9D9';
+export const currentToggleButton = isDarkTheme => isDarkTheme ? 'black' : 'white';
 
 export const themeDark = {
   colors: {
@@ -58,15 +64,17 @@ export const themeDark = {
     background: {
       main: '#071524',
       success: '#7bdf3d2b',
+    },
+    toggle: {
+      button: 'black',
+      background: '#4e5c68'
     }
-  },
-  currentColor: props => props.isDesign ? '#bf9000' : '#0E3E6A',
-  otherColor: props => !props.isDesign ? '#bf9000' : '#0E3E6A',
+  }
 }
 
 export const PageSubTitle = styled.h3`
-  margin: ${props => props.isMobile ? '20px 0 20px 0' : '0 0 20px 0;' }; 
-  color: ${props => theme.currentColor(props) };
+  margin: 0 0 20px 0; 
+  color: ${props => currentThemeColor(props.isDesign) };
   font-weight: 600;
   font-size: 24px;
   transition: all 0.5s ease-in-out;
@@ -80,20 +88,20 @@ export const PageTitle = styled.h2`
   font-size: 40px;
   font-weight: 700;
   margin: 0;
-  color: ${props => theme.currentColor(props) };
+  color: ${props => currentThemeColor(props.isDesign) };
   transition: all 0.5s ease-in-out;
 
   &.dark {
     a {
       color: white;
     }
-    background: ${props => theme.currentColor(props) };
+    background: ${props => currentThemeColor(props.isDesign) };
     padding: 4px 12px;
   }
 
   a {
     text-decoration: none;
-    color: ${props => theme.currentColor(props) };
+    color: ${props => currentThemeColor(props.isDesign) };
   }
 `
 

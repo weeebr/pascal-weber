@@ -1,10 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme, themeDark } from 'shared/theme';
 
 export const DesignWrapper = styled.div`
   & > span {
     display: flex;
     justify-content: space-between;
+
+    ${props => props.isMobile && (
+      css`
+        height: 54px;
+        align-items: center;
+      `
+    )}
 
     span {
       display: flex;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from 'shared/theme';
+import { theme, currentThemeColor } from 'shared/theme';
 
 export const StyledButton = styled.button`
   border: none;
@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
   font-weight: 600;
   font-family: 'League Spartan';
   cursor: pointer;
-  background: ${props => theme.otherColor(props)};
+  background: ${props => currentThemeColor(!props.isDesign)};
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
@@ -42,7 +42,7 @@ export const StyledButton = styled.button`
 
   &::after {
     transition-delay: 0.2s;
-    background: ${props => theme.otherColor(props)};
+    background: ${props => currentThemeColor(!props.isDesign)};
     z-index: 2;
   }
 
