@@ -40,7 +40,7 @@ export const theme = {
 }
 
 export const currentThemeColor = isDesign => isDesign ? '#bf9000' : '#0E3E6A';
-export const currentThemeBg = isDarkTheme => isDarkTheme ? '#071524' : '##f3f2f2';
+export const currentThemeBg = isDarkTheme => isDarkTheme ? '#071524' : '#f3f2f2';
 
 export const themeDark = {
   colors: {
