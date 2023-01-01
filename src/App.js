@@ -13,8 +13,8 @@ import { useTouchListener } from "./shared/hooks";
 export const App = () => {
   const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
-  const [themeDark] = useSession('theme-dark', false);
-  const [isDarkTheme, setDarkTheme] = useSession('theme-dark', themeDark);
+  const [isMounted, setMounted] = React.useState(false);
+  const [isDarkTheme, setDarkTheme] = useSession('theme-dark', false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const id = pathname.split('/')[2];
@@ -29,6 +29,18 @@ export const App = () => {
       navigate("/");
     }
   }, [navigate, pathname])
+
+  React.useEffect(() => {
+    if (!isMounted) {
+      if (isDarkTheme) {
+        document.querySelector("html").classList.add("dark");
+      } else {
+        document.querySelector("html").classList.remove("dark");
+      }
+    }
+    setMounted(true);
+
+  }, [isDarkTheme, isMounted, setDarkTheme])
 
   return (
     <div className="App">
