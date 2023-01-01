@@ -29,7 +29,7 @@ export const DesignWrapper = styled.div`
 export const Thumbnail = styled.div`
   width: ${props => props.isMobile ? "100%" : '217px'};
   height: 150px;
-  border: 2px solid ${theme.colors.secondary.main};
+  border: 3px solid ${theme.colors.secondary.main};
   transition: all 1s ease;
   cursor: pointer;
   background: ${theme.colors.secondary.background};
