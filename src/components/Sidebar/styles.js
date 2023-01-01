@@ -51,6 +51,7 @@ export const Summary = styled.div`
     .email {
       position: relative;
       display: flex;
+      cursor: pointer;
 
       .toast {
         position: absolute;
