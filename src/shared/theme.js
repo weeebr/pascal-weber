@@ -25,7 +25,7 @@ export const theme = {
     },
     text: {
       main: '#afafaf',
-      light: '#C3C3C3',
+      light: '#979292',
       success: '#008000',
     },
     background: {
@@ -57,7 +57,7 @@ export const themeDark = {
     },
     text: {
       main: '#afafaf',
-      light: '#5f6e7e',
+      light: '#4e5c68',
       success: '#008000',
     },
     background: {
