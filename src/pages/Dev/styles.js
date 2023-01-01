@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { theme, themeDark } from 'shared/theme';
+import { theme } from 'shared/theme';
 
 export const ProjectsWrapper = styled.div`
   & > span {

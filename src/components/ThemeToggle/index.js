@@ -4,7 +4,6 @@ import { currentThemeBg } from "shared/theme";
 import { ToggleWrapper } from "./styles";
 
 export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
-  const docEl = document.documentElement;
 
   const toggleState = React.useCallback(() => {
     if (isDarkTheme) {
