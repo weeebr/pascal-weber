@@ -18,6 +18,7 @@ export const ToggleWrapper = styled.label`
 
       &::before {
         background: ${themeDark.colors.toggle.button};
+        box-shadow: 0 1px 0 1px #313a42;
         transform: translateX(44px);
       }
     }
@@ -31,7 +32,8 @@ export const ToggleWrapper = styled.label`
       background: ${theme.colors.toggle.button};
       position: absolute;
       z-index: 2;
-      margin: -2px 0px 0 3px;
+      box-shadow: 0 1px 0 1px #c1c1c1;
+      margin: -3px 0px 0 3px;
       transform: translate(0);
       transition: all .6s ease;
     }

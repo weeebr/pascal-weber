@@ -2,6 +2,7 @@ import React from "react";
 import { SunIcon, MoonIcon } from "shared/icons";
 import { currentThemeBg } from "shared/theme";
 import { ToggleWrapper } from "./styles";
+import { useSwipeable } from "react-swipeable";
 
 export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
 
@@ -18,8 +19,17 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
   }, [isDarkTheme, setDarkTheme]);
 
 
+  const handlers = useSwipeable({
+    onSwipedLeft: toggleState,
+    onSwipedRight: toggleState,
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true
+  });
+
+
   return (
-    <ToggleWrapper htmlFor="toggle">
+    <ToggleWrapper {...handlers} htmlFor="toggle">
       <div className={`toggle ${isDarkTheme ? "dark" : ""}`}>
         <div className="icons">
           <SunIcon fill={currentThemeBg(isDarkTheme)} />
