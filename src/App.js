@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { TopBar } from "components/TopBar";
 import { Sidebar } from "components/Sidebar";
 import { Dev } from "pages/Dev";
@@ -6,15 +7,13 @@ import { DevModal } from "pages/DevModal";
 import { Design } from "pages/Design";
 import { DesignModal } from "pages/DesignModal";
 import { Main } from "./styles";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { useThemeBreakpoints, useSession } from "shared/hooks";
-import { useTouchListener } from "./shared/hooks";
+import { useThemeBreakpoints, useSession, useTouchListener } from "shared/hooks";
 
 export const App = () => {
   const { isMobile } = useThemeBreakpoints();
   const [openIndex, setOpenIndex] = React.useState(null);
   const [isMounted, setMounted] = React.useState(false);
-  const [isDarkTheme, setDarkTheme] = useSession('theme-dark', false);
+  const [isDarkTheme, setDarkTheme] = useSession('is-dark-theme', false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const id = pathname.split('/')[2];

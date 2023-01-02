@@ -14,8 +14,15 @@ export const Summary = styled.div`
   &.dark {
     border-color: ${themeDark.colors.divider};
 
-    .summary .job-title {
-      color: ${themeDark.colors.text.main};
+    .summary {
+      .job-title {
+        color: ${themeDark.colors.text.main};
+      }
+
+      .email .toast {
+        color: ${themeDark.colors.text.success};
+        background: ${themeDark.colors.background.success};
+      } 
     }
   }
 
@@ -55,6 +62,7 @@ export const Summary = styled.div`
 
       .toast {
         position: absolute;
+        z-index: 20;
         left: calc(100% + 12px);
         top: -4px;
         white-space: nowrap;

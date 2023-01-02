@@ -4,25 +4,25 @@ import { SwipeWrapper } from "./styles";
 import { swipeIcon } from "shared/icons";
 
 export const SwipeNotification = ({ avoidNotification }) => {
-  const [modalOpened, setModalOpened] = useSession('modal-opened', null);
+  const [show, setShow] = useSession('swipe-notification-shown', null);
   const [ userCanTouch ] = useSession('user-can-touch');
 
   React.useEffect(() => {
-    if (modalOpened) {
+    if (show) {
       setTimeout(() => {
-        setModalOpened(false);
+        setShow(false);
       }, 8000);
     }
 
-    if (modalOpened === null && !avoidNotification) {
+    if (show === null && !avoidNotification) {
       setTimeout(() => {
-        setModalOpened(true)
+        setShow(true)
       }, 4000);
     }
-  }, [modalOpened, setModalOpened, avoidNotification])
+  }, [show, setShow, avoidNotification])
 
-  return modalOpened && userCanTouch && !avoidNotification && (
-    <SwipeWrapper onClick={() => setModalOpened(true)} onKeyUp={() => setModalOpened(true)}>
+  return userCanTouch && show && !avoidNotification && (
+    <SwipeWrapper onClick={() => setShow(false)} onKeyUp={() => setShow(false)}>
       <img src={swipeIcon} alt="swipe" />
       Hey good-looking! Swipe if you like what you see 💦🔥
     </SwipeWrapper>

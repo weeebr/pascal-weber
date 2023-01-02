@@ -29,8 +29,8 @@ export const theme = {
       success: '#008000',
     },
     background: {
-      main: 'f3f2f2',
-      success: '#7bdf3d2b',
+      main: '#f3f2f2',
+      success: '#d7f3c5',
     },
     toggle: {
       button: 'white',
@@ -58,11 +58,11 @@ export const themeDark = {
     text: {
       main: '#afafaf',
       light: '#4e5c68',
-      success: '#008000',
+      success: '#78e978',
     },
     background: {
       main: '#071524',
-      success: '#7bdf3d2b',
+      success: '#2e4805',
     },
     toggle: {
       button: 'black',
