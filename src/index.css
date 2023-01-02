@@ -32,7 +32,7 @@ html::before, html::after {
   top: 0;
   left: 0;
   background: var(--background);
-  transition: all .5s ease-in-out;
+  transition: all .35s ease-in-out;
   z-index: 0;
 }
 
