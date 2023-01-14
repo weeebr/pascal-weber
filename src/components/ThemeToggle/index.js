@@ -32,8 +32,8 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
     <ToggleWrapper {...handlers} htmlFor="toggle">
       <div className={`toggle ${isDarkTheme ? "dark" : ""}`}>
         <div className="icons">
-          <SunIcon fill={currentThemeBg(isDarkTheme)} />
           <MoonIcon fill={currentThemeBg(isDarkTheme)} />
+          <SunIcon fill={currentThemeBg(isDarkTheme)} />
         </div>
         <input
           id="toggle"
