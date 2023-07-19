@@ -3,9 +3,8 @@ import { theme, themeDark } from 'shared/theme';
 
 export const Summary = styled.div`
   width: 100%;
-  max-width: ${props => props.isTablet ? '450px' : null};
-
-  max-width: 450px;
+  max-width: ${props => props.isTablet ? '450px' : '550px'};
+  max-width: ${props => props.isMobile && '100%' };
   position: relative;
   display: flex;
   border-right: ${props => props.isMobile ? null : `1px solid ${theme.colors.divider}`};
