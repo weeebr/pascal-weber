@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from "shared/hooks";
+import { useThemeBreakpoints } from "shared/hooks";
 import { CloseIcon, NextIcon, PrevIcon } from 'shared/icons';
 import { theme } from 'shared/theme';
 import {
@@ -8,7 +8,7 @@ import {
 } from './styles.design';
 
 export const DesignView = ({ project, handleClose, childProps }) => {
-  const { isMobile } = useTheme();
+  const { isMobile } = useThemeBreakpoints();
   const {
     setPrevIndex,
     setNextIndex,

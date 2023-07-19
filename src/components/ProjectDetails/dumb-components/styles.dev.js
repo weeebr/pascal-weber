@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme, themeDark } from 'shared/theme';
+import { theme } from 'shared/theme';
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;

@@ -23,15 +23,12 @@ export const App = () => {
 
 
   React.useEffect(() => {
-  console.log({darkClass, isDarkTheme})
-
     if (isDarkTheme) {
       document.querySelector("html").classList.add("dark");
     } else {
       document.querySelector("html").classList.add("light");
     }
-  }, [isDarkTheme, darkClass])
-
+  }, [isDarkTheme])
 
   return (
     <AppRoot>

@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
-import { theme, themeDark } from "shared/theme";
-import { themeConstants } from "shared/theme";
+import { theme } from "shared/theme";
+import styled from "styled-components";
 
 export const ModalContent = styled.div`
   display: flex;
