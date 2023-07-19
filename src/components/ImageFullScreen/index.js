@@ -1,12 +1,12 @@
 import { CSSTransition } from "react-transition-group";
 import { FullScreenWrapper } from "./styles";
-import { useThemeBreakpoints } from "shared/hooks";
+import { useTheme } from "shared/hooks";
 import { CloseIcon } from 'shared/icons';
 import { theme } from 'shared/theme';
 
-export const ImageFullScreen = ({ imageIndex, project, onClose, darkClass }) => {
+export const ImageFullScreen = ({ imageIndex, project, onClose }) => {
   const src = project.images[imageIndex]
-  const { isMobile } = useThemeBreakpoints();
+  const { isMobile, darkClass, isDarkTheme } = useTheme();
   
   return (
     <CSSTransition
@@ -17,7 +17,7 @@ export const ImageFullScreen = ({ imageIndex, project, onClose, darkClass }) => 
     >
       <FullScreenWrapper className={darkClass} isMobile={isMobile} onClick={onClose} src={src}>
         <div />
-        <span><CloseIcon fill={theme.colors.primary.main} /></span>
+        <span><CloseIcon fill={isDarkTheme ? "white" : theme.colors.primary.main} /></span>
       </FullScreenWrapper>
     </CSSTransition>
   )

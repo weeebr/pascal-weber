@@ -1,9 +1,10 @@
 import React from "react";
 import { breakpoints } from "./theme";
+import { dev, designs } from "shared/constants";
 import { useLocation } from "react-router-dom";
 
 export const useTouchListener = () => {
-  const [, setUserCanTouch] = useSession('user-can-touch', false);
+  const [ userCanTouch, setUserCanTouch ] = useSession('user-can-touch', false);
 
   React.useEffect(() => {
     window.addEventListener('touchstart', function onFirstTouch() {
@@ -11,22 +12,57 @@ export const useTouchListener = () => {
       window.removeEventListener('touchstart', onFirstTouch, false);
     }, false);
   }, [setUserCanTouch])
-}
 
-export const useThemeBreakpoints = () => {
-  const { mobile, tablet } = breakpoints;
-  const isMobile = useMediaQuery(`(max-width: ${mobile}px)`);
-  const isTablet = useMediaQuery(`(max-width: ${tablet}px)`);
-
-  return { isMobile, isTablet };
+  return { userCanTouch };
 }
 
 export const usePage = () => {
   const { pathname } = useLocation();
-  const isDesign = pathname.includes('design');
-  const isDev = pathname.includes('dev');
+  const [, rootPath, id ] = pathname.split('/');
+  const possibleRootPaths = ['dev', 'design'];
+
+  const isDesign = rootPath.includes('design');
+  const isDev = !isDesign;
+  const rootUrl = isDesign ? 'design/' : 'dev/';
+  const otherRoot = isDesign ? '/' : '/design';
+  const pageTitle = isDesign ? '/Design' : '/Dev';
+  const invalidRoot = !possibleRootPaths.includes(rootPath);
+
+  return { invalidRoot, pageTitle, otherRoot, rootUrl, isDesign, isDev, id };
+}
+
+export const useTheme = () => {
+  const [ isDarkTheme, setDarkTheme ] = useSession('is-dark-theme', false);
   
-  return { isDesign, isDev };
+  const toggleTheme = () => {
+    if (isDarkTheme) {
+      document.querySelector("html").classList.remove("dark");
+      document.querySelector("html").classList.add("light");
+    } else {
+      document.querySelector("html").classList.remove("light");
+      document.querySelector("html").classList.add("dark");
+    }
+    setDarkTheme(!isDarkTheme);
+  }
+  
+  return { isDarkTheme, toggleTheme, darkClass: isDarkTheme ? 'dark' : '' };
+}
+
+export const useThemeBreakpoints = () => {
+  const { mobile, tablet } = breakpoints;
+
+  const isMobile = useMediaQuery(`(max-width: ${mobile}px)`);
+  const isTablet = useMediaQuery(`(max-width: ${tablet}px)`);
+  return { isMobile, isTablet };
+}
+
+export const useProjectData = () => {
+  const { isDesign, id } = usePage();
+  const [ openIndex, setOpenIndex ] = React.useState(id);
+
+  const data = isDesign ? designs : dev;
+  const project = data[openIndex] || null;
+  return { data, openIndex, setOpenIndex, project };
 }
 
 export const useClipboard = () => {
@@ -46,18 +82,39 @@ export const useClipboard = () => {
   return { copy }
 }
 
-export const useSession = (key, defaultValue = null) => {
-  const item = sessionStorage.getItem(key);
-  const initialValue = item ? JSON.parse(item) : defaultValue;
-  const [value, setValue] = React.useState(initialValue);
+export const useSession = (key, initialValue) => {
+  const [value, setValue] = React.useState(() => {
+    const storedValue = sessionStorage.getItem(key);
+    return storedValue ? JSON.parse(storedValue) : initialValue;
+  });
+
+  React.useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.storageArea === sessionStorage && event.key === key) {
+        setValue(JSON.parse(event.newValue));
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [key]);
 
   const updateValue = (newValue) => {
-    setValue(newValue);
     sessionStorage.setItem(key, JSON.stringify(newValue));
-  }
+    setValue(newValue);
+    // Trigger a custom event to notify other components
+    const storageEvent = new StorageEvent('storage', {
+      key,
+      newValue: JSON.stringify(newValue),
+      storageArea: sessionStorage,
+    });
+    window.dispatchEvent(storageEvent);
+  };
 
   return [value, updateValue];
-}
+};
 
 export const useMediaQuery = query => {
   const getMatches = query => {

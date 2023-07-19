@@ -1,20 +1,20 @@
 import React from "react";
-import { Summary, PortraitFoto, MoreWrapper } from "./styles";
-import { ProfileTitle } from "shared/theme";
+import { Summary, PortraitFoto, MoreWrapper, ProfileTitle } from "./styles";
 import { pascalFoto, pascalFotoAlternative } from 'shared/images'
 import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
-import { useThemeBreakpoints, usePage, useClipboard } from "shared/hooks";
+import { useTheme, usePage, useClipboard, useThemeBreakpoints } from "shared/hooks";
 import { ThemeToggle } from "components/ThemeToggle";
 
-export const Sidebar = ({darkClass, isDarkTheme, setDarkTheme}) => {
+export const AboutMe = () => {
   const [showToast, setShowToast] = React.useState(false);
-  const { isMobile } = useThemeBreakpoints();
+  const { darkClass, isDarkTheme } = useTheme();
+  const { isMobile, isTablet } = useThemeBreakpoints();
   const { isDesign } = usePage();
   const clip = useClipboard();
   const src = React.useMemo(() => isDesign ? pascalFotoAlternative : pascalFoto, [isDesign])
 
   const handleEmailClick = () => {
-    clip.copy('contact@pascal-weber.ch');
+    clip.copy('p.weber.92@gmail.com');
 
     setShowToast(true);
     setTimeout(() => {
@@ -23,7 +23,7 @@ export const Sidebar = ({darkClass, isDarkTheme, setDarkTheme}) => {
   }
 
   return (
-    <Summary className={darkClass} isMobile={isMobile}>
+    <Summary className={darkClass} isMobile={isMobile} isTablet={isTablet}>
       <div className="summary">
         <PortraitFoto src={src} />
         <ProfileTitle className={darkClass}>Pascal Weber</ProfileTitle>
@@ -50,10 +50,11 @@ export const Sidebar = ({darkClass, isDarkTheme, setDarkTheme}) => {
       </div>
       <MoreWrapper className={darkClass}>
         <div className="more">
-          <p className="short-description">A passion for clean and elegant code, UX and details. Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>
+          <p className="short-description">A passion for clean and elegant code, UX and details. </p>
+          <p className="short-description">Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>
         </div>
-    </MoreWrapper>
-      {isMobile && <ThemeToggle isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} />}
+      </MoreWrapper>
+      {isMobile && <ThemeToggle isDarkTheme={isDarkTheme} />}
 
     </Summary>
   )

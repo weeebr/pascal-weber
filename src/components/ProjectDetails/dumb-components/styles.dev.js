@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme, themeDark, themeConstants } from 'shared/theme';
+import { theme, themeDark } from 'shared/theme';
 
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
@@ -22,14 +22,7 @@ export const ProjectImagesWrapper = styled.span`
   overflow: hidden;
   flex-wrap: wrap;
   max-width: 100%;
-
-  ${props => props.isTablet && (
-    css`
-    & > div {
-      width: 160px;
-      height: 133px;
-    }`
-  )}
+  justify-content: center;
 
   ${props => props.isMobile &&
     css`
@@ -62,11 +55,11 @@ export const ButtonsWrapper = styled.span`
   &.buttons {
     position: absolute;
     bottom: 12px;
-    left: 12px;
+    left: 8px;
     padding: ${props => props.isMobile ? "12px 0" : "20px 0"};
     margin: 0;
     background: ${theme.colors.primary.background.main};
-    width: calc(100% - 24px);
+    width: calc(100% - 16px);
     flex-direction: row;
   }
   display: flex;
@@ -126,12 +119,12 @@ export const ModalContent = styled.div`
   }
 
   & > span {
-    min-width: 200px;
+    margin: 0 20px 0 44px;
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
     margin-bottom: ${props => props.isMobile ? "20px" : null};
     text-align: center;
-    width: ${props => props.isMobile ? "100%" : null};
     width: ${props => props.isMobile ? "100%" : null};
     color: ${theme.colors.primary.main};
 
@@ -142,14 +135,6 @@ export const ModalContent = styled.div`
 
     .year {
       font-size: 20px;
-    }
-
-    .description {
-      font-size: 18px;
-      color: ${theme.colors.text.main};
-      margin-top: 20px;
-      width: 100%;
-      text-align: center;
     }
   }
 
@@ -164,92 +149,9 @@ export const ModalContent = styled.div`
     .description {
       font-size: 18px;
       color: ${theme.colors.text.main};
-      margin-top: 20px;
+      margin: 20px 20px 0 20px;
       width: 100%;
       text-align: center;
     }
-  }
-`;
-
-export const ModalWrapper = styled.div`
-  position: fixed;
-  
-  &.modal {
-    background: ${theme.colors.primary.background};
-    &.dark {
-      background: ${themeDark.colors.primary.background};
-      box-shadow: inset 0 0 0 8px ${themeDark.colors.primary.borders};
-    }
-  }
-  box-shadow: inset 0 0 0 8px ${theme.colors.primary.main};
-  z-index: 4;
-  flex-grow: 1;
-  display: flex;  
-  flex-direction: column;
-  overflow: hidden;
-  transition: all .3s ease-in-out;
-
-  width: calc(100% -  ${themeConstants.sidebarWidth});
-  height: calc(100% - ${themeConstants.topbarHeight});
-  left: ${themeConstants.sidebarWidth};
-  top: ${themeConstants.topbarHeight};
- 
-  ${props => props.isMobile && (
-    css`
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-    `
-  )};
-
-  ${props => !props.fade && (
-    css`
-      &.modal.modal {
-        background: ${theme.colors.primary.main}
-      }
-      height: 0;
-      box-shadow: none;
-      padding: 0;
-      overflow: hidden;
-      width: 0;
-      left: 50%;
-
-      & * {
-        width: 0;
-        heigth: 0;
-        opacity: 0;
-      }
-    `
-  )};
-
-  span.close {
-    position: absolute;
-    right: 8px;
-    top: 12px;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-
-  &.fade-enter {
-    opacity: 0;
-  }
-
-  &.fade-enter-done {
-    opacity: 1;
-  }
-
-  &.fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
-  }
-
-  &.fade-exit {
-    opacity: 1;
-  }
-
-  &.fade-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out;
   }
 `;

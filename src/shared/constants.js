@@ -1,19 +1,21 @@
 import { projectImages, designImages } from "./images";
 
+export const topbarHeight = '107px';
+
 export const designs = [
-  { description: 'Cover of a school project (package design, school project)', client: 'BBBaden', src: designImages[0] },
-  { description: 'Photo manipulation (school project)', client: 'AGS BS', src: designImages[1] },
-  { description: 'Birthday poster for my sister', client: 'Nora Weber', src: designImages[2] },
-  { description: 'Fictional advertising of a fragrance spray (school project)', client: 'AGS BS', src: designImages[3] },
-  { description: 'Cover of a school project (sports nutrition, school project)', client: 'BBBaden', src: designImages[4] },
-  { description: 'X-Mas card 2012', client: 'various people', src: designImages[5] },
-  { description: 'Banner for a logo', client: 'mindflow', src: designImages[6] },
-  { description: 'Birthday flyer', client: 'Ivo Schoenholzer', src: designImages[7] },
-  { description: 'X-Mas card 2011', client: 'various people', src: designImages[8] },
-  { description: 'Logo competition (won #1 place)', client: 'IchWillParty', src: designImages[9] }
+  { title: 'Cover of a school project (package design, school project)', client: 'BBBaden', src: designImages[0] },
+  { title: 'Photo manipulation (school project)', client: 'AGS BS', src: designImages[1] },
+  { title: 'Birthday poster for my sister', client: 'Nora Weber', src: designImages[2] },
+  { title: 'Fictional advertising of a fragrance spray (school project)', client: 'AGS BS', src: designImages[3] },
+  { title: 'Cover of a school project (sports nutrition, school project)', client: 'BBBaden', src: designImages[4] },
+  { title: 'X-Mas card 2012', client: 'various people', src: designImages[5] },
+  { title: 'Banner for a logo', client: 'mindflow', src: designImages[6] },
+  { title: 'Birthday flyer', client: 'Ivo Schoenholzer', src: designImages[7] },
+  { title: 'X-Mas card 2011', client: 'various people', src: designImages[8] },
+  { title: 'Logo competition (won #1 place)', client: 'IchWillParty', src: designImages[9] }
 ];
 
-export const projects = [
+export const dev = [
   {
     title: "DeedsDAO",
     thumbnail: projectImages.deedsdao[0],

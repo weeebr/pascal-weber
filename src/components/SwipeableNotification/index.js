@@ -3,9 +3,10 @@ import { useSession } from "shared/hooks";
 import { SwipeWrapper } from "./styles";
 import { swipeIcon } from "shared/icons";
 
-export const SwipeNotification = ({ avoidNotification }) => {
+export const SwipeableNotification = ({ avoidNotification, text }) => {
   const [show, setShow] = useSession('swipe-notification-shown', null);
   const [ userCanTouch ] = useSession('user-can-touch');
+  const message = text || 'Hey good-looking! Swipe if you like what you see 💦🔥';
 
   React.useEffect(() => {
     if (show) {
@@ -24,7 +25,7 @@ export const SwipeNotification = ({ avoidNotification }) => {
   return userCanTouch && show && !avoidNotification && (
     <SwipeWrapper onClick={() => setShow(false)} onKeyUp={() => setShow(false)}>
       <img src={swipeIcon} alt="swipe" />
-      Hey good-looking! Swipe if you like what you see 💦🔥
+      {message}
     </SwipeWrapper>
   )
 }

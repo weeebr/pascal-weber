@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
-import { theme, themeDark, themeConstants } from "shared/theme";
+import { theme, themeDark } from "shared/theme";
 
 export const FullScreenWrapper = styled.div`
-  position: fixed;
-  width: calc(100% - ${themeConstants.sidebarWidth});
-  height: calc(100% - ${themeConstants.topbarHeight});
-  left: ${themeConstants.sidebarWidth};
-  top: ${themeConstants.topbarHeight};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
   box-shadow: inset 0 0 0 40px ${theme.colors.primary.background};
   padding: 40px;
   z-index: 6;

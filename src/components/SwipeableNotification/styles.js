@@ -5,10 +5,11 @@ import { theme } from "shared/theme";
 export const SwipeWrapper = styled.div`
 position: absolute;
 top: 50%;
-left: 0;
-width: 100%;
+left: 8px;
+width: calc(100% - 16px);
 height: auto;
-background: ${theme.colors.background.main};
+background: white;
+box-shadow: 0 0 20px ${theme.colors.divider};
 z-index: 20;
 padding: 16px;
 text-align: center;

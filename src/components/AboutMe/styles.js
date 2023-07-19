@@ -1,15 +1,19 @@
 import styled from 'styled-components';
-import { theme, themeDark, themeConstants } from 'shared/theme';
+import { theme, themeDark } from 'shared/theme';
 
 export const Summary = styled.div`
-  max-width: ${props => props.isMobile ? "100%" : themeConstants.sidebarWidth};
+  width: 100%;
+  max-width: ${props => props.isTablet ? '450px' : null};
+
+  max-width: 450px;
   position: relative;
   display: flex;
   border-right: ${props => props.isMobile ? null : `1px solid ${theme.colors.divider}`};
   flex-direction: column;
   justify-content: center;
   height: ${props => props.isMobile ? 'auto' : '100vh'};
-  text-align: ${props => props.isMobile ? "center" : "right"};
+  text-align: center;
+  align-items: center;
 
   &.dark {
     border-color: ${themeDark.colors.divider};
@@ -29,8 +33,9 @@ export const Summary = styled.div`
   .summary {
     display: flex;
     flex-direction: column;
-    align-items: ${props => props.isMobile ? "center" : "flex-end"};
     padding: 20px;
+    align-items: center;
+    justify-content: center;
 
     .contact-info {
       display: flex;
@@ -96,4 +101,17 @@ export const PortraitFoto = styled.div`
   border-radius: 50%;
   transition: all 1.5s ease;
   background: url(${props => props.src}) no-repeat center center;
+`
+
+export const ProfileTitle = styled.h1`
+  white-space: nowrap;
+  margin: 12px 0 0 0;
+  font-weight: 700;
+  font-size: 30px;
+  color: black;
+  line-height: 27px;
+
+  &.dark {
+    color: white;
+  }
 `

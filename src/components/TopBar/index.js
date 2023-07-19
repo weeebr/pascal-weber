@@ -1,44 +1,18 @@
-import React from 'react';
-import { PageToggle } from "../PageToggle";
-import { StyledButton } from "../PageToggle/styles";
+import React from "react";
+import { AboutMe } from "components/AboutMe";
+import { Navigation } from "components/Navigation";
 import { TopBarWrapper } from "./styles";
-import { PageTitle } from "shared/theme";
-import { ThemeToggle } from "../ThemeToggle";
-import { Link } from "react-router-dom";
-import { Sidebar } from "../Sidebar";
-import { useThemeBreakpoints, usePage } from "shared/hooks";
-import { DownloadIcon } from "shared/icons";
-import { CV } from "shared/files";
+import { useTheme, useThemeBreakpoints } from "shared/hooks";
 
-export const TopBar = ({darkClass, isDarkTheme, setDarkTheme}) => {
+export const TopBar = () => {
   const { isMobile } = useThemeBreakpoints();
-  const { isDesign } = usePage();
-
+  const { darkClass, isDarkTheme } = useTheme();
+console.log({darkClass, isDarkTheme})
+  
   return (
-    <TopBarWrapper isMobile={isMobile} className={darkClass}>
-      {isMobile && (
-        <Sidebar isDarkTheme={isDarkTheme}  setDarkTheme={setDarkTheme} darkClass={darkClass} />
-      )}
-      {!isMobile && (
-        <>
-            <PageTitle className={darkClass} isDesign={isDesign}>
-              <Link to={isDesign ? '/design' : '/'}>
-                    /{isDesign ? 'Design' : 'Dev'}
-              </Link>
-            </PageTitle>
-            <ThemeToggle isDarkTheme={isDarkTheme} setDarkTheme={setDarkTheme} />
-
-          <span>
-            <StyledButton className={`cv ${darkClass}`}>
-              <Link target='_blank' to={CV} download>
-                <span>CV</span>
-                <DownloadIcon width="18px" height="18px" alt='download' />
-              </Link>
-            </StyledButton>
-            <PageToggle />
-          </span>
-        </>
-    )}
+    <TopBarWrapper className={darkClass} isMobile={isMobile}>
+      {isMobile && <AboutMe />}
+      {!isMobile && <Navigation />}
     </TopBarWrapper>
-  );
+  )
 }

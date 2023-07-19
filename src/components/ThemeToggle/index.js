@@ -1,32 +1,20 @@
 import React from "react";
 import { SunIcon, MoonIcon } from "shared/icons";
+import { useTheme } from "shared/hooks";
 import { currentThemeBg } from "shared/theme";
 import { ToggleWrapper } from "./styles";
 import { useSwipeable } from "react-swipeable";
 
-export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
-
-  const toggleState = React.useCallback(() => {
-    if (isDarkTheme) {
-      document.querySelector("html").classList.remove("dark");
-      document.querySelector("html").classList.add("light");
-    } else {
-      document.querySelector("html").classList.remove("light");
-      document.querySelector("html").classList.add("dark");
-    }
-
-    setDarkTheme(!isDarkTheme);
-  }, [isDarkTheme, setDarkTheme]);
-
+export const ThemeToggle = () => {
+  const { isDarkTheme, toggleTheme } = useTheme();
 
   const handlers = useSwipeable({
-    onSwipedLeft: toggleState,
-    onSwipedRight: toggleState,
+    onSwipedLeft: toggleTheme,
+    onSwipedRight: toggleTheme,
     swipeDuration: 500,
     preventScrollOnSwipe: true,
     trackMouse: true
   });
-
 
   return (
     <ToggleWrapper {...handlers} htmlFor="toggle">
@@ -41,7 +29,7 @@ export const ThemeToggle = ({isDarkTheme, setDarkTheme}) => {
           type="checkbox"
           checked={!!isDarkTheme}
           onChange={() => {}}
-          onClick={toggleState}
+          onClick={toggleTheme}
         />
       </div>
     </ToggleWrapper>

@@ -1,94 +1,57 @@
 import React from "react";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { TopBar } from "components/TopBar";
-import { Sidebar } from "components/Sidebar";
-import { Dev } from "pages/Dev";
-import { DevModal } from "pages/DevModal";
-import { Design } from "pages/Design";
-import { DesignModal } from "pages/DesignModal";
-import { Main } from "./styles";
-import { useThemeBreakpoints, useSession, useTouchListener } from "shared/hooks";
+import { AboutMe } from "components/AboutMe";
+import { Navigation } from "components/Navigation";
+import { ProjectGallery } from "./components/ProjectGallery";
+import { ProjectDetails } from "./components/ProjectDetails";
+import { useTheme, useTouchListener, usePage, useThemeBreakpoints } from "shared/hooks";
+import { AppRoot } from "./styles";
 
 export const App = () => {
+  const { isDarkTheme, darkClass } = useTheme();
+  const { invalidRoot } = usePage();
   const { isMobile } = useThemeBreakpoints();
-  const [openIndex, setOpenIndex] = React.useState(null);
-  const [isMounted, setMounted] = React.useState(false);
-  const [isDarkTheme, setDarkTheme] = useSession('is-dark-theme', false);
-  const { pathname } = useLocation();
   const navigate = useNavigate();
-  const id = pathname.split('/')[2];
-  const darkClass = isDarkTheme ? 'dark' : '';
-  useTouchListener()
+  useTouchListener();
 
   React.useEffect(() => {
-    const possibleRootPaths = ['dev', 'design'];
-    const rootPath = pathname.split('/')[1];
-
-    if (!possibleRootPaths.includes(rootPath)) {
+    if (invalidRoot) {
       navigate("/");
     }
-  }, [navigate, pathname])
+  }, [invalidRoot, navigate])
+
 
   React.useEffect(() => {
-    if (!isMounted) {
-      if (isDarkTheme) {
-        document.querySelector("html").classList.add("dark");
-      } else {
-        document.querySelector("html").classList.add("light");
-      }
-    }
-    setMounted(true);
+  console.log({darkClass, isDarkTheme})
 
-  }, [isDarkTheme, isMounted, setDarkTheme])
+    if (isDarkTheme) {
+      document.querySelector("html").classList.add("dark");
+    } else {
+      document.querySelector("html").classList.add("light");
+    }
+  }, [isDarkTheme, darkClass])
+
 
   return (
-    <div className="App">
-      <div style={{ display: 'flex', width: '100%', height: '100vh', zIndex: 1, position: 'relative' }}>
-        {!isMobile && <Sidebar darkClass={darkClass} isDarkTheme={isDarkTheme} setDarkTheme={setDarkTheme} />}
-      
-        <Main className={darkClass}>
-           <TopBar 
-            darkClass={darkClass} 
-            isDarkTheme={isDarkTheme} 
-            setDarkTheme={setDarkTheme} 
-          />
+    <AppRoot>
+      {!isMobile && <AboutMe />}
+    
+      <div>
+        <TopBar className={darkClass} isMobile={isMobile}>
+          {isMobile && <AboutMe />}
+          {!isMobile && <Navigation />}
+        </TopBar>
 
-          <Routes>
-            <Route path="/dev/:id" element={
-              <DevModal 
-                darkClass={darkClass}
-                isDarkTheme={isDarkTheme} 
-                setOpenIndex={setOpenIndex}
-                openIndex={openIndex || id}  
-              />}
-            />
-            <Route path="/design/:id" element={
-              <DesignModal 
-                darkClass={darkClass}
-                openIndex={openIndex || id} 
-                setOpenIndex={setOpenIndex} 
-              />} 
-            />
-            <Route path="/design" element={
-              <Design 
-                darkClass={darkClass}
-                isDarkTheme={isDarkTheme} 
-                setDarkTheme={setDarkTheme} 
-                setOpenIndex={setOpenIndex} 
-                />} 
-            />
-            <Route exact path="*" element={
-              <Dev 
-                darkClass={darkClass}
-                isDarkTheme={isDarkTheme} 
-                setDarkTheme={setDarkTheme} 
-                setOpenIndex={setOpenIndex} 
-              />} 
-            />
-          </Routes>
-        </Main>
+        <Routes>
+          <Route path="/dev/:id" element={<ProjectDetails />} />
+          <Route path="/design/:id" element={<ProjectDetails />} />
+          <Route path="/dev/" element={<ProjectGallery />} />
+          <Route path="/design/" element={<ProjectGallery />} />
+          <Route exact path="/" element={<ProjectGallery />} />
+        </Routes>
       </div>
-    </div>
+    </AppRoot>
   );
 }
 

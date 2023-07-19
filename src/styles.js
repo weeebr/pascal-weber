@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Main = styled.div`
-  flex-grow: 1;
+export const AppRoot = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
 
   & > div {
-    padding: 20px;
+    width: 100%;
   }
-
-`
+`;
