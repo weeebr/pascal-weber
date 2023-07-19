@@ -9,7 +9,7 @@ export const ModalContent = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 87px;
-  margin-top: 32px;
+  margin-top: ${props => props.isMobile ? 0 : '32px'};
 
   & > div.img {
     margin-top: 20px;

@@ -49,11 +49,12 @@ export const useTheme = () => {
 }
 
 export const useThemeBreakpoints = () => {
-  const { mobile, tablet } = breakpoints;
+  const { phone, mobile, tablet } = breakpoints;
 
+  const isPhone = useMediaQuery(`(max-width: ${phone}px)`);
   const isMobile = useMediaQuery(`(max-width: ${mobile}px)`);
   const isTablet = useMediaQuery(`(max-width: ${tablet}px)`);
-  return { isMobile, isTablet };
+  return { isPhone, isMobile, isTablet };
 }
 
 export const useProjectData = () => {

@@ -1,6 +1,64 @@
 import styled, { css } from "styled-components";
 import { theme } from 'shared/theme';
 
+export const ModalContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: ${props => props.isMobile ? "flex-start" : 'center'};
+  flex-direction: ${props => props.isMobile ? "column" : 'row'};
+  height: 100%;
+
+  &.dark > span {
+    color: white;
+  }
+
+  & > span {
+    margin: 0 20px 0 44px;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: ${theme.colors.primary.main};
+
+    ${props => props.isMobile && (
+      css`
+        width: 100%;
+        margin: 0 0 20px 0;
+      `
+    )};
+
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .year {
+      font-size: 20px;
+    }
+
+    .description { // only used for mobile
+      white-space: break-spaces;
+    }
+  }
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+
+    .description {
+      font-size: 18px;
+      color: ${theme.colors.text.main};
+      margin: 20px 20px 0 20px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+`;
+
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
   background-size: cover;
@@ -30,6 +88,7 @@ export const ProjectImagesWrapper = styled.span`
       width: 100%;
       height: calc(100vh - 230px);
       overflow: auto;
+      gap: unset;
       align-items: center;
       justify-content: center;
       padding: 8px;
@@ -40,16 +99,6 @@ export const ProjectImagesWrapper = styled.span`
     `
   }
 `
-
-export const Bottom = styled.span`
-  position: absolute;
-  bottom: 12px;
-  padding-bottom: 12px;
-  left: ${props => props.isMobile ? "12px" : "calc(27px + 200px)"};
-  width: ${props => props.isMobile ? "calc(100% - 24px)" : "calc(100% - 39px - 200px)"};
-  z-index: 5;
-  background: ${theme.colors.primary.background.main};
-`;
 
 export const ButtonsWrapper = styled.span`
   &.buttons {
@@ -107,51 +156,3 @@ export const ButtonsWrapper = styled.span`
   }
 `
 
-export const ModalContent = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: ${props => props.isMobile ? "flex-start" : 'center'};
-  flex-direction: ${props => props.isMobile ? "column" : 'row'};
-  height: 100%;
-
-  &.dark > span {
-    color: white;
-  }
-
-  & > span {
-    margin: 0 20px 0 44px;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: ${props => props.isMobile ? "20px" : null};
-    text-align: center;
-    width: ${props => props.isMobile ? "100%" : null};
-    color: ${theme.colors.primary.main};
-
-    .title {
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    .year {
-      font-size: 20px;
-    }
-  }
-
-  & > div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    flex-grow: 1;
-    overflow: hidden;
-
-    .description {
-      font-size: 18px;
-      color: ${theme.colors.text.main};
-      margin: 20px 20px 0 20px;
-      width: 100%;
-      text-align: center;
-    }
-  }
-`;

@@ -9,13 +9,15 @@ import {
   ProjectImage,
   ProjectImagesWrapper
 } from './styles.dev';
+import { useThemeBreakpoints } from "shared/hooks";
 
 export const ProjectView = ({ project, childProps, handleClose, projectTitles }) => {
   const {
     setPrevIndex,
     setNextIndex,
   } =  childProps;
-  const { isMobile, darkClass, isDarkTheme } = useTheme();
+  const { darkClass, isDarkTheme } = useTheme();
+  const { isMobile } = useThemeBreakpoints();
   const [ imageIndex, setImageIndex] = React.useState(null);
 
   return (

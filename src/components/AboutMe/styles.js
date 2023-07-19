@@ -33,6 +33,7 @@ export const Summary = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px;
+    padding-top: ${props => props.isMobile ? 0 : null};
     align-items: center;
     justify-content: center;
 
@@ -87,7 +88,7 @@ export const MoreWrapper = styled.div`
 
   p {
     margin: 0;
-    font-size: 20px;
+    font-size: ${props => props.isPhone ? '18px' : '20px'};
     color: ${theme.colors.text.light};
     font-family: 'League Spartan';
   }

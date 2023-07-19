@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyledButton } from "./styles";
 import { Link } from "react-router-dom";
-import { usePage } from 'shared/hooks';
+import { usePage, useThemeBreakpoints } from 'shared/hooks';
 
-export const PageToggle = () => {
+export const NavRootToggle = () => {
   const [ pressed, setPressed] = React.useState(false);
-  const { isDesign } = usePage();
-  const otherPage = isDesign ? '/' : '/design';
+  const { isDesign, otherRoot } = usePage();
+  const { isPhone } = useThemeBreakpoints();
 
   React.useEffect(() => {
     if (pressed) {
@@ -17,8 +17,13 @@ export const PageToggle = () => {
   }, [pressed])
 
   return (
-    <StyledButton className={pressed ? 'pressed' : ''} onTouchStart={() => setPressed(true)} isDesign={isDesign}>
-      <Link to={`${otherPage}`}>
+    <StyledButton 
+      className={pressed ? 'pressed' : ''} 
+      onTouchStart={() => setPressed(true)} 
+      isDesign={isDesign}
+      isPhone={isPhone}
+    >
+      <Link to={`${otherRoot}`}>
           /{isDesign ? ' Dev' : ' Design'}
       </Link>
     </StyledButton>

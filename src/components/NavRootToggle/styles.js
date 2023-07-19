@@ -7,7 +7,8 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 24px;
+  font-size: ${props => props.isPhone ? '16px' : '24px' };
+  height: ${props => props.isPhone ? '30px' : '46px' };
   font-weight: 600;
   font-family: 'League Spartan';
   cursor: pointer;
@@ -15,7 +16,6 @@ export const StyledButton = styled.button`
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
-  height: 46px;
 
   &:hover, &:focus, &.pressed {
     &::before, &::after {
@@ -52,7 +52,7 @@ export const StyledButton = styled.button`
     position: relative;
     z-index: 3;
     white-space: nowrap;
-    line-height: 46px;
+    line-height: ${props => props.isPhone ? '30px' : '46px' };
     padding: 0 4px;
   }
 
@@ -94,6 +94,7 @@ export const StyledButton = styled.button`
 
       svg {
         margin-top: -2px;
+        width: ${props => props.isPhone ? '14px' : '18px' };
         transition: all 0.3s ease;
       }
     }

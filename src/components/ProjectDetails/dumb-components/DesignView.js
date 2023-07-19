@@ -24,7 +24,7 @@ export const DesignView = ({ project, handleClose, childProps }) => {
           <CloseIcon fill={theme.colors.secondary.main} />
         </span>
 
-        <ModalContent src={project.src}>
+        <ModalContent isMobile={isMobile} src={project.src}>
           <span className='client'>{project.client}</span>
           <span className='description'>{project.title}</span>
           <div className='img' alt="" />

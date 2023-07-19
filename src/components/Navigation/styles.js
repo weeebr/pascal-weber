@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { currentThemeColor } from 'shared/theme';
 
 export const PageTitle = styled.h2`
-  font-size: 40px;
+  font-size: ${props => props.isPhone ? '28px' : '40px' };
   font-weight: 700;
   margin: 0;
   color: ${props => currentThemeColor(props.isDesign) };
@@ -14,6 +14,8 @@ export const PageTitle = styled.h2`
     }
     background: ${props => currentThemeColor(props.isDesign) };
     padding: 4px 12px;
+    font-size: ${props => props.isPhone ? '24px' : '40px' };
+
   }
 
   a {
@@ -23,12 +25,12 @@ export const PageTitle = styled.h2`
 `
 
 export const PageSubTitle = styled.h3`
-  margin: 12px 0 20px 0;
+  margin: 16px 0 20px 0;
   color: ${props => currentThemeColor(props.isDesign) };
   font-weight: 600;
-  font-size: 24px;
   transition: all 0.5s ease-in-out;
-
+  font-size: ${props => props.isPhone ? '16px' : '24px' };
+  
   &.dark {
     color: white;
   }

@@ -8,7 +8,7 @@ import { ThemeToggle } from "components/ThemeToggle";
 export const AboutMe = () => {
   const [showToast, setShowToast] = React.useState(false);
   const { darkClass, isDarkTheme } = useTheme();
-  const { isMobile, isTablet } = useThemeBreakpoints();
+  const { isPhone, isMobile, isTablet } = useThemeBreakpoints();
   const { isDesign } = usePage();
   const clip = useClipboard();
   const src = React.useMemo(() => isDesign ? pascalFotoAlternative : pascalFoto, [isDesign])
@@ -48,7 +48,7 @@ export const AboutMe = () => {
           </span>
         </div>
       </div>
-      <MoreWrapper className={darkClass}>
+      <MoreWrapper className={darkClass} isPhone={isPhone}>
         <div className="more">
           <p className="short-description">A passion for clean and elegant code, UX and details. </p>
           <p className="short-description">Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>

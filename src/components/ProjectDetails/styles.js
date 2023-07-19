@@ -34,6 +34,7 @@ export const ModalWrapper = styled.div`
       height: 100%;
       left: 0;
       top: 0;
+      padding: 32px 20px;
     `
   )};
 
