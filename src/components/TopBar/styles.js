@@ -4,7 +4,7 @@ import { theme, themeDark } from 'shared/theme';
 export const TopBarWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding: 30px 4%;
+  padding: ${props => props.isMobile ? '30px 16px' : '30px 4%'};
   border-bottom: 1px solid ${theme.colors.divider};
   align-items: center;
   max-height: ${props => props.isMobile ? null : '107px'};

@@ -29,7 +29,7 @@ export const PageSubTitle = styled.h3`
   color: ${props => currentThemeColor(props.isDesign) };
   font-weight: 600;
   transition: all 0.5s ease-in-out;
-  font-size: ${props => props.isPhone ? '16px' : '24px' };
+  font-size: ${props => props.isPhone ? '18px' : '24px' };
   
   &.dark {
     color: white;

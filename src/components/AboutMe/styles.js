@@ -80,7 +80,7 @@ export const Summary = styled.div`
 }`
 
 export const MoreWrapper = styled.div`
-  padding: 0 20px 20px 20px;
+  padding: ${props => props.isPhone ? '0 0 20px 0' : '0 20px 20px 20px'};
 
   &.dark p {
     color: ${themeDark.colors.text.light};
@@ -88,7 +88,7 @@ export const MoreWrapper = styled.div`
 
   p {
     margin: 0;
-    font-size: ${props => props.isPhone ? '18px' : '20px'};
+    font-size: 20px;
     color: ${theme.colors.text.light};
     font-family: 'League Spartan';
   }

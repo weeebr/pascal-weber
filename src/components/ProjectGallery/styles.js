@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { theme, themeDark } from 'shared/theme';
 
 export const ProjectsWrapper = styled.div`
-  padding: 5%;
+  padding: ${props => props.isPhone ? '16px' : '5%'};
   margin-left: ${props => props.isMobile ? 0 : '4%'};
 
   & > span {

@@ -11,7 +11,7 @@ export const ProjectGallery = () => {
   const { isDesign, isDev, rootUrl } = usePage();
   const { data, setOpenIndex } = useProjectData();
   const { darkClass, isDarkTheme } = useTheme();
-  const { isMobile } = useThemeBreakpoints();
+  const { isMobile, isPhone } = useThemeBreakpoints();
 
   const handleOpen = index => {
     setOpenIndex(index)
@@ -46,7 +46,7 @@ export const ProjectGallery = () => {
   }
 
   return (
-    <ProjectsWrapper isMobile={isMobile}>
+    <ProjectsWrapper isMobile={isMobile} isPhone={isPhone}>
       {isMobile && (
         <NavigationMobile darkClass={darkClass} isDarkTheme={isDarkTheme} />
       )}
