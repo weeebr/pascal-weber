@@ -7,8 +7,7 @@ export const ModalWrapper = styled.div`
   &.modal {
     height: calc(100% - ${topbarHeight});
     position: relative;
-    background: white;
-    background: ${props => props.isDev ? theme.colors.primary.background : theme.colors.secondary.background};
+    background: ${props => props.isDev ? theme.colors.primary.background : theme.colors.secondary.background} ;
 
     ${props => props.isMobile && (
     css`

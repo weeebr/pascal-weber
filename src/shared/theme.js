@@ -13,11 +13,11 @@ export const theme = {
     divider: '#dbe7e6',
     primary: {
       main: mainAccentColor,
-      background: '#e7f7f5' // modal bg
+      background: '#deefed' // modal bg
     },
     secondary: {
       main: secondAccentColor,
-      background: '#f2f9e7', // modal bg
+      background: '#dee7c9', // modal bg
     },
     navigation: {
       pageTitle: thirdAccentColor,
@@ -43,7 +43,7 @@ export const themeDark = {
     divider: '#375565',
     primary: {
       main: mainAccentColor,
-      background: '#c7f5f496',
+      background: '#7ca0a4',
     },
     secondary: {
       main: secondAccentColor,
