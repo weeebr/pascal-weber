@@ -7,6 +7,7 @@ export const ModalWrapper = styled.div`
   &.modal {
     height: calc(100% - ${topbarHeight});
     position: relative;
+    background: white;
     background: ${props => props.isDev ? theme.colors.primary.background : theme.colors.secondary.background};
 
     ${props => props.isMobile && (
@@ -27,7 +28,7 @@ export const ModalWrapper = styled.div`
   display: flex;  
   flex-direction: column;
   overflow: hidden;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
  
   ${props => props.isMobile && (
     css`

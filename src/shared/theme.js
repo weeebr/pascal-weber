@@ -1,5 +1,5 @@
-const mainAccentColor = '#d0e5e3';
-const secondAccentColor = '#d1e58a';
+const mainAccentColor = '#a5d3d0';
+const secondAccentColor = '#c6d58f';
 const thirdAccentColor = '#4d5b5a';
 
 export const breakpoints = {
@@ -13,7 +13,7 @@ export const theme = {
     divider: '#dbe7e6',
     primary: {
       main: mainAccentColor,
-      background: '#e9f4f2' // modal bg
+      background: '#e7f7f5' // modal bg
     },
     secondary: {
       main: secondAccentColor,
@@ -42,12 +42,12 @@ export const themeDark = {
   colors: {
     divider: mainAccentColor,
     primary: {
-      main: mainAccentColor,
-      background: '#87a2a4',
+      main: '#66a4a7',
+      background: '#7bc0c378',
     },
     secondary: {
       main: secondAccentColor,
-      background: '#a8b98b',
+      background: '#738966',
     },
     text: {
       main: mainAccentColor,

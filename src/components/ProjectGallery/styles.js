@@ -105,16 +105,20 @@ export const Thumbnail = styled.div`
 
 export const ProjectCardWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 6px;
   width: 31%;
   height: 195px;
   flex-direction: column;
-  background: ${theme.colors.primary.main};
+  background: ${theme.colors.toggle.background};
   text-align: center;
   cursor: pointer;
   transition: all 1s ease;
+
+  &.dark {
+    background: ${theme.colors.primary.main};
+  }
 
   ${props => props.isMobile && (
     css`

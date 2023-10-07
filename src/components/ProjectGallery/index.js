@@ -50,7 +50,7 @@ export const ProjectGallery = () => {
   }
 
   return (
-    <ProjectsWrapper isMobile={isMobile} isPhone={isPhone}>
+    <ProjectsWrapper darkClass={darkClass} isMobile={isMobile} isPhone={isPhone}>
       {isMobile && (
         <NavigationMobile darkClass={darkClass} isDarkTheme={isDarkTheme} />
       )}
