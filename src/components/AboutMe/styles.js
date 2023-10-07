@@ -114,6 +114,6 @@ export const ProfileTitle = styled.h1`
   line-height: 27px;
   padding: 7px 5px 2px 7px;
   text-shadow: 0px 1px 3px #4d5b5a80;
-  box-shadow: inset 0 0 4px #7e8f9d7a;
+  box-shadow: inset 0 0 2px #5b634f52;
   color: white;
 `
