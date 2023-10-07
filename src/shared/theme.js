@@ -1,4 +1,4 @@
-const mainAccentColor = '#a5d3d0';
+const mainAccentColor = '#c1dfde';
 const secondAccentColor = '#c6d58f';
 const thirdAccentColor = '#4d5b5a';
 
@@ -33,7 +33,7 @@ export const theme = {
     },
     toggle: {
       button: 'white',
-      background: '#d6e3e0'
+      background: '#d9e5e5'
     }
   },
 }
@@ -42,8 +42,8 @@ export const themeDark = {
   colors: {
     divider: mainAccentColor,
     primary: {
-      main: '#66a4a7',
-      background: '#7bc0c378',
+      main: mainAccentColor,
+      background: '#c7f5f496',
     },
     secondary: {
       main: secondAccentColor,

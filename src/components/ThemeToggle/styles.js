@@ -56,7 +56,7 @@ export const ToggleWrapper = styled.label`
         height: 30px;
         width: 30px;
         z-index: 1;
-        fill: #f8fffe;
+        fill: white;
       }
     }
   }

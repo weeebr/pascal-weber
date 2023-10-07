@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { theme } from 'shared/theme';
 
 export const ModalContent = styled.div`
@@ -18,7 +19,7 @@ export const ModalContent = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: ${theme.colors.primary.main};
+    color: ${theme.colors.navigation.pageTitle};
 
     ${props => props.isMobile && (
       css`
@@ -128,7 +129,7 @@ export const ButtonsWrapper = styled.span`
     height: 43px;
     user-select: none;
     color: white;
-    background: ${theme.colors.primary.main};
+    background: ${theme.colors.navigation.pageTitle};
 
     svg {
       width: 20px;

@@ -1,14 +1,15 @@
-import { ImageFullScreen } from "components/ImageFullScreen";
-import React from 'react';
-import { useTheme } from "shared/hooks";
-import { CloseIcon, EyeIcon, NextIcon, PrevIcon, UrlIcon } from "shared/icons";
-import { theme } from 'shared/theme';
 import {
   ButtonsWrapper,
   ModalContent,
   ProjectImage,
   ProjectImagesWrapper
 } from './styles.dev';
+import { CloseIcon, EyeIcon, NextIcon, PrevIcon, UrlIcon } from "shared/icons";
+
+import { ImageFullScreen } from "components/ImageFullScreen";
+import React from 'react';
+import { theme } from 'shared/theme';
+import { useTheme } from "shared/hooks";
 import { useThemeBreakpoints } from "shared/hooks";
 
 export const ProjectView = ({ project, childProps, handleClose, projectTitles }) => {
@@ -34,7 +35,7 @@ export const ProjectView = ({ project, childProps, handleClose, projectTitles })
         onClick={handleClose}
         onKeyUp={handleClose}
       >
-        <CloseIcon fill={isDarkTheme ? 'white' : theme.colors.primary.main} />
+        <CloseIcon fill={isDarkTheme ?  theme.colors.primary.main : theme.colors.navigation.pageTitle} />
       </span>
       
       <ModalContent className={darkClass} isMobile={isMobile}>

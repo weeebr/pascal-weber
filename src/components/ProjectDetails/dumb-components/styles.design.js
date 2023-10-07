@@ -1,5 +1,5 @@
-import { theme } from "shared/theme";
 import styled from "styled-components";
+import { theme } from "shared/theme";
 
 export const ModalContent = styled.div`
   display: flex;
@@ -52,7 +52,7 @@ export const Bottom = styled.span`
 
   .prev, .next {
     color: white;    
-    background: ${theme.colors.secondary.main};
+    background: ${theme.colors.navigation.pageTitle};
     display: flex;
     justify-content: center;
     align-items: center;
