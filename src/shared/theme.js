@@ -40,7 +40,7 @@ export const theme = {
 
 export const themeDark = {
   colors: {
-    divider: mainAccentColor,
+    divider: '#375565',
     primary: {
       main: mainAccentColor,
       background: '#c7f5f496',

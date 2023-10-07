@@ -107,13 +107,15 @@ export const PortraitFoto = styled.div`
 export const ProfileTitle = styled.h1`
   white-space: nowrap;
   margin: 12px 0 0 0;
-  background: linear-gradient(70deg, ${theme.colors.primary.main}, ${theme.colors.secondary.main});
+  background: ${theme.colors.navigation.pageTitle};
   font-weight: 700;
   font-size: 30px;
   color: black;
   line-height: 27px;
   padding: 7px 5px 2px 7px;
-  text-shadow: 0px 1px 3px #4d5b5a80;
-  box-shadow: inset 0 0 2px #5b634f52;
   color: white;
+
+  &.dark {
+    background: ${themeDark.colors.toggle.background};
+  }
 `
