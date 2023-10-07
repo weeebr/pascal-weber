@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import { theme, themeDark } from "shared/theme";
+
+import styled from "styled-components";
 
 export const ToggleWrapper = styled.label`
   margin: auto;
@@ -32,7 +33,7 @@ export const ToggleWrapper = styled.label`
       background: ${theme.colors.toggle.button};
       position: absolute;
       z-index: 2;
-      box-shadow: 0 1px 0 1px #c1c1c1;
+      box-shadow: 0 1px 0 1px #f8fffe;
       margin: -3px 0px 0 3px;
       transform: translate(0);
       transition: all .6s ease;
@@ -55,6 +56,7 @@ export const ToggleWrapper = styled.label`
         height: 30px;
         width: 30px;
         z-index: 1;
+        fill: #f8fffe;
       }
     }
   }

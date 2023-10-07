@@ -1,3 +1,7 @@
+const mainAccentColor = '#d0e5e3';
+const secondAccentColor = '#d1e58a';
+const thirdAccentColor = '#4d5b5a';
+
 export const breakpoints = {
   phone: 400,
   mobile: 960,
@@ -6,49 +10,47 @@ export const breakpoints = {
 
 export const theme = {
   colors: {
-    divider: '#D9D9D9',
+    divider: '#dbe7e6',
     primary: {
-      main: '#0E3E6A',
-      background: '#dde3e8'
+      main: mainAccentColor,
+      background: '#e9f4f2' // modal bg
     },
     secondary: {
-      main: '#bf9000',
-      background: '#f9efd0',
+      main: secondAccentColor,
+      background: '#f2f9e7', // modal bg
+    },
+    navigation: {
+      pageTitle: thirdAccentColor,
     },
     text: {
-      main: '#afafaf',
-      light: '#979292',
+      main: '#4d5b5a',
+      light: '#7e8f9d',
       success: '#008000',
     },
     background: {
-      main: '#f3f2f2',
+      main: '#f0f5f4',
       success: '#d7f3c5',
     },
     toggle: {
       button: 'white',
-      background: '#D9D9D9'
+      background: '#d6e3e0'
     }
   },
 }
 
-export const currentThemeColor = isDesign => isDesign ? '#bf9000' : '#0E3E6A';
-export const currentThemeBg = isDarkTheme => isDarkTheme ? '#071524' : '#f3f2f2';
-
 export const themeDark = {
   colors: {
-    divider: '#4e5c68',
+    divider: mainAccentColor,
     primary: {
-      main: '#0E3E6A',
-      background: '#132538',
-      borders: '#0E3E6A'
+      main: mainAccentColor,
+      background: '#87a2a4',
     },
     secondary: {
-      main: '#bf9000',
-      background: '#2a2413',
-      borders: '#bf9000',
+      main: secondAccentColor,
+      background: '#a8b98b',
     },
     text: {
-      main: '#afafaf',
+      main: mainAccentColor,
       light: '#7e8f9d',
       success: '#78e978',
     },
@@ -57,8 +59,11 @@ export const themeDark = {
       success: '#2e4805',
     },
     toggle: {
-      button: 'black',
-      background: '#4e5c68'
+      button: '#08202f',
+      background: '#314955'
     }
   }
 }
+
+export const currentThemeColor = isDesign => isDesign ? secondAccentColor : mainAccentColor;
+export const currentThemeBg = isDarkTheme => isDarkTheme ? themeDark.colors.background.main : theme.colors.background.main;

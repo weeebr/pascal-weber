@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { theme, themeDark } from 'shared/theme';
+
 import { topbarHeight } from "shared/constants";
 
 export const ModalWrapper = styled.div`
@@ -17,7 +18,7 @@ export const ModalWrapper = styled.div`
     
     &.dark {
       background: ${props => props.isDev ? themeDark.colors.primary.background : themeDark.colors.secondary.background}; 
-      box-shadow: inset 0 0 0 8px ${props => props.isDev ? themeDark.colors.primary.borders : themeDark.colors.secondary.borders}; ;
+      box-shadow: inset 0 0 0 8px ${props => props.isDev ? themeDark.colors.primary.main : themeDark.colors.secondary.main}; ;
     }
   }
   box-shadow: inset 0 0 0 8px ${props => props.isDev ? theme.colors.primary.main : theme.colors.secondary.main};

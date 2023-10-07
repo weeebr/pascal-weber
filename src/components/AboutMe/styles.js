@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { theme, themeDark } from 'shared/theme';
+
+import styled from 'styled-components';
 
 export const Summary = styled.div`
   width: 100%;
@@ -106,12 +107,18 @@ export const PortraitFoto = styled.div`
 export const ProfileTitle = styled.h1`
   white-space: nowrap;
   margin: 12px 0 0 0;
+  background: linear-gradient(70deg, ${theme.colors.primary.main}, ${theme.colors.secondary.main});
   font-weight: 700;
   font-size: 30px;
   color: black;
   line-height: 27px;
+  padding: 7px 5px 2px 7px;
+  text-shadow: 0px 1px 3px #4d5b5a80;
+  border: 1px solid #f5f9f8;
+  box-shadow: inset 0 0 4px #7e8f9d7a;
+  color: white;
 
   &.dark {
-    color: white;
+    border: 1px solid black;
   }
 `

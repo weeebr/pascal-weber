@@ -33,6 +33,7 @@ export const LinkButton = styled.a`
 
   &.dark span.link {
     color: white;
+    background: ${themeDark.colors.background.main};
 
     svg path {
       fill: white;
@@ -43,26 +44,28 @@ export const LinkButton = styled.a`
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    color: ${theme.colors.primary.main};
     font-size: 14px;
     font-weight: 600;
     padding: 4px 8px 1px 8px;
     transition: all 0.5s ease;
+    color: ${theme.colors.background.main};
+    background: ${theme.colors.navigation.pageTitle};
 
     svg {
       width: 12px;
       margin: 0 4px 4px 0;
+      fill: ${theme.colors.background.main};
     }
   }
 
   &:hover {
     span.link {
-      color: ${theme.colors.primary.main};
+      color: ${theme.colors.navigation.pageTitle};
       background: white;
       transition: all 0s ease;
 
       svg path {
-        fill: ${theme.colors.primary.main};
+        fill: ${theme.colors.navigation.pageTitle};
       }
     }
   }
@@ -71,23 +74,21 @@ export const LinkButton = styled.a`
 export const Thumbnail = styled.div`
   width: ${props => props.isMobile ? "100%" : '31%'};
   height: 150px;
-  border: 3px solid ${theme.colors.secondary.main};
+  border: 7px solid ${theme.colors.secondary.main};
   transition: all 1s ease;
   cursor: pointer;
-  background: ${theme.colors.secondary.background};
-  padding: 4px;
 
   &.dark {
     background: ${themeDark.colors.secondary.background};
   }
 
-  div.img {
+  div.image {
     width: 100%;
     height: 100%;
     background: url(${props => props.src}) no-repeat center center;
     background-size: cover;
     transition: all 4s ease;
-
+    filter: grayscale(1);
   }
 
   &:hover {
@@ -95,8 +96,8 @@ export const Thumbnail = styled.div`
     transition: all 0s ease;
     background: ${theme.colors.secondary.main};
 
-    div.img {
-      filter: sepia(1);
+    div.image {
+      filter: none;
       transition: all 0s ease;
     }
   }
@@ -104,24 +105,16 @@ export const Thumbnail = styled.div`
 
 export const ProjectCardWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 8px;
   width: 31%;
   height: 195px;
   flex-direction: column;
-  border: 3px solid ${theme.colors.primary.main};
-  background: white;
+  background: ${theme.colors.primary.main};
   text-align: center;
   cursor: pointer;
   transition: all 1s ease;
-
-  &.dark {
-    background: transparent;
-    & > * {
-      color: white;
-    }
-  }
 
   ${props => props.isMobile && (
     css`
@@ -145,11 +138,12 @@ export const ProjectCardWrapper = styled.div`
   &:hover {
     transform: scale(1.08);
     transition: all 0s ease;
-    background: ${theme.colors.primary.main};
-    color: white;
+    background: ${theme.colors.secondary.main};
+    color: ${theme.colors.navigation.pageTitle};
 
-    & span {
-      color: white;
+    & > span, svg path {
+      color: ${theme.colors.navigation.pageTitle};
+      fill: ${theme.colors.background.main};
     }
 
     & svg path {
@@ -162,7 +156,7 @@ export const ProjectCardWrapper = styled.div`
     margin: 0;
   }
 
-  div.img {
+  div.image {
     width: 150px;
     flex-grow: 1;
     background: url(${props => props.src}) no-repeat center center;

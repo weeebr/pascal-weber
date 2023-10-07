@@ -1,5 +1,6 @@
+import { currentThemeColor, theme, themeDark } from 'shared/theme';
+
 import styled from 'styled-components';
-import { theme, currentThemeColor } from 'shared/theme';
 
 export const StyledButton = styled.button`
   border: none;
@@ -17,12 +18,6 @@ export const StyledButton = styled.button`
   overflow: hidden;
   transition: all 0.5s ease;
 
-  &:hover, &:focus, &.pressed {
-    &::before, &::after {
-      transform: translateY(0);
-    }
-  }
-
   &::before, &::after {
     content: '';
     position: absolute;
@@ -36,14 +31,24 @@ export const StyledButton = styled.button`
   }
 
   &::before {
-    background: ${theme.colors.divider};
+    background: ${theme.colors.toggle.background};
     z-index: 1;
+
+     &.dark {
+      background: ${themeDark.colors.toggle.background};
+     }
   }
 
   &::after {
     transition-delay: 0.2s;
     background: ${props => currentThemeColor(!props.isDesign)};
     z-index: 2;
+  }
+
+  &:hover, &:focus, &.pressed {
+    &::before, &::after {
+      transform: translateY(0);
+    }
   }
 
   a {
@@ -57,25 +62,22 @@ export const StyledButton = styled.button`
   }
 
   &.cv {
-    background: black;
+    background: ${theme.colors.navigation.pageTitle};
 
     &.dark {
-      background: white;
+      background: ${themeDark.colors.toggle.background};
 
-      a {
-        color: black;
-      }
 
       &::after {
-        background: white;
+        background: ${themeDark.colors.toggle.background};
       }
 
       span {
-        color: black;
+        color: white;
       }
 
       svg path {
-        fill: black;
+        fill: white;
       }
     }
 
@@ -93,8 +95,8 @@ export const StyledButton = styled.button`
       }
 
       svg {
-        margin-top: -2px;
-        width: ${props => props.isPhone ? '14px' : '18px' };
+        margin: -2px 0 0 -4px;
+        width: ${props => props.isPhone ? '12px' : '18px' };
         transition: all 0.3s ease;
       }
     }

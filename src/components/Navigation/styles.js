@@ -1,11 +1,12 @@
+import { currentThemeColor, theme } from 'shared/theme';
+
 import styled from 'styled-components';
-import { currentThemeColor } from 'shared/theme';
 
 export const PageTitle = styled.h2`
   font-size: ${props => props.isPhone ? '28px' : '40px' };
   font-weight: 700;
   margin: 0;
-  color: ${props => currentThemeColor(props.isDesign) };
+  color: ${theme.colors.navigation.pageTitle};
   transition: all 0.5s ease-in-out;
 
   &.dark {
@@ -20,13 +21,13 @@ export const PageTitle = styled.h2`
 
   a {
     text-decoration: none;
-    color: ${props => currentThemeColor(props.isDesign) };
+    color: ${theme.colors.navigation.pageTitle};
   }
 `
 
 export const PageSubTitle = styled.h3`
   margin: 16px 0 20px 0;
-  color: ${props => currentThemeColor(props.isDesign) };
+  color: ${theme.colors.navigation.pageTitle};
   font-weight: 600;
   transition: all 0.5s ease-in-out;
   font-size: ${props => props.isPhone ? '18px' : '24px' };

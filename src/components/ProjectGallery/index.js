@@ -1,10 +1,11 @@
-import React from 'react';
-import { ProjectCardWrapper, ProjectsWrapper, LinkButton, Thumbnail } from './styles';
-import { UrlIcon, EyeIcon } from "shared/icons";
-import { useTheme, useProjectData, usePage, useThemeBreakpoints } from "shared/hooks";
-import { useNavigate } from "react-router-dom";
-import { theme } from "shared/theme";
+import { EyeIcon, UrlIcon } from "shared/icons";
+import { LinkButton, ProjectCardWrapper, ProjectsWrapper, Thumbnail } from './styles';
+import { usePage, useProjectData, useTheme, useThemeBreakpoints } from "shared/hooks";
+
 import { NavigationMobile } from "components/Navigation";
+import React from 'react';
+import { theme } from "shared/theme";
+import { useNavigate } from "react-router-dom";
 
 export const ProjectGallery = () => {
   const navigate = useNavigate();
@@ -18,7 +19,10 @@ export const ProjectGallery = () => {
     navigate(`/${rootUrl}${index}`);
   }
 
+
   const ProjectCard = ({ title, year, url, index, more, thumbnail }) => {
+  console.log('[pwe]', 'thumbnail: ', thumbnail)
+
     return (
       <ProjectCardWrapper 
         isMobile={isMobile}
@@ -30,13 +34,13 @@ export const ProjectGallery = () => {
           <p className='title'>{title}</p>
           <p className='year'>{year}</p>
         </span>
-        {!isMobile && <div className="img" alt="" />}
+        {!isMobile && <div className="image" alt="" />}
         <LinkButton className={darkClass} href={url}>
           <span className='link'>
             {more ? (
-              <UrlIcon fill={theme.colors.primary.main} />
+              <UrlIcon fill={theme.colors.background.main} />
             ) : (
-              <EyeIcon fill={theme.colors.primary.main} />
+              <EyeIcon fill={theme.colors.background.main} />
             )}
             {more ? 'More' : 'Demo'}
           </span>
@@ -67,7 +71,7 @@ export const ProjectGallery = () => {
             onClick={e => handleOpen(index)} 
             onKeyUp={e => handleOpen(index)}
           >
-            <div className='img'/>
+            <div className='image'/>
           </Thumbnail>
         ))}
       </div>
