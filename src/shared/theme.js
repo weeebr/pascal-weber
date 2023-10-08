@@ -1,6 +1,6 @@
 const mainAccentColor = '#c1dfde';
 const secondAccentColor = '#c6d58f';
-const thirdAccentColor = '#4d5b5a';
+const thirdAccentColor = '#102733';
 
 export const breakpoints = {
   phone: 400,
