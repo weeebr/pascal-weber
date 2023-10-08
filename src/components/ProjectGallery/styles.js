@@ -77,6 +77,20 @@ export const Thumbnail = styled.div`
   border: 7px solid ${theme.colors.secondary.main};
   transition: all 1s ease;
   cursor: pointer;
+  position: relative;
+
+  &::before {
+    background: #c6d58f52;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    transition: all 1s ease;
+  }
 
   &.dark {
     background: ${themeDark.colors.secondary.background};
@@ -96,6 +110,10 @@ export const Thumbnail = styled.div`
     transition: all 0s ease;
     background: ${theme.colors.secondary.main};
 
+    &::before {
+      background: transparent;
+    }
+
     div.image {
       filter: none;
       transition: all 0s ease;
@@ -112,7 +130,7 @@ export const ProjectCardWrapper = styled.div`
   height: 195px;
   flex-direction: column;
   box-shadow: 0 0 0 1px ${theme.colors.primary.main};
-  background: ${theme.colors.primary.background};
+  background: ${theme.colors.primary.main};
   text-align: center;
   cursor: pointer;
   transition: all 1s ease;
@@ -147,6 +165,10 @@ export const ProjectCardWrapper = styled.div`
     box-shadow: none;
     background: ${theme.colors.secondary.main};
     color: ${theme.colors.navigation.pageTitle};
+
+    &::before {
+      display: none;
+    }
 
     & > span, svg path {
       color: ${theme.colors.navigation.pageTitle};

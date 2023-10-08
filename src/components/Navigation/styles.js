@@ -6,7 +6,6 @@ export const PageTitle = styled.h2`
   font-size: ${props => props.isPhone ? '28px' : '40px' };
   font-weight: 700;
   margin: 0;
-  color: ${theme.colors.navigation.pageTitle};
   transition: all 0.5s ease-in-out;
 
   &.dark {
@@ -21,7 +20,7 @@ export const PageTitle = styled.h2`
 
   a {
     text-decoration: none;
-    color: ${theme.colors.navigation.pageTitle};
+    color: ${props => props.isDesign ? theme.colors.secondary.main : themeDark.colors.primary.background};
   }
 `
 

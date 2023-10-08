@@ -57,7 +57,6 @@ export const StyledButton = styled.button`
     position: relative;
     z-index: 3;
     white-space: nowrap;
-    line-height: ${props => props.isPhone ? '30px' : '46px' };
     padding: 0 4px;
   }
 

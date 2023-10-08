@@ -1,11 +1,15 @@
+import { useSession, useTheme } from "shared/hooks";
+
 import React from "react";
-import { useSession } from "shared/hooks";
+import {SwipeIcon} from "shared/icons";
 import { SwipeWrapper } from "./styles";
-import { swipeIcon } from "shared/icons";
+import { theme } from 'shared/theme';
 
 export const SwipeableNotification = ({ avoidNotification, text }) => {
   const [show, setShow] = useSession('swipe-notification-shown', null);
   const [ userCanTouch ] = useSession('user-can-touch');
+  const { isDarkTheme } = useTheme();
+
   const message = text || 'Hey good-looking! Swipe if you like what you see 💦🔥';
 
   React.useEffect(() => {
@@ -24,7 +28,11 @@ export const SwipeableNotification = ({ avoidNotification, text }) => {
 
   return userCanTouch && show && !avoidNotification && (
     <SwipeWrapper onClick={() => setShow(false)} onKeyUp={() => setShow(false)}>
-      <img src={swipeIcon} alt="swipe" />
+      {isDarkTheme ? (
+          <SwipeIcon fill={theme.colors.background.main} />
+        ) : (
+          <SwipeIcon fill={theme.colors.navigation.pageTitle} />
+        )}
       {message}
     </SwipeWrapper>
   )

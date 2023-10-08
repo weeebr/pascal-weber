@@ -1,6 +1,8 @@
 :root {
   --background: #f0f5f4;
   --background-dark: #102733;
+  --main-color: #9cd6d7;
+  --second-color: #d8d981;
 }
 
 body, html {
@@ -24,6 +26,15 @@ code {
     monospace;
 }
 
+html::before {
+  background: var(--second-color);
+
+}
+
+html::after {
+  background: var(--main-color);
+}
+
 html::before, html::after {
   content: "";
   position: fixed;
@@ -31,13 +42,12 @@ html::before, html::after {
   width: 100%;
   top: 0;
   left: 0;
-  background: var(--background);
-  transition: all .35s ease-in-out;
+  transition: all .6s ease-in-out;
   z-index: 0;
 }
 
 html.light::after {
-  background: var(--background);
+  background: linear-gradient(286deg, #e8f5f5, #ffffff00);
   transform: translateX(0);
 }
 
@@ -46,7 +56,7 @@ html.light::before {
 }
 
 html.dark::before {
-  background: var(--background-dark);
+  background: linear-gradient(125deg, #0f2735, #031316);
   transform: translateX(0);
 }
 

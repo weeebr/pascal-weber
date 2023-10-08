@@ -19,9 +19,7 @@ export const ProjectGallery = () => {
     navigate(`/${rootUrl}${index}`);
   }
 
-
   const ProjectCard = ({ title, year, url, index, more, thumbnail }) => {
-  console.log('[pwe]', 'thumbnail: ', thumbnail)
 
     return (
       <ProjectCardWrapper 

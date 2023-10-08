@@ -1,9 +1,11 @@
-import React from "react";
-import { Summary, PortraitFoto, MoreWrapper, ProfileTitle } from "./styles";
+import { EmailIcon, GitHubIcon, LinkedInIcon } from 'shared/icons'
+import { MoreWrapper, PortraitFoto, ProfileTitle, Summary } from "./styles";
 import { pascalFoto, pascalFotoAlternative } from 'shared/images'
-import { githubIcon, emailIcon, linkedinIcon } from 'shared/icons'
-import { useTheme, usePage, useClipboard, useThemeBreakpoints } from "shared/hooks";
+import { useClipboard, usePage, useTheme, useThemeBreakpoints } from "shared/hooks";
+
+import React from "react";
 import { ThemeToggle } from "components/ThemeToggle";
+import { theme } from 'shared/theme';
 
 export const AboutMe = () => {
   const [showToast, setShowToast] = React.useState(false);
@@ -19,7 +21,7 @@ export const AboutMe = () => {
     setShowToast(true);
     setTimeout(() => {
       setShowToast(false);
-    }, 2000);
+    }, 100000);
   }
 
   return (
@@ -30,20 +32,25 @@ export const AboutMe = () => {
         <div className="job-title">Experienced Frontend Engineer</div>
         <div className="contact-info">
           <a href="https://www.linkedin.com/in/p-weber/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedinIcon} alt="LinkedIn" width="20px" height={20} />
+            {isDarkTheme ? (
+              <LinkedInIcon fill={theme.colors.background.main} />
+            ) : (
+              <LinkedInIcon fill={theme.colors.navigation.pageTitle} />
+            )}
           </a>
           <a className="github" href="https://github.com/weeebr" target="_blank" rel="noopener noreferrer">
-            <img src={githubIcon} alt="Github" width="20px" height={20} />
+            {isDarkTheme ? (
+              <GitHubIcon fill={theme.colors.background.main} />
+            ) : (
+              <GitHubIcon fill={theme.colors.navigation.pageTitle} />
+            )}
           </a>
-          <span className="email">
-            <img 
-              onKeyUp={handleEmailClick} 
-              onClick={handleEmailClick} 
-              src={emailIcon} 
-              alt="E-Mail" 
-              width={20} 
-              height={20} 
-            />
+          <span className="email" onClick={handleEmailClick}>
+            {isDarkTheme ? (
+              <EmailIcon fill={theme.colors.background.main} />
+            ) : (
+              <EmailIcon fill={theme.colors.navigation.pageTitle} />
+            )}
             {showToast && <span className="toast">Copied{isMobile ? '' : ' to clipboard'}</span>}
           </span>
         </div>

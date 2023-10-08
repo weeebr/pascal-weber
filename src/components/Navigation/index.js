@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { CV } from "shared/files";
+import { PageSubTitle, PageTitle } from "./styles";
 import { usePage, useTheme, useThemeBreakpoints } from "shared/hooks";
+
 import { DownloadIcon } from "shared/icons";
+import { Link } from "react-router-dom";
 import { NavRootToggle } from "../NavRootToggle";
+import React from 'react';
 import { StyledButton } from "../NavRootToggle/styles";
 import { ThemeToggle } from "../ThemeToggle";
-import { PageTitle, PageSubTitle } from "./styles";
 
 export const Navigation = () => {
   const { darkClass } = useTheme();
@@ -22,7 +22,7 @@ export const Navigation = () => {
 
       <span>
         <StyledButton className={`cv ${darkClass}`} isPhone={isPhone}>
-          <Link target='_blank' to={CV} download>
+          <Link target='_blank' to='./CV_Frontend_Engineer_Pascal_Weber.pdf' download>
             <span>CV</span>
             <DownloadIcon width="18px" height="18px" alt='download' />
           </Link>
@@ -50,7 +50,7 @@ export const NavigationMobile = () => {
 
         <span>
           <StyledButton className={`cv ${darkClass}`} isPhone={isPhone}>
-            <Link target='_blank' to={CV} download>
+            <Link target='_blank' to='./CV_Frontend_Engineer_Pascal_Weber.pdf' download>
               <span>CV</span>
               <DownloadIcon width="18px" height="18px" alt='download' />
             </Link>
