@@ -111,13 +111,15 @@ export const ProjectCardWrapper = styled.div`
   width: 31%;
   height: 195px;
   flex-direction: column;
-  background: ${theme.colors.toggle.background};
+  box-shadow: 0 0 0 1px ${theme.colors.primary.main};
+  background: ${theme.colors.primary.background};
   text-align: center;
   cursor: pointer;
   transition: all 1s ease;
 
   &.dark {
-    background: ${theme.colors.primary.main};
+    box-shadow: none;
+    background: ${themeDark.colors.primary.background};
   }
 
   ${props => props.isMobile && (
@@ -142,6 +144,7 @@ export const ProjectCardWrapper = styled.div`
   &:hover {
     transform: scale(1.08);
     transition: all 0s ease;
+    box-shadow: none;
     background: ${theme.colors.secondary.main};
     color: ${theme.colors.navigation.pageTitle};
 

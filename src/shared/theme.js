@@ -13,7 +13,7 @@ export const theme = {
     divider: '#dbe7e6',
     primary: {
       main: mainAccentColor,
-      background: '#e7f7f5' // modal bg
+      background: '#def5f5' // modal bg
     },
     secondary: {
       main: secondAccentColor,
@@ -43,7 +43,7 @@ export const themeDark = {
     divider: '#375565',
     primary: {
       main: mainAccentColor,
-      background: '#c7f5f496',
+      background: '#92bdc0',
     },
     secondary: {
       main: secondAccentColor,
