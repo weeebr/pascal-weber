@@ -14,9 +14,11 @@ export const Summary = styled.div`
   height: ${props => props.isMobile ? 'auto' : '100vh'};
   text-align: center;
   align-items: center;
+  transition: all 2s ease;
 
   &.dark {
     border-color: ${themeDark.colors.divider};
+    transition: all 1s ease;
 
     .summary {
       .job-title {

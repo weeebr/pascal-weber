@@ -1,6 +1,7 @@
+import { designs, dev } from "shared/constants";
+
 import React from "react";
 import { breakpoints } from "./theme";
-import { dev, designs } from "shared/constants";
 import { useLocation } from "react-router-dom";
 
 export const useTouchListener = () => {
@@ -32,7 +33,7 @@ export const usePage = () => {
 }
 
 export const useTheme = () => {
-  const [ isDarkTheme, setDarkTheme ] = useSession('is-dark-theme', false);
+  const [ isDarkTheme, setDarkTheme ] = useSession('is-dark-theme', true);
   
   const toggleTheme = () => {
     if (isDarkTheme) {

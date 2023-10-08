@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { theme, themeDark } from 'shared/theme';
+
+import styled from 'styled-components';
 
 export const TopBarWrapper = styled.div`
   display: flex;
@@ -8,9 +9,11 @@ export const TopBarWrapper = styled.div`
   border-bottom: 1px solid ${theme.colors.divider};
   align-items: center;
   max-height: ${props => props.isMobile ? null : '107px'};
+  transition: all 2s ease;
 
   &.dark {
     border-color: ${themeDark.colors.divider};
+    transition: all 1s ease;
   }
 
   span {
