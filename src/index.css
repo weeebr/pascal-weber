@@ -56,7 +56,7 @@ html.light::before {
 }
 
 html.dark::before {
-  background: linear-gradient(125deg, #0f2735, #031316);
+  background: linear-gradient(125deg, #051b29, #031316);
   transform: translateX(0);
 }
 
