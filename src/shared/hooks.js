@@ -33,7 +33,7 @@ export const usePage = () => {
 }
 
 export const useTheme = () => {
-  const [ isDarkTheme, setDarkTheme ] = useSession('is-dark-theme', true);
+  const [ isDarkTheme, setDarkTheme ] = useSession('is-dark-theme', false);
   
   const toggleTheme = () => {
     if (isDarkTheme) {

@@ -61,6 +61,7 @@ export const Summary = styled.div`
       margin: 12px 0;
       font-size: 22px;
       line-height: 20px;
+      transition: all 1.5s ease;
     }
 
     .email {
@@ -94,6 +95,7 @@ export const MoreWrapper = styled.div`
     font-size: 20px;
     color: ${theme.colors.text.light};
     font-family: 'League Spartan';
+    transition: all 0.5s ease;
   }
 `
 
@@ -116,6 +118,7 @@ export const ProfileTitle = styled.h1`
   line-height: 27px;
   padding: 7px 5px 2px 7px;
   color: white;
+  transition: all 0.5s ease;
 
   &.dark {
     background: ${themeDark.colors.toggle.background};
