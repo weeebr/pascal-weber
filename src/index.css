@@ -29,11 +29,13 @@ code {
 
 html::before {
   background: var(--second-color);
+  transform: translateX(170%);
 
 }
 
 html::after {
   background: var(--main-color);
+  transform: translateX(-170%);
 }
 
 html::before, html::after {
@@ -47,13 +49,14 @@ html::before, html::after {
   z-index: 0;
 }
 
+
 html.light::after {
   background: linear-gradient(286deg, #e8f5f5, #ffffff00);
   transform: translateX(0);
 }
 
 html.light::before {
-  transform: translateX(-170%);
+  transform: translateX(-190%);
 }
 
 html.dark::before {
@@ -62,5 +65,5 @@ html.dark::before {
 }
 
 html.dark::after {
-  transform: translateX(170%);
+  transform: translateX(-190%);
 }
