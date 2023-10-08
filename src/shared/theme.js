@@ -17,7 +17,7 @@ export const theme = {
     },
     secondary: {
       main: secondAccentColor,
-      background: '#f2f9e7', // modal bg
+      background: '#dee7c9', // modal bg
     },
     navigation: {
       pageTitle: thirdAccentColor,
