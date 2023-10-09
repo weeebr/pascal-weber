@@ -43,7 +43,7 @@ export const themeDark = {
     divider: '#375565',
     primary: {
       main: mainAccentColor,
-      background: '#a2d7d9',
+      background: '#7ea6ab',
     },
     secondary: {
       main: secondAccentColor,

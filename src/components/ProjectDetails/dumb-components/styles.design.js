@@ -9,6 +9,7 @@ export const ModalContent = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 87px;
+  color: ${theme.colors.navigation.pageTitle};
   margin-top: ${props => props.isMobile ? 0 : '32px'};
 
   & > div.img {
@@ -22,7 +23,6 @@ export const ModalContent = styled.div`
 
   span {
     font-size: 18px;
-    color: ${theme.colors.text.main};
     width: 100%;
 
     &.client {
