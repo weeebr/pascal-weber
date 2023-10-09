@@ -22,7 +22,7 @@ export const ModalContent = styled.div`
   }
 
   span {
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
 
     &.client {

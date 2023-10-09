@@ -10,6 +10,7 @@ export const ModalContent = styled.div`
   height: 100%;
 
   &.dark > span {
+    font-size: 20px;
     color: white;
   }
 
@@ -51,7 +52,7 @@ export const ModalContent = styled.div`
     overflow: hidden;
 
     .description {
-      font-size: 18px;
+      font-size: 20px;
       color: ${theme.colors.text.main};
       margin: 20px 20px 0 20px;
       width: 100%;
