@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import { theme } from "shared/theme";
 
@@ -17,7 +16,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 
-img {
+svg {
   margin-right: 8px;
   width: 20px;
 }
