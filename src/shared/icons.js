@@ -1,7 +1,7 @@
 import { ReactComponent as download }  from 'assets/download.svg';
 import { ReactComponent as moon } from 'assets/moon.svg';
 import { ReactComponent as sun } from 'assets/sun.svg';
-import swipe from 'assets/swipe.svg';
+import { ReactComponent as swipe } from 'assets/swipe.svg';
 
 export const SwipeIcon = swipe
 export const DownloadIcon = download

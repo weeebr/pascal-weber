@@ -44,12 +44,10 @@ export const ModalContent = styled.div`
   }
 
   & > div {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: center;
     width: 100%;
     flex-grow: 1;
-    overflow: hidden;
 
     .description {
       font-size: 20px;
@@ -64,8 +62,9 @@ export const ModalContent = styled.div`
 export const ProjectImage = styled.div`
   background: url(${props => props.src}) no-repeat center center;
   background-size: cover;
-  width: 240px;
-  height: 200px;
+  min-width: 240px;
+  aspect-ratio: 16/9;
+  width: 100%;
   cursor: zoom-in;
   box-shadow: 0 0 0 0 transparent;
   transition: all 0.3s ease;
@@ -76,19 +75,18 @@ export const ProjectImage = styled.div`
 `;
 
 export const ProjectImagesWrapper = styled.span`
-  padding: 20px;
   display: flex;
   gap: 20px;
   overflow: hidden;
-  flex-wrap: wrap;
-  max-width: 100%;
+  max-width: calc(100% - 40px);
   justify-content: center;
 
   ${props => props.isMobile &&
     css`
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
       height: calc(100vh - 230px);
+      flex-direction: column;
       overflow: auto;
       gap: unset;
       align-items: center;
