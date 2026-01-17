@@ -18,7 +18,7 @@ import noxx0 from '../assets/noxx.jpg';
 import noxx1 from '../assets/noxx1.png';
 import noxx2 from '../assets/noxx2.png';
 import p1 from '../assets/pascal-weber.png';
-import p2 from '../assets/pascal-weber-alternative.png';
+import p2 from '../assets/pascal-weber_alternative.png';
 import parashift0 from '../assets/parashift.webp';
 import parashift1 from '../assets/parashift1.png';
 import parashift2 from '../assets/parashift2.png';

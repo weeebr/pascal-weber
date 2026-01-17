@@ -91,11 +91,14 @@ export const MoreWrapper = styled.div`
   }
 
   p {
-    margin: 0;
+    margin-bottom: 8px;
     font-size: 20px;
     color: ${theme.colors.text.light};
     font-family: 'League Spartan';
     transition: all 0.5s ease;
+    text-align: left;
+    line-height: 28px;
+    background-fit: contain;
   }
 `
 

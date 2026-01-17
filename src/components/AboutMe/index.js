@@ -29,7 +29,7 @@ export const AboutMe = () => {
       <div className="summary">
         <PortraitFoto src={src} />
         <ProfileTitle className={darkClass}>Pascal Weber</ProfileTitle>
-        <div className="job-title">Experienced Frontend Engineer</div>
+        <div className="job-title">Frontend Engineer (React, TypeScript)</div>
         <div className="contact-info">
           <a href="https://www.linkedin.com/in/p-weber/" target="_blank" rel="noopener noreferrer">
             {isDarkTheme ? (
@@ -57,8 +57,8 @@ export const AboutMe = () => {
       </div>
       <MoreWrapper className={darkClass} isPhone={isPhone}>
         <div className="more">
-          <p className="short-description">A passion for clean and elegant code, UX and details. </p>
-          <p className="short-description">Solution-oriented, pragmatic, engaged, and an empathetic, communicative team player.</p>
+          <p className="short-description">Erfahrener Frontend Engineer (React, TypeScript) mit 7+ Jahren Fokus auf Frontend und 12+ Jahren Softwareentwicklung. Ich habe skalierbare Web-UIs gebaut und im Betrieb weiterentwickelt, Features von Anforderung bis Betrieb verantwortet und eng zusammengearbeitet mit Product, Design und Backend.</p>
+          <p className="short-description">Fokus auf nachhaltige Code-Qualität durch gezieltes Refactoring, Reviews und Mentoring und ausgeprägtes UX-Verständnis.</p>
         </div>
       </MoreWrapper>
       {isMobile && <ThemeToggle isDarkTheme={isDarkTheme} />}
