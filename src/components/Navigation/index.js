@@ -22,7 +22,7 @@ export const Navigation = () => {
 
       <span>
         <StyledButton className={`cv ${darkClass}`} isPhone={isPhone}>
-          <Link target='_blank' to='./CV_Frontend_Engineer_Pascal_Weber.pdf' download>
+          <Link target='_blank' to='./Pascal_Weber_CV_Frontend_Engineer.pdf' download>
             <span>CV</span>
             <DownloadIcon width="18px" height="18px" alt='download' />
           </Link>
@@ -50,7 +50,7 @@ export const NavigationMobile = () => {
 
         <span>
           <StyledButton className={`cv ${darkClass}`} isPhone={isPhone}>
-            <Link target='_blank' to='./CV_Frontend_Engineer_Pascal_Weber.pdf' download>
+            <Link target='_blank' to='./Pascal_Weber_CV_Frontend_Engineer.pdf' download>
               <span>CV</span>
               <DownloadIcon width="18px" height="18px" alt='download' />
             </Link>
