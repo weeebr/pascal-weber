@@ -40,7 +40,7 @@ export const dev = [
     images: projectImages.noxx.slice(1),
     description: "Design and Implementation",
     year: "2021",
-    url: "https://noxx-musik.ch"
+    url: "https://noxx.netlify.app"
   },
   {
     title: "fish-tank.io",

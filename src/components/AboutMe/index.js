@@ -57,7 +57,7 @@ export const AboutMe = () => {
       </div>
       <MoreWrapper className={darkClass} isPhone={isPhone}>
         <div className="more">
-          <p className="short-description">7+ Jahren Fokus auf Frontend und 12+ Jahren Softwareentwicklung. End-to-End Ownership von skalierbaren Web-UIs in enger Zusammenarbeit mit Product, Design & Backend.</p>
+          <p className="short-description">7+ Jahre Frontend-Fokus, 12+ Jahren Softwareentwicklung. End-to-End Ownership von skalierbaren Web-UIs in enger Zusammenarbeit mit Product, Design & Backend.</p>
           <p className="short-description">Fokus auf nachhaltige Code-Qualität durch gezieltes Refactoring und Mentoring sowie ausgeprägtes UX-Verständnis.</p>
         </div>
       </MoreWrapper>
