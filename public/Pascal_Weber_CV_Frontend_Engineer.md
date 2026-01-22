@@ -15,32 +15,23 @@ GitHub: github.com/weeebr, Portfolio: pascal-weber.ch
 ### CORE (Frontend)
 
 - Basis: React, TypeScript, JavaScript
-
 - Styling/UI: Tailwind CSS, styled-components, Storybook, Material UI
-
 - Architektur: Redux, Komponenten-Patterns, Performance (Web Vitals/Lighthouse), Accessibility (WCAG AA)
-
 - APIs: GraphQL (Apollo), REST (OpenAPI/Swagger)
 
 ### CORE (Fullstack/Engineering)
 
 - Datenbanken: PostgreSQL, MySQL, MSSQL
-
 - Testing: Jest, Playwright (E2E)
-
 - Delivery/Tooling: CI/CD (GitHub Actions, Jenkins), Webpack, Postman
-
 - Backend: Node.js, NestJS, GraphQL (Apollo)
-
 - Cloud/Ops: AWS (S3/Lambda/EventBridge), Azure Functions
 
 ### ADDITIONAL
 
 - AI/Automation: RAG (Palantir AIP), AI-Tooling
-
 - Legacy/früher: Angular, Java, C#, VB.NET
-
-- Arbeitsweise/Leadership: klare Kommunikation, pragmatisches Problemlösen, Ownership, Stakeholder-Management, Team Lead (Mentoring/Reviews)
+- Arbeitsweise/Leadership: klare Kommunikation, rasche Auffassungsgabe, Eigeninitiative, pragmatisches Problemlösen, Team Lead (Ownership, Stakeholder-Alignment)
 
 ## BERUFSERFAHRUNG
 
