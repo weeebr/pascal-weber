@@ -21,7 +21,7 @@ export const AboutMe = () => {
     setShowToast(true);
     setTimeout(() => {
       setShowToast(false);
-    }, 100000);
+    }, 5000);
   }
 
   return (
@@ -57,7 +57,7 @@ export const AboutMe = () => {
       </div>
       <MoreWrapper className={darkClass} isPhone={isPhone}>
         <div className="more">
-          <p className="short-description">12+ Jahren Softwareentwicklung, davon 7+ Jahre Frontend. End-to-End Ownership von skalierbaren Web-UIs in enger Zusammenarbeit mit Product, Design & Backend.</p>
+          <p className="short-description">12 Jahre Softwareentwicklung, davon 7 Jahre Frontend. End-to-End-Ownership von skalierbaren Web-UIs in enger Zusammenarbeit mit Product, Design & Backend.</p>
           <p className="short-description">Starker Fokus auf nachhaltige Code-Qualität durch gezieltes Refactoring und Mentoring sowie ausgeprägtes UX-Verständnis.</p>
         </div>
       </MoreWrapper>

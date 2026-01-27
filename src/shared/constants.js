@@ -35,7 +35,7 @@ export const dev = [
     url: "https://support.parashift.io/manually-validate-extracted-data-extraction-validation"
   },
   {
-    title: "noxx-musik.ch",
+    title: "noxx-musik",
     thumbnail: projectImages.noxx[0],
     images: projectImages.noxx.slice(1),
     description: "Design and Implementation",
