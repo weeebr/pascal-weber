@@ -2,6 +2,36 @@ import { theme, themeDark } from 'shared/theme';
 
 import styled from 'styled-components';
 
+export const CvButtonsWrap = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+`;
+
+export const CvToast = styled.span`
+  position: absolute;
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background: ${theme.colors.background.success};
+  color: ${theme.colors.text.success};
+  padding: 5px 8px 2px 8px;
+  z-index: 20;
+  animation: fadeIn 0.2s ease;
+
+  &.dark {
+    background: ${themeDark.colors.background.success};
+    color: ${themeDark.colors.text.success};
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+`;
+
 export const PageTitle = styled.h2`
   font-size: ${props => props.isPhone ? '28px' : '40px' };
   font-weight: 700;

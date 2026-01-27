@@ -16,7 +16,7 @@ export const TopBarWrapper = styled.div`
     transition: all 1s ease;
   }
 
-  span {
+  > span {
     display: flex;
     gap: 12px;
   }

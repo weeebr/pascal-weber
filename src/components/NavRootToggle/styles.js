@@ -62,39 +62,47 @@ export const StyledButton = styled.button`
 
   &.cv {
     background: ${theme.colors.navigation.pageTitle};
+    color: white;
+
+    span {
+      color: white;
+    }
+
+    svg path {
+      fill: white;
+    }
 
     &.dark {
       background: ${themeDark.colors.toggle.background};
 
-
       &::after {
         background: ${themeDark.colors.toggle.background};
       }
-
-      span {
-        color: white;
-      }
-
-      svg path {
-        fill: white;
-      }
     }
 
-    &:hover a svg {
+    &:hover a svg,
+    &:hover > span svg {
       margin-top: 3px;
     }
 
-    a {
+    a,
+    > span {
       display: flex;
       justify-content: center;
       align-items: center;
+      color: white;
+      text-decoration: none;
+      position: relative;
+      z-index: 3;
+      white-space: nowrap;
+      padding: 0 4px;
 
       span {
-        margin-right: 8px;
+        margin-right: 4px;
       }
 
       svg {
-        margin: -2px 0 0 -4px;
+        margin: -2px 0 0 0;
         width: ${props => props.isPhone ? '12px' : '18px' };
         transition: all 0.3s ease;
       }
@@ -102,6 +110,12 @@ export const StyledButton = styled.button`
 
     &::after {
       background: black;
+    }
+  }
+
+  &.cv-copy {
+    > span svg {
+      margin: 2px 5px 2px 2px;
     }
   }
 `

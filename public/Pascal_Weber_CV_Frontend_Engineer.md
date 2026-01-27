@@ -2,12 +2,11 @@
 
 ## PROFIL
 
-12+ Jahre Softwareentwicklung, davon 7+ Jahre im Frontend. Entwicklung skalierbarer Web-UIs, End-to-end Verantwortung für Features (Anforderung bis Betrieb) und enge Zusammenarbeit mit Product, Design und Backend.
+12 Jahre Softwareentwicklung, davon 7 Jahre im Frontend. Entwicklung skalierbarer Web-UIs, End-to-End-Verantwortung für Features (Anforderung bis Betrieb) und enge Zusammenarbeit mit Product, Design und Backend.
 
-Starker Fokus auf nachhaltige Code-Qualität durch gezieltes Refactoring und Mentoring sowie ausgeprägtes UX-Verständnis (Usability, Flows, Accessibility).
+Ausgeprägtes UX-Verständnis (Usability, Flows, Accessibility) und Fokus auf nachhaltige Code-Qualität durch gezieltes Refactoring und Mentoring.
 
 Sprachen: Deutsch (Muttersprache), Englisch (C1)
-
 GitHub: github.com/weeebr, Portfolio: pascal-weber.ch
 
 ## KOMPETENZEN
@@ -43,7 +42,7 @@ AUGUST 2023 - OKTOBER 2025
 
 - Mitwirkung bei Rollout bis bis Produktion vom neuen Frontend-Stacks (Astro, Tailwind CSS, Alpine.js, HTMX)
 
-- End-to-End RAG-Buchgenerator in Palantir AIP (semantische PDF-Suche, Quellenselektion); zusätzlich AI-Know-how-Transfer und AI-Tooling in mehreren Initiativen
+- End-to-End-Verantwortung bei RAG-Buchgenerator in Palantir AIP (semantische PDF-Suche, Quellenselektion); zusätzlich AI-Know-how-Transfer und AI-Tooling in mehreren Initiativen
 
 Tech stack: React, TypeScript, GraphQL (Apollo/Resolver), NestJS, Tailwind CSS, Jest, Playwright, AWS (S3/Lambda/EventBridge), GitHub Actions, Jenkins, Datadog, Palantir AIP (RAG)
 
@@ -103,7 +102,7 @@ AUGUST 2017 - JULI 2019
 
 - Frontend-Lead im Projekt avaloq.one (Fintech-App-Marktplatz, rund 5000 Besucher in den ersten 3 Monaten, Projektlaufzeit: 10 Monate)
 
-- Umsetzung von Enterprise-Integrationen und Web-Applikationen in mehreren Kundenprojekten, End-to-End Delivery
+- Umsetzung von Enterprise-Integrationen und Web-Applikationen in mehreren Kundenprojekten, End-to-End-Delivery
 
 Tech stack: Java, JavaScript, Oracle SOA, OpenAPI/Swagger, Jenkins, Azure Functions, Angular
 
