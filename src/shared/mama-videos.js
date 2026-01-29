@@ -21,7 +21,7 @@ export const mamaVideos = [
       "https://youtu.be/cX0q1gJqpBY?si=EKCMrxd_qniY2Fm-",
     ],
   },
-  { title: "🇬🇧 Climate change", url: "https://youtu.be/Zt32chvO_iY?si=KrE2PyZw0JruJmod" },
+  { title: "🇬🇧 Climate change: Doch nicht mensch-verursacht?", url: "https://youtu.be/Zt32chvO_iY?si=KrE2PyZw0JruJmod" },
   {
     title: "🇩🇪 Welt-Städte",
     urls: [

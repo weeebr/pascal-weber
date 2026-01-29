@@ -95,7 +95,7 @@ export const VideoThumbnail = styled.a`
 
 export const VideoInfo = styled.div`
   padding: 10px 12px;
-  height: 52px;
+  height: 62px;
   box-sizing: border-box;
 `;
 
