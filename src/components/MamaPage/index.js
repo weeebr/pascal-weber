@@ -13,7 +13,22 @@ import {
   LoadingPlaceholder,
   GroupLabel,
   CustomTitle,
+  Duration,
 } from './styles';
+
+/**
+ * Format duration in minutes to readable string
+ * e.g., 52 -> "52m", 90 -> "1h 30m", 125 -> "2h 5m"
+ */
+const formatDuration = (minutes) => {
+  if (!minutes || minutes <= 0) return null;
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  if (hours > 0) {
+    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+  }
+  return `${mins}m`;
+};
 
 /**
  * Extract video ID from various YouTube URL formats
@@ -86,9 +101,10 @@ const useVideoTitle = (url) => {
 /**
  * Single video card component
  */
-const SingleVideoCard = ({ url, customTitle, darkClass, isMobile }) => {
+const SingleVideoCard = ({ url, customTitle, duration, darkClass, isMobile }) => {
   const videoId = getVideoId(url);
   const { title, loading } = useVideoTitle(url);
+  const formattedDuration = formatDuration(duration);
 
   if (!videoId) return null;
 
@@ -96,6 +112,7 @@ const SingleVideoCard = ({ url, customTitle, darkClass, isMobile }) => {
     <VideoCard className={darkClass} isMobile={isMobile}>
       <VideoThumbnail href={getVideoUrl(videoId)} target="_blank" rel="noopener noreferrer">
         <img src={getThumbnail(videoId)} alt={title || 'YouTube video'} />
+        {formattedDuration && <Duration>{formattedDuration}</Duration>}
       </VideoThumbnail>
       <VideoInfo>
         {customTitle && <CustomTitle>{customTitle}</CustomTitle>}
@@ -150,9 +167,13 @@ const useMultipleVideoTitles = (urls) => {
 /**
  * Grouped videos card component (multiple related videos)
  */
-const GroupedVideoCard = ({ urls, customTitle, darkClass, isMobile }) => {
+const GroupedVideoCard = ({ urls, customTitle, durations, darkClass, isMobile }) => {
   const { titles, loading } = useMultipleVideoTitles(urls);
   const firstVideoId = getVideoId(urls[0]);
+  
+  // Calculate total duration
+  const totalDuration = durations?.reduce((sum, d) => sum + (d || 0), 0) || 0;
+  const formattedDuration = formatDuration(totalDuration);
 
   if (!firstVideoId) return null;
 
@@ -160,6 +181,7 @@ const GroupedVideoCard = ({ urls, customTitle, darkClass, isMobile }) => {
     <VideoCard className={darkClass} isMobile={isMobile} isGroup>
       <VideoThumbnail href={getVideoUrl(firstVideoId)} target="_blank" rel="noopener noreferrer">
         <img src={getThumbnail(firstVideoId)} alt={titles[urls[0]] || 'YouTube video'} />
+        {formattedDuration && <Duration>{formattedDuration}</Duration>}
       </VideoThumbnail>
       <VideoInfo>
         {customTitle && <CustomTitle>{customTitle}</CustomTitle>}
@@ -197,9 +219,9 @@ const GroupedVideoCard = ({ urls, customTitle, darkClass, isMobile }) => {
 /**
  * Parse video item
  * Format:
- * - Single: { title: "", url: "..." }
- * - Grouped: { title: "", urls: ["...", "..."] }
- * Empty title ("") won't be displayed
+ * - Single: { title: "", url: "...", duration: 52 }
+ * - Grouped: { title: "", urls: ["..."], durations: [52, 48] }
+ * Duration is in minutes. Empty title ("") won't be displayed.
  */
 const parseVideoItem = (item) => {
   if (typeof item !== 'object' || item === null) return null;
@@ -208,10 +230,20 @@ const parseVideoItem = (item) => {
   const customTitle = item.title?.trim() || null;
   
   if (item.urls) {
-    return { url: null, urls: item.urls, customTitle };
+    return { 
+      url: null, 
+      urls: item.urls, 
+      customTitle, 
+      durations: item.durations || [] 
+    };
   }
   if (item.url) {
-    return { url: item.url, urls: null, customTitle };
+    return { 
+      url: item.url, 
+      urls: null, 
+      customTitle, 
+      duration: item.duration || 0 
+    };
   }
   
   return null;
@@ -231,7 +263,7 @@ export const MamaPage = () => {
           const parsed = parseVideoItem(item);
           if (!parsed) return null;
           
-          const { url, urls, customTitle } = parsed;
+          const { url, urls, customTitle, duration, durations } = parsed;
           
           if (urls) {
             return (
@@ -239,6 +271,7 @@ export const MamaPage = () => {
                 key={index}
                 urls={urls}
                 customTitle={customTitle}
+                durations={durations}
                 darkClass={darkClass}
                 isMobile={isMobile}
               />
@@ -250,6 +283,7 @@ export const MamaPage = () => {
               key={index}
               url={url}
               customTitle={customTitle}
+              duration={duration}
               darkClass={darkClass}
               isMobile={isMobile}
             />

@@ -207,3 +207,15 @@ export const CustomTitle = styled.div`
     color: ${colors.dark.customTitle};
   }
 `;
+
+export const Duration = styled.span`
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 5px;
+  border-radius: 3px;
+`;
