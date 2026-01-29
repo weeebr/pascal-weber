@@ -5,12 +5,13 @@ import { AboutMe } from "components/AboutMe";
 import { Navigation } from "components/Navigation";
 import { ProjectGallery } from "./components/ProjectGallery";
 import { ProjectDetails } from "./components/ProjectDetails";
+import { MamaPage } from "./components/MamaPage";
 import { useTheme, useTouchListener, usePage, useThemeBreakpoints } from "shared/hooks";
 import { AppRoot } from "./styles";
 
 export const App = () => {
   const { isDarkTheme, darkClass } = useTheme();
-  const { invalidRoot } = usePage();
+  const { invalidRoot, isMama } = usePage();
   const { isMobile } = useThemeBreakpoints();
   const navigate = useNavigate();
   useTouchListener();
@@ -29,6 +30,11 @@ export const App = () => {
       document.querySelector("html").classList.add("light");
     }
   }, [isDarkTheme])
+
+  // Standalone page for /mama - no sidebar, no header
+  if (isMama) {
+    return <MamaPage />;
+  }
 
   return (
     <AppRoot>

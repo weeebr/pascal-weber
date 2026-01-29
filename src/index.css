@@ -47,6 +47,7 @@ html::before, html::after {
   left: 0;
   transition: all 1.2s ease-in-out;
   z-index: 0;
+  pointer-events: none;
 }
 
 

@@ -19,17 +19,18 @@ export const useTouchListener = () => {
 
 export const usePage = () => {
   const { pathname } = useLocation();
-  const [, rootPath, id ] = pathname.split('/');
-  const possibleRootPaths = ['dev', 'design'];
+  const [, rootPath = '', id ] = pathname.split('/');
+  const possibleRootPaths = ['dev', 'design', 'mama'];
 
   const isDesign = rootPath.includes('design');
-  const isDev = !isDesign;
+  const isMama = rootPath === 'mama';
+  const isDev = !isDesign && !isMama;
   const rootUrl = isDesign ? 'design/' : 'dev/';
   const otherRoot = isDesign ? '/' : '/design';
-  const pageTitle = isDesign ? '/Design' : '/Dev';
-  const invalidRoot = !possibleRootPaths.includes(rootPath);
+  const pageTitle = isMama ? '/Mama' : isDesign ? '/Design' : '/Dev';
+  const invalidRoot = rootPath !== '' && !possibleRootPaths.includes(rootPath);
 
-  return { invalidRoot, pageTitle, otherRoot, rootUrl, isDesign, isDev, id };
+  return { invalidRoot, pageTitle, otherRoot, rootUrl, isDesign, isDev, isMama, id };
 }
 
 export const useTheme = () => {
