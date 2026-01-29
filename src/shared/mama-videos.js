@@ -10,10 +10,7 @@
  * Leave title empty ("") to show only the YouTube title.
  */
 
-export const mamaVideos = [
-  { title: "🇬🇧 John McAfee", url: "https://youtu.be/EQfRO09j_3E?si=4RAxOIFpxPjGM8-D", duration: 26 },
-  { title: "🇬🇧  Südamerika: Vergessene Zivilisationen", url: "https://youtu.be/ZvVn05Es7N8?si=_EP0iPq30VAMRLZU", duration: 52 },
-  {
+export const mamaVideos = [{
     title: "🇩🇪 Geld & Gold",
     urls: [
       "https://youtu.be/Xq0vr545syE?si=54HAwJ4rc_rJh6r2",
@@ -23,7 +20,6 @@ export const mamaVideos = [
     ],
     durations: [52, 55, 57, 59],
   },
-  { title: "🇬🇧 Climate change: Doch nicht mensch-verursacht?", url: "https://youtu.be/Zt32chvO_iY?si=KrE2PyZw0JruJmod", duration: 132 },
   {
     title: "🇩🇪 Welt-Städte",
     urls: [
@@ -46,6 +42,9 @@ export const mamaVideos = [
     durations: [53, 55, 52, 54],
   },
   { title: "🇩🇪 Zürich: Schutz vor Überschwemmungen", url: "https://youtu.be/SojUtu3NjN0?si=TSNSm84UmIOmZu5u", duration: 14 },
+  { title: "🇬🇧 Climate change: Doch nicht mensch-verursacht?", url: "https://youtu.be/Zt32chvO_iY?si=KrE2PyZw0JruJmod", duration: 132 },
+  { title: "🇬🇧 John McAfee", url: "https://youtu.be/EQfRO09j_3E?si=4RAxOIFpxPjGM8-D", duration: 26 },
+  { title: "🇬🇧  Südamerika: Vergessene Zivilisationen", url: "https://youtu.be/ZvVn05Es7N8?si=_EP0iPq30VAMRLZU", duration: 52 },
   { title: "🇬🇧 Die Wikinger: Viel grösserer Einfluss auf Europa als gedacht - kulturell, wirtschaftlich, politisch", url: "https://youtu.be/GcJSF6gKq2g", duration: 157 },
   { title: "🇬🇧 Fiji: Ein Kult übernimmt eine Insel", url: "https://youtu.be/zVgj3dFjWhs?si=-VSWRnAvitOwwTox", duration: 38 },
   { title: "🇬🇧 News: Der Aufstieg der Mainstream-Media", url: "https://youtu.be/AUOQ9Ub632I", duration: 97 },
