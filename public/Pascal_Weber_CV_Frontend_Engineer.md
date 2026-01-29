@@ -40,7 +40,7 @@ AUGUST 2023 - OKTOBER 2025
 
 - Betrieb, Monitoring und Weiterentwicklung zentraler Features (cash.ch, Wirtschaftsmedien); End-to-End-Umsetzung komplexer Finanzdaten-Flows (NestJS/GraphQL-Orchestrierung)
 
-- Mitwirkung bei Rollout bis bis Produktion vom neuen Frontend-Stacks (Astro, Tailwind CSS, Alpine.js, HTMX)
+- Mitwirkung bei Rollout bis Produktion vom neuen Frontend-Stacks (Astro, Tailwind CSS, Alpine.js, HTMX)
 
 - End-to-End-Verantwortung bei RAG-Buchgenerator in Palantir AIP (semantische PDF-Suche, Quellenselektion); zusätzlich AI-Know-how-Transfer und AI-Tooling in mehreren Initiativen
 
